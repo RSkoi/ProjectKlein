@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d01b77843ea091643b4a77207688b033, type: 3}
+  m_Name: SettingsData
+  m_EditorClassIdentifier: 
+  volumeMusic: 0.32723877
+  volumeEffects: 0.32723853
+  fontSize: 20
+  fullscreen: 1
+  resolutionWidth: 3840
+  resolutionHeight: 2160

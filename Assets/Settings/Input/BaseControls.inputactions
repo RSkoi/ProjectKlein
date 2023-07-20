@@ -1,0 +1,71 @@
+{
+    "name": "BaseControls",
+    "maps": [
+        {
+            "name": "BaseMap",
+            "id": "5bef7be8-3d1e-436d-98b1-4d512384a386",
+            "actions": [
+                {
+                    "name": "Progress",
+                    "type": "Button",
+                    "id": "3c2fa8f0-eae8-48b5-b194-f64c7a22cd53",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ProgressMouse",
+                    "type": "Button",
+                    "id": "3b0a6169-1506-451c-99fc-a911c72938a9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "d731f013-e86a-417c-8ae5-bb948a233ab3",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Progress",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ccf08c37-c664-43c1-a836-cc2f248ce6e9",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Progress",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "41396b4f-cf82-42ad-8d74-f1b317f0c1a7",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ProgressMouse",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "BlankMap",
+            "id": "3ce75c68-a370-4db8-a61d-adfdd7dab573",
+            "actions": [],
+            "bindings": []
+        }
+    ],
+    "controlSchemes": []
+}

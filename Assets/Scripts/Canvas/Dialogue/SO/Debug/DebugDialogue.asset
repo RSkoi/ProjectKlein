@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa6a272b9916d454291ce916a2ef638e, type: 3}
+  m_Name: DebugDialogue
+  m_EditorClassIdentifier: 
+  dialogue:
+  - text: Hello, World.
+    name: 
+    namePos: 0
+    isNarrator: 0
+    sizeIncrease: 0
+  - text: Fade transition, faster text speed
+    name: 
+    namePos: 0
+    isNarrator: 1
+    sizeIncrease: 0
+  - text: Fade transition, default text speed
+    name: 
+    namePos: 0
+    isNarrator: 1
+    sizeIncrease: 0
+  - text: Goodbye, World.
+    name: Testname
+    namePos: 0
+    isNarrator: 0
+    sizeIncrease: 0
+  - text: Long text Long text Long text Long text Long text Long text Long text Long
+      text Long text Long text Long text Long text Long text Long text Long text
+      Long text Long text Long text
+    name: Testname
+    namePos: 1
+    isNarrator: 0
+    sizeIncrease: 0
+  - text: Pause after full stop. Pause after comma,  Pause after full stop. Pause
+      after comma
+    name: Testname
+    namePos: 2
+    isNarrator: 0
+    sizeIncrease: 0
+  - text: SIZE
+    name: <color=#C30000>Testname</color>
+    namePos: 0
+    isNarrator: 0
+    sizeIncrease: 10
+  - text: Test
+    name: 
+    namePos: 0
+    isNarrator: 0
+    sizeIncrease: 0
+  - text: Test
+    name: 
+    namePos: 0
+    isNarrator: 0
+    sizeIncrease: 0
+  dialogueSpeed:
+  - 0.04
+  - 0.01
+  state: 0

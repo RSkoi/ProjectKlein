@@ -1,0 +1,174 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa6a272b9916d454291ce916a2ef638e, type: 3}
+  m_Name: SceneIntro1LocData
+  m_EditorClassIdentifier: 
+  dialogue:
+  - text: "Hello, World.\r"
+    name: 
+    namePos: 0
+    isNarrator: 1
+    sizeIncrease: 0
+  - text: "I write to you out of passion.\r"
+    name: 
+    namePos: 0
+    isNarrator: 1
+    sizeIncrease: 0
+  - text: "I know, you can't actually read this. You're not intelligent per se.\r"
+    name: 
+    namePos: 0
+    isNarrator: 1
+    sizeIncrease: 0
+  - text: I write to you regardless. I write to you wishing you could read.
+    name: 
+    namePos: 0
+    isNarrator: 1
+    sizeIncrease: 0
+  - text: World, I write to you out of hatred.
+    name: 
+    namePos: 0
+    isNarrator: 1
+    sizeIncrease: 0
+  - text: You give me no other choice.
+    name: 
+    namePos: 0
+    isNarrator: 1
+    sizeIncrease: 0
+  - text: But the feeling's mutual.
+    name: 
+    namePos: 0
+    isNarrator: 1
+    sizeIncrease: 0
+  - text: Every day, you force my eyes upon your sky.
+    name: 
+    namePos: 0
+    isNarrator: 1
+    sizeIncrease: 0
+  - text: You offer me the color of a dead channel.
+    name: 
+    namePos: 0
+    isNarrator: 1
+    sizeIncrease: 0
+  - text: I hate your pallid sights.
+    name: 
+    namePos: 0
+    isNarrator: 1
+    sizeIncrease: 0
+  - text: Your sand. Your dust. Your arid crimson.
+    name: 
+    namePos: 0
+    isNarrator: 1
+    sizeIncrease: 0
+  - text: "I hate your way of mourning. You twist sorrow into rage. No one rests
+      here. Nothing dies.\r"
+    name: 
+    namePos: 0
+    isNarrator: 1
+    sizeIncrease: 0
+  - text: Every amber can be used. Every famine can be sanctified.
+    name: 
+    namePos: 0
+    isNarrator: 1
+    sizeIncrease: 0
+  - text: You hard-wired all this nonsense into our heads.
+    name: 
+    namePos: 0
+    isNarrator: 1
+    sizeIncrease: 0
+  - text: "Nothing ever changes.\r"
+    name: 
+    namePos: 0
+    isNarrator: 1
+    sizeIncrease: 0
+  - text: "Nothing did.\r"
+    name: 
+    namePos: 0
+    isNarrator: 1
+    sizeIncrease: 0
+  - text: "You know... people say you are a 'thing'.\r"
+    name: 
+    namePos: 0
+    isNarrator: 1
+    sizeIncrease: 0
+  - text: "You don't have morals. Or human traits, as a whole.\r"
+    name: 
+    namePos: 0
+    isNarrator: 1
+    sizeIncrease: 0
+  - text: "Hard for me to believe.\r"
+    name: 
+    namePos: 0
+    isNarrator: 1
+    sizeIncrease: 0
+  - text: "You stare upon misery.\r"
+    name: 
+    namePos: 0
+    isNarrator: 1
+    sizeIncrease: 0
+  - text: "You watch as we tear ourselves apart.\r"
+    name: 
+    namePos: 0
+    isNarrator: 1
+    sizeIncrease: 0
+  - text: "Perhaps that's just me coping.\r"
+    name: 
+    namePos: 0
+    isNarrator: 1
+    sizeIncrease: 0
+  - text: "Searching for a scapegoat.\r"
+    name: 
+    namePos: 0
+    isNarrator: 1
+    sizeIncrease: 0
+  - text: "I guess it is.\r"
+    name: 
+    namePos: 0
+    isNarrator: 1
+    sizeIncrease: 0
+  - text: "Regardless, World, I hate you.\r"
+    name: 
+    namePos: 0
+    isNarrator: 1
+    sizeIncrease: 0
+  - text: "I wish I never met you.\r"
+    name: 
+    namePos: 0
+    isNarrator: 1
+    sizeIncrease: 0
+  - text: "But don't misunderstand.\r"
+    name: 
+    namePos: 0
+    isNarrator: 1
+    sizeIncrease: 0
+  - text: "I'm not suicidal.\r"
+    name: 
+    namePos: 0
+    isNarrator: 1
+    sizeIncrease: 0
+  - text: "I wish you were.\r"
+    name: 
+    namePos: 0
+    isNarrator: 1
+    sizeIncrease: 0
+  - text: ...
+    name: 
+    namePos: 0
+    isNarrator: 1
+    sizeIncrease: 0
+  - text: "I'll write again. \r"
+    name: 
+    namePos: 0
+    isNarrator: 1
+    sizeIncrease: 0
+  dialogueSpeed:
+  - 0.04
+  state: 32
