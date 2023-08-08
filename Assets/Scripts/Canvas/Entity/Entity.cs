@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
@@ -16,12 +17,41 @@ public class Entity : MonoBehaviour
     public bool fadedOut;
     [Tooltip("The image component of this entity.")]
     public Image entityImage;
+    //public SpriteRenderer entitySprite;
     [Tooltip("The image component of this entity.")]
     public EntityPositionEnum curEntityPos = EntityPositionEnum.Middle;
+    [Tooltip("Whether the entity should use the attached animator and play animations from it.")]
+    public bool animated;
+    [Tooltip("Animation state the entity is in. Corresponds to animation name in attached animator.")]
+    public string animatedState;
+    private Animator _animator;
 
-    public void SwitchTexture(Sprite texture)
+    public void Awake()
     {
+        if (_animator == null)
+            _animator = GetComponent<Animator>();
+
+        _animator.enabled = false;
+    }
+
+    public void SwitchTexture(Sprite texture, bool animated, string animatedState)
+    {
+        // StopPlayback() doesn't seem to work? Default state still overrides texture
+        // to first sprite of the default animation on the prefab
+        _animator.StopPlayback();
+        // fuck you, using nuclear option
+        _animator.enabled = false;
+
         entityImage.sprite = texture;
+        //entitySprite.sprite = texture;
+
+        this.animated = animated;
+        this.animatedState = animatedState;
+        if (animated)
+        {
+            _animator.enabled = true;
+            _animator.Play(animatedState);
+        }
     }
 
     public void Teleport(EntityPositionEnum relativeMovePos)

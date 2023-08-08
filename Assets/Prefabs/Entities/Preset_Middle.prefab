@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3135748742454676458}
   - component: {fileID: 5355312384612390301}
   - component: {fileID: 4275217809828400691}
+  - component: {fileID: 4186676955346298737}
   m_Layer: 0
   m_Name: Preset_Middle
   m_TagString: Untagged
@@ -67,7 +68,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f9dbc156af3817744bc6a468421ecfb9, type: 3}
+  m_Sprite: {fileID: 1619962418, guid: 1d1a3664d6daf32448707c9285c53cd1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -93,3 +94,26 @@ MonoBehaviour:
   fadedOut: 1
   entityImage: {fileID: 5355312384612390301}
   curEntityPos: 0
+  animated: 0
+  animatedState: 
+--- !u!95 &4186676955346298737
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5436370582165592144}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b4302ed538a2197469652e7959efd429, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

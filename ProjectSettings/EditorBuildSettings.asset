@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/CowAdventures/CA_SampleScene.unity
+    guid: 9064888a8c510f94b908517604f5a0cc
+  - enabled: 1
     path: Assets/Scenes/_SplashScreen.unity
     guid: 2cb8052eacc77ce4fa643c414029564b
   - enabled: 1

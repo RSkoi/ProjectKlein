@@ -326,7 +326,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000061035156, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &89676193
@@ -3485,6 +3485,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5a23ef5b97c893489afb1e6ff346500, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  settingsController: {fileID: 505112626}
   audioMixer: {fileID: 24100000, guid: 94a547d7cba5d624a81d68ef8c959e5c, type: 2}
   bgSongSource: {fileID: 830942741}
   effectsContainer: {fileID: 1677493035}
@@ -5535,7 +5536,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000061035156, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!111 &1817877968
@@ -6150,7 +6151,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000061035156, y: 31.259491}
+  m_AnchoredPosition: {x: 0, y: 31.259491}
   m_SizeDelta: {x: -169.99988, y: -105.91501}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1989574000

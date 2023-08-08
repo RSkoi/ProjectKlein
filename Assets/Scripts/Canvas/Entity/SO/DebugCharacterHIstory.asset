@@ -19,34 +19,46 @@ MonoBehaviour:
       fadedOut: 1
       entityImage: {fileID: 21300000, guid: f9dbc156af3817744bc6a468421ecfb9, type: 3}
       moveDuration: 0
+      animated: 0
+      animatedState: 
   - entities:
     - entityName: Ivy
       relativeMovePos: 0
       fadedOut: 0
       entityImage: {fileID: 21300000, guid: f9dbc156af3817744bc6a468421ecfb9, type: 3}
       moveDuration: 1
-    - entityName: Ayu
+      animated: 1
+      animatedState: DebugIvyCycle
+    - entityName: Ushi
       relativeMovePos: 250
       fadedOut: 1
       entityImage: {fileID: 21300000, guid: 3e31609436ca3784e966fd3bda76540f, type: 3}
       moveDuration: 0
+      animated: 1
+      animatedState: Ushi_Idle
   - entities:
     - entityName: Ivy
       relativeMovePos: -250
       fadedOut: 1
       entityImage: {fileID: 21300000, guid: f9dbc156af3817744bc6a468421ecfb9, type: 3}
       moveDuration: 1
+      animated: 0
+      animatedState: 
     - entityName: Ayu
       relativeMovePos: 0
       fadedOut: 0
       entityImage: {fileID: 21300000, guid: 3e31609436ca3784e966fd3bda76540f, type: 3}
       moveDuration: 0.8
+      animated: 0
+      animatedState: 
   - entities:
     - entityName: Ayu
       relativeMovePos: -250
       fadedOut: 0
       entityImage: {fileID: 21300000, guid: 1d4ac3ab20d214647baee501bbd5d912, type: 3}
       moveDuration: 1
+      animated: 0
+      animatedState: 
   - entities: []
   indexes: 0200000003000000060000000700000008000000
-  state: 5
+  state: 0

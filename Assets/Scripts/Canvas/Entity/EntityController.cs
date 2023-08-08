@@ -38,7 +38,7 @@ public class EntityController : MonoBehaviour
             Entity newEntityComponent = newEntity.GetComponent<Entity>();
 
             // set image
-            newEntityComponent.SwitchTexture(e.entityImage);
+            newEntityComponent.SwitchTexture(e.entityImage, e.animated, e.animatedState);
 
             // set name
             newEntityComponent.entityName = e.entityName;
@@ -73,8 +73,8 @@ public class EntityController : MonoBehaviour
                 e.PutInBackground();
 
             // change sprite
-            if (e.entityImage.sprite != edt.entityImage)
-                e.SwitchTexture(edt.entityImage);
+            if (e.entityImage.sprite != edt.entityImage || e.animatedState != edt.animatedState)
+                e.SwitchTexture(edt.entityImage, edt.animated, edt.animatedState);
 
             e.gameObject.name = edt.entityName;
         }

@@ -29,7 +29,8 @@ public class SceneDirector : MonoBehaviour
     public string nextSceneName;
     private AsyncOperation asyncLoadNextScene;
 
-    [Tooltip("Set this to true if you don't want the scene director triggering effects on its own.")]
+    [Tooltip("Set this to true if you don't want the scene director " +
+        "triggering effects on its own when the scene starts. Useful for splash screen, credits etc.")]
     public bool idle = false;
 
     [Tooltip("Event invoked on scene start.")]
