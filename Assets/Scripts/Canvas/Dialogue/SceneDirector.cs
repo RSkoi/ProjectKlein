@@ -13,6 +13,7 @@ public class SceneDirector : MonoBehaviour
     private BackgroundController _backgroundController;
     private EntityController _entityController;
     private SaveController _saveController;
+    private AudioController _audioController;
 
     private bool _sceneTransitionFinished = false;
     private bool _lastStringIsFinished = false;
@@ -24,6 +25,10 @@ public class SceneDirector : MonoBehaviour
     public BackgroundData backgrounds;
     [Tooltip("The entity data of this scene.")]
     public EntityHistoryData entityHistory;
+    [Tooltip("The bg song data of this scene.")]
+    public BgSongData bgSongs;
+    [Tooltip("The audio effect data of this scene.")]
+    public AudioEffectData audioEffects;
 
     [Tooltip("The next name of the scene to be loaded after this one.")]
     public string nextSceneName;
@@ -49,6 +54,7 @@ public class SceneDirector : MonoBehaviour
         _backgroundController = PlayerSingleton.Instance.backgroundController;
         _entityController = PlayerSingleton.Instance.entityController;
         _saveController = PlayerSingleton.Instance.saveController;
+        _audioController = PlayerSingleton.Instance.audioController;
 
         // 1. block player input
         // 2.1 set first background
@@ -108,9 +114,7 @@ public class SceneDirector : MonoBehaviour
         }
 
         if (nextSceneName != null && !nextSceneName.Equals(""))
-        {
             StartCoroutine(LoadNextScene());
-        }
     }
 
     private IEnumerator LoadNextScene()
@@ -153,9 +157,12 @@ public class SceneDirector : MonoBehaviour
 
         Debug.Log($"loc.state: {localization.state}, bg.state: {backgrounds.state}");
 
+        // I hate this
         ProgressCycleLoc();
         ProgressCycleBg();
         ProgressCycleEntities();
+        ProgressCycleBgSongs();
+        ProgressCycleAudioEffects();
 
         // as scene is ended by loc, increase its state at the very end
         localization.state++;
@@ -191,6 +198,10 @@ public class SceneDirector : MonoBehaviour
         if (backgrounds.state >= backgrounds.indexes.Count)
             return;
 
+        // do not fade if we are loading a save
+        if (_saveController.loading)
+            return;
+
         // get index at which the next background should be displayed at
         // backgrounds.state is bg index to be displayed next
         int bgAtDialogueIndex = backgrounds.indexes[backgrounds.state];
@@ -198,16 +209,35 @@ public class SceneDirector : MonoBehaviour
             return;
 
         // check if we have to fade transition the current bg before setting the new one
-        // fading in bg is handled in BackgroundController.ShowBackground
-        // do not fade if we are loading a save
-
-        if (!_saveController.loading && backgrounds.textures[backgrounds.state - 1 >= 0 ? backgrounds.state - 1 : 0].fadeTransition)
+        // fading in bg is handled in BackgroundController.RegisterFadeOutCallbackAndFade
+        if (backgrounds.textures[backgrounds.state - 1 >= 0 ? backgrounds.state - 1 : 0].fadeBlackTransition)
         {
             _bgFadeOutFinished = false;
             _backgroundController.RegisterFadeOutCallbackAndFade(SendBackgroundToCanvas);
         }
+        else if (backgrounds.textures[backgrounds.state - 1 >= 0 ? backgrounds.state - 1 : 0].fadeAlphaTransition)
+        {
+            _backgroundController.TransitionBackground(backgrounds.textures[backgrounds.state].texture);
+            backgrounds.state++;
+        }
         else
             SendBackgroundToCanvas();
+    }
+
+    private void ProgressCycleBgSongs()
+    {
+        if (bgSongs.state >= bgSongs.indexes.Count)
+            return;
+
+        SendBgSongToAudio();
+    }
+
+    private void ProgressCycleAudioEffects()
+    {
+        if (audioEffects.state >= audioEffects.indexes.Count)
+            return;
+
+        SendEffectToAudio();
     }
 
     private void SendStringToDialogue(bool instant)
@@ -260,5 +290,17 @@ public class SceneDirector : MonoBehaviour
     {
         _entityController.RenderEntitySlide(entityHistory.history[entityHistory.state].entities);
         entityHistory.state++;
+    }
+
+    private void SendBgSongToAudio()
+    {
+        _audioController.SwitchBgSong(bgSongs.songs[bgSongs.state]);
+        bgSongs.state++;
+    }
+
+    private void SendEffectToAudio()
+    {
+        _audioController.PlayEffect(audioEffects.effects[audioEffects.state]);
+        audioEffects.state++;
     }
 }

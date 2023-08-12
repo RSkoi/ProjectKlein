@@ -37,6 +37,9 @@ public class PlayerSingleton : MonoBehaviour
     public ProgressController progressController;
     public BackgroundController backgroundController;
     public EntityController entityController;
+
+    public JournalManager journalManager;
+    public InventoryManager inventoryManager;
     private void SetupData()
     {
         // TODO: make these all persistent/link in editor?
@@ -65,5 +68,11 @@ public class PlayerSingleton : MonoBehaviour
             controller.TryGetComponent(out entityController);
             controller.TryGetComponent(out progressController);
         }
+
+        GameObject jMG = GameObject.Find("JournalManager");
+        jMG.TryGetComponent(out journalManager);
+
+        GameObject iMG = GameObject.Find("InventoryManager");
+        iMG.TryGetComponent(out inventoryManager);
     }
 }

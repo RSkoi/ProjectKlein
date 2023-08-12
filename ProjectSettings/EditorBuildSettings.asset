@@ -23,4 +23,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Intro_2.unity
     guid: 4623f5ee56dbcfa45a233875e892fde6
+  - enabled: 1
+    path: Assets/Scenes/CowAdventures/CA_NodeMap_YanbaOutskirts.unity
+    guid: ffd7deab95a212b43bcc089f57dabf6c
+  - enabled: 1
+    path: Assets/Scenes/CowAdventures/CA_NodeMap_YanbaMain.unity
+    guid: 4e932a70c8ab4c54a96134393ebc12e4
   m_configObjects: {}

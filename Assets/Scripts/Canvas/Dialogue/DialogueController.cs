@@ -14,8 +14,10 @@ public class DialogueController : MonoBehaviour
     public TMP_Text textBox;
     [Tooltip("The dialogue name label text.")]
     public TMP_Text textBoxName;
-    [Tooltip("Event invoked on finishing writing the last string.")]
-    public float textNameFontSizeOffset = 10f;
+    [Tooltip("Font size offset for the dialogue name field.")]
+    public float textNameFontSizeOffset = 0f;
+    private float _originalFontSize;
+    private float _originalNameFontSize;
     [Tooltip("The dialogue bg raw image on the canvas.")]
     public Image dialogueBgImage;
     [Tooltip("Whether the dialogue container is shown by default.")]
@@ -27,6 +29,12 @@ public class DialogueController : MonoBehaviour
 
     // this is here so fontSize increase is not lost after changing it in the settings
     private float lastFontSizeIncrease = 0f;
+
+    private void Awake()
+    {
+        _originalFontSize = textBox.fontSize;
+        _originalNameFontSize = textBoxName.fontSize;
+    }
 
     void Start()
     {
@@ -153,9 +161,9 @@ public class DialogueController : MonoBehaviour
         dialogueBgImage.color = color;
     }
 
-    public void SetFontSize(float fontSize)
+    public void SetFontSize(float sizeIncreaseFactor)
     {
-        textBox.fontSize = fontSize + lastFontSizeIncrease;
-        textBoxName.fontSize = fontSize + textNameFontSizeOffset;
+        textBox.fontSize = sizeIncreaseFactor * _originalFontSize;
+        //textBoxName.fontSize = _originalNameFontSize * sizeIncreaseFactor + textNameFontSizeOffset;
     }
 }

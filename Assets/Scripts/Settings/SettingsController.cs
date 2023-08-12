@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SettingsController : MonoBehaviour
 {
@@ -8,8 +9,8 @@ public class SettingsController : MonoBehaviour
     [Tooltip("The settings data.")]
     public SettingsData settings;
 
-    public float maxFontSize = 30f;
-    public float minFontSize = 10f;
+    public float maxFontSize = 1.5f;
+    public float minFontSize = 0.5f;
 
     public Resolution[] resolutions;
 
@@ -26,15 +27,12 @@ public class SettingsController : MonoBehaviour
         CurrentDefault();
     }
 
-    public void SetFontSize(float size)
+    public void SetFontSize(float sizeIncreaseFactor)
     {
-        if (size < minFontSize || size > maxFontSize)
-            size = minFontSize;
-
         // TODO: this does not affect any other UI text elements
-        _dialogueController.SetFontSize(size);
+        _dialogueController.SetFontSize(sizeIncreaseFactor);
 
-        settings.fontSize = size;
+        settings.fontSize = sizeIncreaseFactor;
     }
 
     public void SetResolution(int width, int height)

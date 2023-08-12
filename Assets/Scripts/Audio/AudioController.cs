@@ -28,6 +28,7 @@ public class AudioController : MonoBehaviour
     public void Awake()
     {
         audioMixer.SetFloat(BG_SONG_VOLUME_PARAM, 0f);
+        audioMixer.SetFloat(EFFECTS_VOLUME_PARAM, 0f);
     }
 
     /*public void Start()
@@ -57,6 +58,49 @@ public class AudioController : MonoBehaviour
         StartCoroutine(StartFade(audioMixer, BG_SONG_VOLUME_PARAM, duration, minMusicVolume));
     }
 
+    public void SwitchBgSong(AudioClip song, float fadeDuration = 2)
+    {
+        float settingsMaxBgVolume = settingsController.settings.volumeMusic;
+        StartCoroutine(SwitchBgSongFadeOut(song, fadeDuration, settingsMaxBgVolume));
+    }
+
+    private IEnumerator SwitchBgSongFadeOut(AudioClip song, float fadeDuration, float maxBgVolume)
+    {
+        float splitFadeTimeInSeconds = fadeDuration / 2;
+        StartCoroutine(StartFade(audioMixer, BG_SONG_VOLUME_PARAM, splitFadeTimeInSeconds, minMusicVolume));
+
+        yield return new WaitForSeconds(splitFadeTimeInSeconds);
+
+        bgSongSource.Stop();
+        bgSongSource.clip = song;
+        bgSongSource.Play();
+        StartCoroutine(StartFade(audioMixer, BG_SONG_VOLUME_PARAM, splitFadeTimeInSeconds, maxBgVolume));
+    }
+
+    public void PlayEffect(AudioEffectDataType effect)
+    {
+        GameObject newEffect = Instantiate(effectsPrefab, effectsContainer.transform, false);
+
+        AudioSource source = newEffect.GetComponent<AudioSource>();
+        source.priority = effect.priority;
+        source.clip = effect.clip;
+        source.loop = effect.loop;
+        source.volume = effect.volume;
+        source.pitch = effect.pitch;
+        source.panStereo = effect.stereoPan;
+        source.Stop();
+        source.Play();
+
+        if (!effect.loop)
+            StartCoroutine(DeleteEffect(effect.clip.length, newEffect));
+    }
+
+    private static IEnumerator DeleteEffect(float pauseBeforeDeletion, GameObject effect) {
+        yield return new WaitForSeconds(pauseBeforeDeletion);
+
+        Destroy(effect);
+    }
+
     private static IEnumerator StartFade(
         AudioMixer audioMixer,
         string exposedParam,
@@ -76,11 +120,5 @@ public class AudioController : MonoBehaviour
         }
 
         yield break;
-    }
-
-    public void PlayEffect(AudioClip clip)
-    {
-        // TODO: create new GameObject as child of effectsContainer with AudioSource (Prefab?)
-        //       destroy GameObject when finished playing
     }
 }

@@ -5,5 +5,6 @@ using UnityEngine;
 public class BackgroundDataType
 {
     public Texture texture;
-    public bool fadeTransition;
+    public bool fadeBlackTransition;
+    public bool fadeAlphaTransition;
 }

@@ -12,11 +12,13 @@ public class BackgroundDataTypeDrawerUIE : PropertyDrawer
 
         // Create property fields.
         var textureField = new PropertyField(property.FindPropertyRelative("texture"));
-        var fadeTransitionField = new PropertyField(property.FindPropertyRelative("fadeTransition"));
+        var fadeBlackTransitionField = new PropertyField(property.FindPropertyRelative("fadeBlackTransition"));
+        var fadeAlphaTransitionField = new PropertyField(property.FindPropertyRelative("fadeAlphaTransition"));
 
         // Add fields to the container.
         container.Add(textureField);
-        container.Add(fadeTransitionField);
+        container.Add(fadeBlackTransitionField);
+        container.Add(fadeAlphaTransitionField);
 
         return container;
     }

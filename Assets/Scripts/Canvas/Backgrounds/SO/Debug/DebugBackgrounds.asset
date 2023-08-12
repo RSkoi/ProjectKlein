@@ -14,12 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textures:
   - texture: {fileID: 2800000, guid: 289df81d4d9f0e84ca3831ee413b399e, type: 3}
-    fadeTransition: 0
+    fadeBlackTransition: 0
+    fadeAlphaTransition: 0
   - texture: {fileID: 2800000, guid: dd91affc31168a7408512197fba2f86f, type: 3}
-    fadeTransition: 1
+    fadeBlackTransition: 1
+    fadeAlphaTransition: 0
   - texture: {fileID: 2800000, guid: 65710eab817763a40a7c4fd375ba1a56, type: 3}
-    fadeTransition: 1
+    fadeBlackTransition: 0
+    fadeAlphaTransition: 1
   - texture: {fileID: 2800000, guid: d5d0ae00e8fa97446851a002a4262dae, type: 3}
-    fadeTransition: 0
+    fadeBlackTransition: 0
+    fadeAlphaTransition: 0
   indexes: 00000000020000000300000004000000
-  state: 0
+  state: 4

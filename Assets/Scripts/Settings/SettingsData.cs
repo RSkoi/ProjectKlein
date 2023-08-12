@@ -9,7 +9,7 @@ public class SettingsData : ScriptableObject
     public float volumeEffects = 1f;
 
     [Tooltip("Font size.")]
-    public float fontSize = 25f;
+    public float fontSize = 1f;
 
     [Tooltip("Fullscreen mode.")]
     public bool fullscreen = false;
