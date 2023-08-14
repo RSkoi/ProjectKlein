@@ -5,7 +5,7 @@ using UnityEngine;
 public class AudioEffectData : ScriptableObject
 {
     [Tooltip("List of audio effects.")]
-    public List<AudioEffectDataType> effects;
+    public AudioEffectDataTypeCollection[] effects;
     [Tooltip("Dialogue indexes the effects should start playing at." +
         "Indexes of this list correspond to indexes of the effects above.")]
     public List<int> indexes;

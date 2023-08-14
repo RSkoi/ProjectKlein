@@ -25,6 +25,12 @@ public class JournalManager : MonoBehaviour
             Repopulate();
     }
 
+    public void TrackQuest(QuestStateDataType[] quests)
+    {
+        foreach (QuestStateDataType quest in quests)
+            TrackQuest(quest.quest.questName, quest);
+    }
+
     public void UntrackQuest(string questName)
     {
         questStates.Remove(questName);

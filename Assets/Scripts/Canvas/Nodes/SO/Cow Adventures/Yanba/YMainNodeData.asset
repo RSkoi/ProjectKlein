@@ -13,11 +13,23 @@ MonoBehaviour:
   m_Name: YMainNodeData
   m_EditorClassIdentifier: 
   node:
-    text: Yanba main
+    text: The rural village of Yanba stands on a hill, the wooden fort at the very
+      top towering over the houses below. Peasants hurry along the dirt roads. Judging
+      by the weird looks and curious eyes of children, this village doesn't get many
+      visitors often.
     speed: 0.01
     title: '- Yanba -'
     nextNodeSceneNames:
     - 
     - 
-    - 
     - CA_NodeMap_YanbaOutskirts
+  itemSpawners:
+  - item: {fileID: 11400000, guid: b33ad6dd2ba0db747a74d0130f579357, type: 2}
+    quantityRangeMax: 1
+    spawnerCapacity: 2
+  questStates:
+    m_keys:
+    - Find the Mage called Weaver in Yanba
+    m_values:
+    - quest: {fileID: 11400000, guid: 0d71dfc2eb236664aaa577c334d3ccf3, type: 2}
+      state: 0

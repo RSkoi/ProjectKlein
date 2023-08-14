@@ -26,8 +26,5 @@ MonoBehaviour:
     quantityRangeMax: 5
     spawnerCapacity: -1
   questStates:
-    m_keys:
-    - First Quest
-    m_values:
-    - quest: {fileID: 11400000, guid: 0d71dfc2eb236664aaa577c334d3ccf3, type: 2}
-      state: 15
+    m_keys: []
+    m_values: []

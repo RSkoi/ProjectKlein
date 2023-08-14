@@ -1,0 +1,315 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa6a272b9916d454291ce916a2ef638e, type: 3}
+  m_Name: YMainVN0LocData
+  m_EditorClassIdentifier: 
+  dialogue:
+  - text: ... I'm here.
+    name: <color=#85C7DE>Elene</color>
+    namePos: 0
+    isNarrator: 0
+    sizeIncrease: 0
+  - text: Finally!
+    name: <color=#85C7DE>Elene</color>
+    namePos: 0
+    isNarrator: 0
+    sizeIncrease: 1
+  - text: Elene's shout of joy travels far, making more than a few heads turn towards
+      her, but she doesn't seem to notice.
+    name: 
+    namePos: 2
+    isNarrator: 1
+    sizeIncrease: 0
+  - text: Now, what to do first?
+    name: <color=#85C7DE>Elene</color>
+    namePos: 0
+    isNarrator: 0
+    sizeIncrease: 0
+  - text: Maybe get something to eat? All of that walking made me way too hungry.
+    name: <color=#85C7DE>Elene</color>
+    namePos: 0
+    isNarrator: 0
+    sizeIncrease: 0
+  - text: I'm so hungry I could eat a whole cow!
+    name: <color=#85C7DE>Elene</color>
+    namePos: 0
+    isNarrator: 0
+    sizeIncrease: 0
+  - text: ...
+    name: <color=#85C7DE>Elene</color>
+    namePos: 0
+    isNarrator: 0
+    sizeIncrease: 0
+  - text: Wait no, it feels like I shouldn't be saying that...
+    name: <color=#85C7DE>Elene</color>
+    namePos: 0
+    isNarrator: 0
+    sizeIncrease: 0
+  - text: ...
+    name: 
+    namePos: 2
+    isNarrator: 1
+    sizeIncrease: 0
+  - text: '# todo: subtract coins from inventory during vn section'
+    name: 
+    namePos: 2
+    isNarrator: 1
+    sizeIncrease: 0
+  - text: '*munch* *munch*'
+    name: <color=#85C7DE>Elene</color>
+    namePos: 0
+    isNarrator: 0
+    sizeIncrease: 0
+  - text: After bartering for a piece of bread and sausage with a local, Elene sits
+      down on a stump. While it isn't much, anything tastes like a royal feast when
+      your stomach is empty.
+    name: 
+    namePos: 2
+    isNarrator: 1
+    sizeIncrease: 0
+  - text: '*munch* *munch* *munch*'
+    name: <color=#85C7DE>Elene</color>
+    namePos: 0
+    isNarrator: 0
+    sizeIncrease: 0
+  - text: Being so captivated by her food, she doesn't notice a cloaked figure approaching.
+    name: 
+    namePos: 2
+    isNarrator: 1
+    sizeIncrease: 0
+  - text: You gotta be kidding me.
+    name: <color=#FF0000>?</color>
+    namePos: 0
+    isNarrator: 0
+    sizeIncrease: 0
+  - text: Hmmgh?
+    name: <color=#85C7DE>Elene</color>
+    namePos: 0
+    isNarrator: 0
+    sizeIncrease: 0
+  - text: Elene...
+    name: <color=#FF0000>?</color>
+    namePos: 0
+    isNarrator: 0
+    sizeIncrease: 0
+  - text: What the hell are you doing here?
+    name: <color=#FF0000>?</color>
+    namePos: 0
+    isNarrator: 0
+    sizeIncrease: 0
+  - text: Ohhh, Weaver! Nice seeing you! How have you been?
+    name: <color=#85C7DE>Elene</color>
+    namePos: 0
+    isNarrator: 0
+    sizeIncrease: 0
+  - text: Spare yourself the pleasantries, Elene.
+    name: <color=#FF0000>Weaver</color>
+    namePos: 0
+    isNarrator: 0
+    sizeIncrease: 0
+  - text: Last time I saw you was back in Urs. What are you doing on the other side
+      of the continent?
+    name: <color=#FF0000>Weaver</color>
+    namePos: 0
+    isNarrator: 0
+    sizeIncrease: 0
+  - text: What I'm doing here? Oh... oh, right! I've been looking for you!
+    name: <color=#85C7DE>Elene</color>
+    namePos: 0
+    isNarrator: 0
+    sizeIncrease: 0
+  - text: ... What? Why?
+    name: <color=#FF0000>Weaver</color>
+    namePos: 0
+    isNarrator: 0
+    sizeIncrease: 0
+  - text: The mages in the Urs Guild told me that you can only become a true magician
+      if you make the journey from Urs to Gandriel!
+    name: <color=#85C7DE>Elene</color>
+    namePos: 0
+    isNarrator: 0
+    sizeIncrease: 0
+  - text: ...
+    name: <color=#FF0000>Weaver</color>
+    namePos: 0
+    isNarrator: 0
+    sizeIncrease: 0
+  - text: But it's even more complicated than that!
+    name: <color=#85C7DE>Elene</color>
+    namePos: 0
+    isNarrator: 0
+    sizeIncrease: 0
+  - text: They told me it only counts if I follow the steps of a title bearer, as
+      in town to town. And the only title bearer I know is you! So here I am!
+    name: <color=#85C7DE>Elene</color>
+    namePos: 0
+    isNarrator: 0
+    sizeIncrease: 0
+  - text: I ...
+    name: <color=#FF0000>Weaver</color>
+    namePos: 0
+    isNarrator: 0
+    sizeIncrease: 0
+  - text: ... Are all mongrels this stupid? I swear, beastmen are something else.
+    name: <color=#FF0000>Weaver</color>
+    namePos: 0
+    isNarrator: 0
+    sizeIncrease: -0.2
+  - text: Alright, listen closely, you magnificent, rotund idiot.
+    name: <color=#FF0000>Weaver</color>
+    namePos: 0
+    isNarrator: 0
+    sizeIncrease: 0
+  - text: R-Rotund?
+    name: <color=#85C7DE>Elene</color>
+    namePos: 0
+    isNarrator: 0
+    sizeIncrease: 0
+  - text: You've been tricked. There is no such thing as a pilgrimage for mages,
+      none I know of anyway.
+    name: <color=#FF0000>Weaver</color>
+    namePos: 0
+    isNarrator: 0
+    sizeIncrease: 0
+  - text: People don't like beastmen. You're too dumbwitted to have noticed, but
+      pretty much everyone in the Urs Guild wanted you gone for a long time now.
+    name: <color=#FF0000>Weaver</color>
+    namePos: 0
+    isNarrator: 0
+    sizeIncrease: 0
+  - text: No way! T-They even gave me detailed directions on which route to take!
+    name: <color=#85C7DE>Elene</color>
+    namePos: 0
+    isNarrator: 0
+    sizeIncrease: 0
+  - text: Elene takes out her leatherbound journal, skips a few pages and then triumphantly
+      presents her scribbles to Weaver.
+    name: 
+    namePos: 2
+    isNarrator: 1
+    sizeIncrease: 0
+  - text: 'Here: first visit Dinkytown, then go towards Big Mountain Valley making
+      a turn for Cowstadt after, and then wait for a carriage to Gravesend. But no
+      matter who I ask, no one has ever heard of Dinkytown before!'
+    name: <color=#85C7DE>Elene</color>
+    namePos: 0
+    isNarrator: 0
+    sizeIncrease: 0
+  - text: Do you think it's some sort of hidden city? ... Oh! Maybe it's a nickname!
+    name: <color=#85C7DE>Elene</color>
+    namePos: 0
+    isNarrator: 0
+    sizeIncrease: 0
+  - text: ... Listening to this makes me question how you've been able to survive
+      all on your own. I am positively shocked.
+    name: <color=#FF0000>Weaver</color>
+    namePos: 0
+    isNarrator: 0
+    sizeIncrease: 0
+  - text: Forget it. How did you know where I'd be?
+    name: <color=#FF0000>Weaver</color>
+    namePos: 0
+    isNarrator: 0
+    sizeIncrease: 0
+  - text: You've mentioned Yanba being your hometown once. Remember? During the Yearthanking
+      celebrations, in the Guild's inn!
+    name: <color=#85C7DE>Elene</color>
+    namePos: 0
+    isNarrator: 0
+    sizeIncrease: 0
+  - text: Damn. I must've been drunk off my ass.
+    name: <color=#FF0000>Weaver</color>
+    namePos: 0
+    isNarrator: 0
+    sizeIncrease: 0
+  - text: No matter now. Still, you're in luck.
+    name: <color=#FF0000>Weaver</color>
+    namePos: 0
+    isNarrator: 0
+    sizeIncrease: 0
+  - text: I've been meaning to go to Gandriel to deliver a package. Since you seem
+      determined on going there anyway, mind taking it with you? I'll make sure you
+      get a payment if you do take it all the way to Gandriel, of course.
+    name: <color=#FF0000>Weaver</color>
+    namePos: 0
+    isNarrator: 0
+    sizeIncrease: 0
+  - text: Oh! Yes, gladly!
+    name: <color=#85C7DE>Elene</color>
+    namePos: 0
+    isNarrator: 0
+    sizeIncrease: 0
+  - text: But how do I become a true mage if I don't follow the steps of a title
+      bearer? I can't go to Ganriel by myself, the others told me--
+    name: <color=#85C7DE>Elene</color>
+    namePos: 0
+    isNarrator: 0
+    sizeIncrease: 0
+  - text: They, uh, meant it in a metaphorical way!
+    name: <color=#FF0000>Weaver</color>
+    namePos: 0
+    isNarrator: 0
+    sizeIncrease: 0
+  - text: Metaphorical way?
+    name: <color=#85C7DE>Elene</color>
+    namePos: 0
+    isNarrator: 0
+    sizeIncrease: 0
+  - text: Yes. "Following in one's steps" is like a master-student-type thing, right?
+      By following the master's orders, the student can eventually become a master
+      himself, you see?
+    name: <color=#FF0000>Weaver</color>
+    namePos: 0
+    isNarrator: 0
+    sizeIncrease: 0
+  - text: Ohhh... does that mean that from now on I'm your student?
+    name: <color=#85C7DE>Elene</color>
+    namePos: 0
+    isNarrator: 0
+    sizeIncrease: 0
+  - text: Uh... suuuure. Just, don't tell anyone, alright? It'll be our little secret.
+    name: <color=#FF0000>Weaver</color>
+    namePos: 0
+    isNarrator: 0
+    sizeIncrease: 0
+  - text: I like secrets!
+    name: <color=#85C7DE>Elene</color>
+    namePos: 0
+    isNarrator: 0
+    sizeIncrease: 0
+  - text: Good girl. Now, head over to the marketplace during sunset, I'll hand over
+      the package then. I have places to be at.
+    name: <color=#FF0000>Weaver</color>
+    namePos: 0
+    isNarrator: 0
+    sizeIncrease: 0
+  - text: Yes, I understand! Until later, master!
+    name: <color=#85C7DE>Elene</color>
+    namePos: 0
+    isNarrator: 0
+    sizeIncrease: 0
+  - text: ...
+    name: <color=#FF0000>Weaver</color>
+    namePos: 0
+    isNarrator: 0
+    sizeIncrease: 0
+  dialogueSpeed:
+  - 0.01
+  - 0.01
+  - 0.01
+  - 0.01
+  - 0.01
+  - 0.01
+  - 0.1
+  - 0.01
+  - 0.1
+  state: 15

@@ -24,16 +24,15 @@ public class EntityController : MonoBehaviour
     {
         foreach (EntityDataType e in entities)
         {
-            GameObject newEntity = Instantiate(entityPrefab, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
+            GameObject newEntity = Instantiate(entityPrefab, entityContainer.transform, false) as GameObject;
 
             // renaming as first step to avoid reordering into a hierarchy with a GO of the same name
             newEntity.name = e.entityName;
-            newEntity.transform.SetParent(entityContainer.transform);
+            //newEntity.transform.SetParent(entityContainer.transform);
 
             // need to reposition and resize newEntity again, as position and scale are inherited from parent
-            // TODO: set y dynamically
-            newEntity.transform.SetLocalPositionAndRotation(new(0, -42f, 0), Quaternion.identity);
-            newEntity.transform.localScale = Vector3.one;
+            //newEntity.transform.SetLocalPositionAndRotation(new(0, newEntity.transform.position.y, 0), Quaternion.identity);
+            //newEntity.transform.localScale = Vector3.one;
 
             Entity newEntityComponent = newEntity.GetComponent<Entity>();
 

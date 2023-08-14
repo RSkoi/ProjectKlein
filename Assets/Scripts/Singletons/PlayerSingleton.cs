@@ -38,6 +38,7 @@ public class PlayerSingleton : MonoBehaviour
     public BackgroundController backgroundController;
     public EntityController entityController;
 
+    public NodeManager nodeManager;
     public JournalManager journalManager;
     public InventoryManager inventoryManager;
     private void SetupData()
@@ -69,10 +70,13 @@ public class PlayerSingleton : MonoBehaviour
             controller.TryGetComponent(out progressController);
         }
 
-        GameObject jMG = GameObject.Find("JournalManager");
-        jMG.TryGetComponent(out journalManager);
+        GameObject go = GameObject.Find("JournalManager");
+        go.TryGetComponent(out journalManager);
 
-        GameObject iMG = GameObject.Find("InventoryManager");
-        iMG.TryGetComponent(out inventoryManager);
+        go = GameObject.Find("InventoryManager");
+        go.TryGetComponent(out inventoryManager);
+
+        go = GameObject.Find("Node");
+        go.TryGetComponent(out nodeManager);
     }
 }

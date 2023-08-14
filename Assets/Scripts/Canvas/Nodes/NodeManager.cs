@@ -1,5 +1,6 @@
 using System.Collections;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -23,6 +24,11 @@ public class NodeManager : MonoBehaviour
     public int autotravelNextDirection = -1;
     [Tooltip("Travel button list (indexes 0-4 == N-E-S-W).")]
     public Button[] compassButtons = new Button[4];
+    [Tooltip("Indicator of available quests on this node.")]
+    public GameObject questIndicator;
+
+    [Tooltip("Whether the current scene is a VN scene. Node is not initialized if it is.")]
+    public bool vn;
 
     private SettingsController _settingsController;
     private JournalManager _journalManager;
@@ -35,12 +41,18 @@ public class NodeManager : MonoBehaviour
 
     public void Awake()
     {
+        if (vn)
+            return;
+
         _originalDescFontSize = descTextBox.fontSize;
         _originalTitleFontSize = titleTextBox.fontSize;
     }
 
     public void Start()
     {
+        if (vn)
+            return;
+
         _settingsController = PlayerSingleton.Instance.settingsController;
         _sceneTransition = PlayerSingleton.Instance.sceneTransition;
         _journalManager = PlayerSingleton.Instance.journalManager;
@@ -53,15 +65,22 @@ public class NodeManager : MonoBehaviour
         WriteToDesc(nodeData.node.text);
         SetButtonsActive();
 
+        // WARNING: persistent quest state set in the editor will be removed if CrossSceneData files exist
         LoadCrossNodeData();
+
+        // this requires journal data
+        SetIconsActive();
     }
 
     public void Explore()
     {
         if (GetQuest())
             return;
-        
-        SpawnRandomItem();
+
+        if (SpawnRandomItem())
+            return;
+
+        AddToDesc("Seems like there's nothing of interest here.");
     }
 
     public bool GetQuest()
@@ -92,6 +111,9 @@ public class NodeManager : MonoBehaviour
         if (!nodeData.questStates.ContainsKey(questName))
             return false;
 
+        if (_journalManager.questStates[questName].state != nodeData.questStates[questName].state) 
+            return false;
+
         // this throws an exception if no manual check for the quest being present is done
         QuestStateDataType questOnNode = nodeData.questStates[questName];
         QuestStateDataType questInJournal = _journalManager.questStates[questName];
@@ -119,12 +141,12 @@ public class NodeManager : MonoBehaviour
         Debug.Log($"Got new quest: {questName} playing first scene");
     }
 
-    public void SpawnRandomItem()
+    public bool SpawnRandomItem()
     {
         ItemSpawnerDataType itemSpawner = nodeData.itemSpawners[Random.Range(0, nodeData.itemSpawners.Count - 1)];
         // spawner is empty, tough luck
         if (itemSpawner.spawnerCapacity == 0)
-            return;
+            return false;
 
         ItemData item = itemSpawner.item;
         int quantityUpperRange = itemSpawner.spawnerCapacity == -1 ? itemSpawner.quantityRangeMax : itemSpawner.spawnerCapacity;
@@ -134,6 +156,8 @@ public class NodeManager : MonoBehaviour
             itemSpawner.spawnerCapacity -= quantity;
 
         AddItemToInventory(item, quantity);
+
+        return true;
     }
 
     private void AddItemToInventory(ItemData item, int quantity)
@@ -261,6 +285,7 @@ public class NodeManager : MonoBehaviour
     private void SaveCrossNodeData()
     {
         JournalCrossSceneDataType saveDataJournal = _journalManager.PrepareJournalEntriesForSave();
+        Debug.Log(saveDataJournal.questStates.Length);
         DataSaver.SaveData(saveDataJournal, "journal");
 
         ItemCrossSceneDataType saveDataInventory = _inventoryManager.PrepareItemEntriesForSave();
@@ -269,25 +294,47 @@ public class NodeManager : MonoBehaviour
 
     private void LoadCrossNodeData()
     {
-        _journalManager.questStates.Clear();
-
         JournalCrossSceneDataType loadedQuestData = DataSaver.LoadData<JournalCrossSceneDataType>("journal");
+        if (loadedQuestData != null)
+            LoadJournal(loadedQuestData);
+
+        ItemCrossSceneDataType loadedItemsData = DataSaver.LoadData<ItemCrossSceneDataType>("inventory");
+        if (loadedItemsData != null)
+            LoadInventory(loadedItemsData);
+    }
+
+    private void LoadJournal(JournalCrossSceneDataType loadedQuestData)
+    {
+        _journalManager.questStates.Clear();
         foreach (QuestReferenceDataType quest in loadedQuestData.questStates)
         {
             QuestData questData = _journalManager.LookupQuest(quest.guid);
             QuestStateDataType questStateData = new(questData, quest.state);
             _journalManager.questStates.Add(questData.questName, questStateData);
         }
+    }
 
-
+    private void LoadInventory(ItemCrossSceneDataType loadedItemsData)
+    {
         _inventoryManager.heldItems.Clear();
-
-        ItemCrossSceneDataType loadedItemsData = DataSaver.LoadData<ItemCrossSceneDataType>("inventory");
         foreach (ItemReferenceDataType item in loadedItemsData.items)
         {
             ItemData itemData = _inventoryManager.LookupItem(item.guid);
             ItemQuantityTuple itemTuple = new(itemData, item.quantity);
             _inventoryManager.heldItems.Add(itemTuple);
+        }
+    }
+
+    private void SetIconsActive()
+    {
+        foreach (QuestStateDataType quest in nodeData.questStates.Values)
+        {
+            if (_journalManager.QuestIsTracked(quest)
+                && _journalManager.questStates[quest.quest.questName].state == quest.state)
+            {
+                questIndicator.SetActive(true);
+                break;
+            }
         }
     }
 

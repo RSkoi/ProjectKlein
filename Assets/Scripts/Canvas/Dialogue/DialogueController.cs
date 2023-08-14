@@ -17,7 +17,7 @@ public class DialogueController : MonoBehaviour
     [Tooltip("Font size offset for the dialogue name field.")]
     public float textNameFontSizeOffset = 0f;
     private float _originalFontSize;
-    private float _originalNameFontSize;
+    //private float _originalNameFontSize;
     [Tooltip("The dialogue bg raw image on the canvas.")]
     public Image dialogueBgImage;
     [Tooltip("Whether the dialogue container is shown by default.")]
@@ -26,20 +26,21 @@ public class DialogueController : MonoBehaviour
     public UnityEvent OnFinishedString = new();
 
     private Coroutine currentCoroutine;
-
     // this is here so fontSize increase is not lost after changing it in the settings
-    private float lastFontSizeIncrease = 0f;
+    private float currentFontIncrease = 0f;
 
     private void Awake()
     {
         _originalFontSize = textBox.fontSize;
-        _originalNameFontSize = textBoxName.fontSize;
+        //_originalNameFontSize = textBoxName.fontSize;
     }
 
     void Start()
     {
         _settingsController = PlayerSingleton.Instance.settingsController;
         dialogueContainer.SetActive(dialogueContainerDefaultVisible);
+
+        SetFontSize(_settingsController.settings.fontSize);
     }
 
     public void StopWriting()
@@ -96,13 +97,13 @@ public class DialogueController : MonoBehaviour
         bool isNarrator,
         float sizeIncrease)
     {
+        currentFontIncrease = sizeIncrease;
+        SetFontSize(_settingsController.settings.fontSize);
+
         if (i < 0)
             textBox.SetText(text);
         else
             textBox.SetText(text[..i]);
-
-        lastFontSizeIncrease = sizeIncrease;
-        textBox.fontSize = _settingsController.settings.fontSize + sizeIncrease;
 
         if (isNarrator)
         {
@@ -118,7 +119,6 @@ public class DialogueController : MonoBehaviour
         }
 
         textBoxName.SetText(name);
-        textBoxName.fontSize = _settingsController.settings.fontSize + textNameFontSizeOffset;
         textBoxName.alignment = MapNamePosToAlignment(namePos);
     }
 
@@ -163,7 +163,11 @@ public class DialogueController : MonoBehaviour
 
     public void SetFontSize(float sizeIncreaseFactor)
     {
+        if (sizeIncreaseFactor == 0f)
+            sizeIncreaseFactor = 1f;
+
+        sizeIncreaseFactor += currentFontIncrease;
         textBox.fontSize = sizeIncreaseFactor * _originalFontSize;
-        //textBoxName.fontSize = _originalNameFontSize * sizeIncreaseFactor + textNameFontSizeOffset;
+        //textBoxName.fontSize = (sizeIncreaseFactor * _originalNameFontSize) + textNameFontSizeOffset;
     }
 }

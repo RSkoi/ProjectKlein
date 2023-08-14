@@ -7,9 +7,14 @@ public class PlayAnimationFromController : MonoBehaviour
     [Tooltip("The name of the animation state in the controller to be played.")]
     public string animationName;
 
-    void Start()
+    public void Start() 
     {
-        if (animator != null && animationName != "")
-            animator.Play(animationName);
+        PlayAnimation(animationName);
+    }
+
+    public void PlayAnimation(string name)
+    {
+        if (animator != null && name != "")
+            animator.Play(name);
     }
 }

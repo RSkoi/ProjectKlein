@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -24,6 +25,8 @@ public class AudioController : MonoBehaviour
 
     public float maxEffectsVolume = 1.0f;
     public float minEffectsVolume = 0.0001f;
+
+    private readonly List<GameObject> _audioEffects = new();
 
     public void Awake()
     {
@@ -77,9 +80,22 @@ public class AudioController : MonoBehaviour
         StartCoroutine(StartFade(audioMixer, BG_SONG_VOLUME_PARAM, splitFadeTimeInSeconds, maxBgVolume));
     }
 
+    public void PlayEffect(AudioEffectDataTypeCollection effects)
+    {
+        foreach (AudioEffectDataType effect in effects.effects)
+            PlayEffect(effect);
+    }
+
+    public void PlayEffect(List<AudioEffectDataType> effects)
+    {
+        foreach (AudioEffectDataType effect in effects)
+            PlayEffect(effect);
+    }
+
     public void PlayEffect(AudioEffectDataType effect)
     {
         GameObject newEffect = Instantiate(effectsPrefab, effectsContainer.transform, false);
+        _audioEffects.Add(newEffect);
 
         AudioSource source = newEffect.GetComponent<AudioSource>();
         source.priority = effect.priority;
@@ -93,6 +109,13 @@ public class AudioController : MonoBehaviour
 
         if (!effect.loop)
             StartCoroutine(DeleteEffect(effect.clip.length, newEffect));
+    }
+
+    public void DestroyAllTrackedEffects()
+    {
+        // TODO: fade out each effect with random duration, then destroy it
+        foreach (GameObject go in _audioEffects)
+            Destroy(go, Random.Range(0.1f, 0.5f));
     }
 
     private static IEnumerator DeleteEffect(float pauseBeforeDeletion, GameObject effect) {

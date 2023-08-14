@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9adc45befa4651a458adba52599633db, type: 3}
   m_Name: YOutskirtsAudioEffectsData
   m_EditorClassIdentifier: 
-  effects: []
-  indexes: 
+  effects:
+  - effects: []
+  indexes: 00000000
   state: 0

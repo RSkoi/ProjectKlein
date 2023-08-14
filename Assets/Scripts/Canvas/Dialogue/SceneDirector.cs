@@ -237,6 +237,10 @@ public class SceneDirector : MonoBehaviour
         if (audioEffects.state >= audioEffects.indexes.Count)
             return;
 
+        int effectAtDialogueIndex = audioEffects.indexes[audioEffects.state];
+        if (effectAtDialogueIndex != localization.state)
+            return;
+
         SendEffectToAudio();
     }
 
@@ -300,6 +304,7 @@ public class SceneDirector : MonoBehaviour
 
     private void SendEffectToAudio()
     {
+        _audioController.DestroyAllTrackedEffects();
         _audioController.PlayEffect(audioEffects.effects[audioEffects.state]);
         audioEffects.state++;
     }
