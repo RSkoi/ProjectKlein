@@ -1,3 +1,3 @@
 # ProjectKlein
 
-VN template made in Unity3D (2022.2).
+VN/text adventure template made in Unity3D (2022.2).
