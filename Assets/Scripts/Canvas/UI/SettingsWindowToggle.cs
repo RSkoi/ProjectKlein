@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,8 +10,10 @@ public class SettingsWindowToggle : MonoBehaviour
     [Tooltip("The container window to toggle.")]
     public GameObject windowContainer;
 
+    public Slider masterVolumeSlider;
     public Slider musicVolumeSlider;
     public Slider effectsVolumeSlider;
+    public Slider uiEffectsVolumeSlider;
     public Toggle fullscreenToggle;
     public Dropdown resolutionDropdown;
     public Slider fontSizeSlider;
@@ -33,8 +36,10 @@ public class SettingsWindowToggle : MonoBehaviour
 
     public void SetCurrentSettings()
     {
+        masterVolumeSlider.value = _settingsController.settings.volumeMaster;
         musicVolumeSlider.value = _settingsController.settings.volumeMusic;
         effectsVolumeSlider.value = _settingsController.settings.volumeEffects;
+        uiEffectsVolumeSlider.value = _settingsController.settings.volumeUIEffects;
 
         float backupFontSize = _settingsController.settings.fontSize;
         fontSizeSlider.maxValue = _settingsController.maxFontSize;
@@ -47,9 +52,10 @@ public class SettingsWindowToggle : MonoBehaviour
         List<string> options = new();
         int currentResolutionIndex = 0;
         int i = 0;
-        foreach (Resolution r in Screen.resolutions) {
+        foreach (Resolution r in _settingsController.GetSupportedResolutions()) {
             string option = r.width + " x " + r.height;
-            options.Add(option);
+            if (!options.Contains(option))
+                options.Add(option);
 
             if (r.width == _settingsController.settings.resolutionWidth && r.height == _settingsController.settings.resolutionHeight)
                 currentResolutionIndex = i;
@@ -60,5 +66,10 @@ public class SettingsWindowToggle : MonoBehaviour
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
+    }
+
+    public GameObject GetWindow()
+    {
+        return windowContainer;
     }
 }

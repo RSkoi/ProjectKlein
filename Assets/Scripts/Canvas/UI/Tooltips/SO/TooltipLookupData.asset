@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d95d98014377aea4abf402f3abdb2254, type: 3}
+  m_Name: TooltipLookupData
+  m_EditorClassIdentifier: 
+  tooltips:
+    m_keys:
+    - debug
+    - gandriel
+    - urs
+    - ursGuild
+    - titleBearer
+    m_values:
+    - This is a debug tooltip.
+    - A city of many names, known to most as Gandriel, Uzh'tomer, or simply 'the
+      capital'. The walls of this historic city have seen many a king attempt to
+      tear them down. Their distinctive black hue comes from the flames and smog
+      of the Great Fire.
+    - A city of the far north. Once covered in snow and ice all year round, but reduced
+      to a city of mud by the Great Fire.
+    - A loose association of former academics and mercenaries; they meet in the city
+      of Urs. Their purpose is to train, to know, and to master.
+    - Those who bear a Title of Old are seldom seen as friends, or citizens. Neither
+      shunned nor welcomed, a Title Bearer walks alone with a name whose meaning
+      was lost centuries ago.

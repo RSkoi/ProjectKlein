@@ -26,7 +26,14 @@ public class SceneTransition : MonoBehaviour
     [Tooltip("The duration of the bg music audio fade on fading in.")]
     public float fadeInBgMusicDuration = 1.5f;
 
+    // this is a workaround since _audioController is null when SceneTransition.Start()
+    // is executed after FadeInScene() is called from SceneDirector.Start()
     public void Start()
+    {
+        Setup();
+    }
+
+    public void Setup()
     {
         _audioController = PlayerSingleton.Instance.audioController;
     }

@@ -2,6 +2,8 @@ using UnityEditor.UIElements;
 using UnityEditor;
 using UnityEngine.UIElements;
 
+// this causes visual bugs
+//[CustomPropertyDrawer(typeof(QuestStateDataType))]
 public class QuestStateDataDrawerUIE : PropertyDrawer
 {
     public override VisualElement CreatePropertyGUI(SerializedProperty property)

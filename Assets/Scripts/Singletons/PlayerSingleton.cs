@@ -37,13 +37,21 @@ public class PlayerSingleton : MonoBehaviour
     public ProgressController progressController;
     public BackgroundController backgroundController;
     public EntityController entityController;
+    public HistoryController historyController;
+    public ChoiceController choiceController;
+    public ParticleSystemController particleSystemController;
+    public ConfirmationController confirmationController;
 
+    public GameObject manager;
     public NodeManager nodeManager;
+    public MapManager mapManager;
+    public DNCycleController dnCycleController;
     public JournalManager journalManager;
     public InventoryManager inventoryManager;
+    public FlagManager flagManager;
     private void SetupData()
     {
-        // TODO: make these all persistent/link in editor?
+        // TODO: this is really messy man
         player = GameObject.Find("Player");
         player.TryGetComponent(out playerInput);
 
@@ -57,26 +65,49 @@ public class PlayerSingleton : MonoBehaviour
         settingsManager = GameObject.Find("SettingsManager");
         settingsManager.TryGetComponent(out settingsController);
 
-        saveManager = GameObject.Find("SaveManager");
+        saveManager = GameObject.Find("SaveLoad");
         saveManager.TryGetComponent(out saveController);
 
         controller = GameObject.Find("Controller");
         controller.TryGetComponent(out dialogueController);
         if (!sceneDirectorComponent.idle)
-        {
-            controller.TryGetComponent(out backgroundTransition);
-            controller.TryGetComponent(out backgroundController);
-            controller.TryGetComponent(out entityController);
-            controller.TryGetComponent(out progressController);
-        }
+            SetupVNSpecific(controller);
+        else
+            SetupNodeSpecific();
 
-        GameObject go = GameObject.Find("JournalManager");
-        go.TryGetComponent(out journalManager);
+        controller = GameObject.Find("ConfirmationController");
+        controller.TryGetComponent(out confirmationController);
 
-        go = GameObject.Find("InventoryManager");
-        go.TryGetComponent(out inventoryManager);
+        manager = GameObject.Find("FlagManager");
+        manager.TryGetComponent(out flagManager);
 
-        go = GameObject.Find("Node");
-        go.TryGetComponent(out nodeManager);
+        manager = GameObject.Find("Journal");
+        manager.TryGetComponent(out journalManager);
+
+        manager = GameObject.Find("Inventory");
+        manager.TryGetComponent(out inventoryManager);
+
+        manager = GameObject.Find("Node");
+        manager.TryGetComponent(out nodeManager);
+        manager.TryGetComponent(out mapManager);
+        manager.TryGetComponent(out dnCycleController);
+    }
+
+    private void SetupVNSpecific(GameObject controller)
+    {
+        controller.TryGetComponent(out backgroundTransition);
+        controller.TryGetComponent(out backgroundController);
+        controller.TryGetComponent(out entityController);
+        controller.TryGetComponent(out progressController);
+        controller.TryGetComponent(out choiceController);
+        controller.TryGetComponent(out particleSystemController);
+
+        manager = GameObject.Find("VNHistory");
+        manager.TryGetComponent(out historyController);
+    }
+
+    private void SetupNodeSpecific()
+    {
+
     }
 }

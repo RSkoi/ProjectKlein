@@ -3,19 +3,30 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 
-public class JournalManager : MonoBehaviour
+public class JournalManager : ControllerWithWindow
 {
     [Tooltip("The quest lookup table data. Associates a quest SO with a GUID.")]
     public QuestLookupData questDataForLookup;
     [Tooltip("The quest states currently tracked by the journal. Key is quest name")]
     public QuestStateDictionary questStates;
 
-    [Tooltip("The quest journal window container")]
-    public GameObject window;
     [Tooltip("The quest journal entry container")]
     public GameObject entryContainer;
     [Tooltip("Prefab template for the quests displayed in the journal.")]
     public GameObject questEntryPrefab;
+
+    public void SetJournal(JournalCrossSceneDataType loadedQuestData)
+    {
+        questStates.Clear();
+        foreach (QuestReferenceDataType quest in loadedQuestData.questStates)
+        {
+            QuestData questData = LookupQuest(quest.guid);
+            questData.dayLimited = quest.dayLimited;
+            questData.dayLimitedLastTick = quest.dayLimitedLastTick;
+            QuestStateDataType questStateData = new(questData, quest.state);
+            questStates.Add(questData.questName, questStateData);
+        }
+    }
 
     public void TrackQuest(string questName, QuestStateDataType stateData)
     {
@@ -57,7 +68,9 @@ public class JournalManager : MonoBehaviour
         foreach (QuestStateDataType qsdt in questStates.Values)
             questStatesToSave.Add(new(
                 questDataForLookup.lookupTable.FirstOrDefault(x => x.Value.GetInstanceID() == qsdt.quest.GetInstanceID()).Key,
-                qsdt.state
+                qsdt.state,
+                qsdt.quest.dayLimited,
+                qsdt.quest.dayLimitedLastTick
             ));
 
         return new(questStatesToSave.ToArray());
@@ -66,16 +79,6 @@ public class JournalManager : MonoBehaviour
     public QuestData LookupQuest(string guid)
     {
         return questDataForLookup.lookupTable[guid];
-    }
-
-    public void ToggleWindow()
-    {
-        window.SetActive(!window.activeSelf);
-
-        if (window.activeSelf)
-            Populate();
-        else 
-            Depopulate();
     }
 
     public void Populate()
@@ -90,7 +93,7 @@ public class JournalManager : MonoBehaviour
 
     public void Depopulate()
     {
-        // TODO: make more efficient?
+        // TODO: make more efficient with pooling?
         for (int i = 0; i < entryContainer.transform.childCount; i++)
             Destroy(entryContainer.transform.GetChild(i).gameObject);
     }
@@ -99,5 +102,15 @@ public class JournalManager : MonoBehaviour
     {
         Depopulate();
         Populate();
+    }
+
+    public override void ToggleWindow()
+    {
+        window.SetActive(!window.activeSelf);
+
+        if (window.activeSelf)
+            Populate();
+        else
+            Depopulate();
     }
 }

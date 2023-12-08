@@ -2,6 +2,7 @@ using UnityEditor.UIElements;
 using UnityEditor;
 using UnityEngine.UIElements;
 
+[CustomPropertyDrawer(typeof(ItemSpawnerDataType))]
 public class ItemSpawnerDataTypeDrawerUIE : PropertyDrawer
 {
     public override VisualElement CreatePropertyGUI(SerializedProperty property)

@@ -1030,6 +1030,7 @@ MonoBehaviour:
   OnFinishedString:
     m_PersistentCalls:
       m_Calls: []
+  animDialogueIcon: <sprite anim="0,33,60">
 --- !u!222 &1277849941115616977
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2022,6 +2023,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19a2291926535fd48a4254c99cfed0cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  window: {fileID: 0}
+  windowToggleComponent: {fileID: 0}
   settings: {fileID: 11400000, guid: 4ea627a9179ce364a9c6feff871b2266, type: 2}
   maxFontSize: 30
   minFontSize: 10
@@ -2120,6 +2123,17 @@ MonoBehaviour:
   progressController: {fileID: 0}
   backgroundController: {fileID: 0}
   entityController: {fileID: 0}
+  historyController: {fileID: 0}
+  choiceController: {fileID: 0}
+  particleSystemController: {fileID: 0}
+  confirmationController: {fileID: 0}
+  manager: {fileID: 0}
+  nodeManager: {fileID: 0}
+  mapManager: {fileID: 0}
+  dnCycleController: {fileID: 0}
+  journalManager: {fileID: 0}
+  inventoryManager: {fileID: 0}
+  flagManager: {fileID: 0}
 --- !u!114 &2305325174217076112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2137,6 +2151,8 @@ MonoBehaviour:
   bgSongSource: {fileID: 1961334971987951363}
   effectsContainer: {fileID: 6014742874601338587}
   effectsPrefab: {fileID: 6139531182518427594, guid: 2fa2783b3351d954f964c77de61e3efa, type: 3}
+  uiAudioSource: {fileID: 0}
+  uiAudioClip: {fileID: 0}
   maxMusicVolume: 1
   minMusicVolume: 0
   maxEffectsVolume: 1
@@ -3189,8 +3205,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9df1b9445c99dc14da9def75c23f8ddc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  window: {fileID: 0}
   quicksave: {fileID: 11400000, guid: 9b1e2499288db524782b41938d2f707f, type: 2}
+  quicksaveText: {fileID: 0}
+  quicksaveAnim: {fileID: 0}
   loading: 0
+  saveMenuLabel: {fileID: 0}
+  saveNameInputField: {fileID: 0}
+  saveEntryContainer: {fileID: 0}
+  saveTemplate: {fileID: 0}
 --- !u!114 &4330127360305229190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3379,6 +3402,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OnProgress:
+    m_PersistentCalls:
+      m_Calls: []
+  OnAutoProgress:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &4696717186856659614
@@ -4203,13 +4229,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c95214cd42f6f742bc17dd29ccf5741, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  localization: {fileID: 11400000, guid: 9c89651c4eae5d048b392f0530160359, type: 2}
-  backgrounds: {fileID: 11400000, guid: dc3513a28954e604da6e9fd8c8c684bf, type: 2}
+  chapterPopupContainer: {fileID: 0}
+  localization: {fileID: 11400000, guid: b9bb6fe9b052cf442b6d00b70241baf9, type: 2}
+  backgrounds: {fileID: 11400000, guid: 6decc3546d3aa8347ba34abfe12a7795, type: 2}
   entityHistory: {fileID: 11400000, guid: dd360ca00efe1fc4a9e40fafb4f870c1, type: 2}
   bgSongs: {fileID: 11400000, guid: e55ab33fc91b87b44ac0400012d1948e, type: 2}
   audioEffects: {fileID: 11400000, guid: d2be39385f4a76b4289085b4208c58ca, type: 2}
+  particleSystems: {fileID: 0}
   nextSceneName: _Empty
+  nextSceneDecidedByFlagManager: 0
   idle: 1
+  autoprogressTimeoutSec: 0.05
   OnSceneStart:
     m_PersistentCalls:
       m_Calls: []
@@ -4581,8 +4611,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   windowContainer: {fileID: 1141088202195414867}
+  masterVolumeSlider: {fileID: 0}
   musicVolumeSlider: {fileID: 8168990386811893183}
   effectsVolumeSlider: {fileID: 1418835492814472524}
+  uiEffectsVolumeSlider: {fileID: 0}
   fullscreenToggle: {fileID: 3940025296254936766}
   resolutionDropdown: {fileID: 4696717186856659614}
   fontSizeSlider: {fileID: 8981317179364515615}
@@ -4870,7 +4902,8 @@ MonoBehaviour:
   backgrounds: {fileID: 11400000, guid: dc3513a28954e604da6e9fd8c8c684bf, type: 2}
   entityHistory: {fileID: 11400000, guid: dd360ca00efe1fc4a9e40fafb4f870c1, type: 2}
   bgSongs: {fileID: 11400000, guid: e55ab33fc91b87b44ac0400012d1948e, type: 2}
-  effects: {fileID: 11400000, guid: d2be39385f4a76b4289085b4208c58ca, type: 2}
+  audioEffects: {fileID: 0}
+  particleSystems: {fileID: 0}
 --- !u!1 &7097123588675131674
 GameObject:
   m_ObjectHideFlags: 0
@@ -4934,7 +4967,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  autoProgress:
+    m_PersistentCalls:
+      m_Calls: []
   cursorLocked: 0
+  hideUI:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &7153418092362767381
 MonoBehaviour:
   m_ObjectHideFlags: 0

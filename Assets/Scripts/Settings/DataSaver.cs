@@ -9,11 +9,16 @@ public class DataSaver
     private static readonly string PATH = "CrossSceneData";
     private static readonly string FILE_ENDING = ".json";
 
-    //Save Data
     public static void SaveData<T>(T dataToSave, string dataFileName)
     {
-        string tempPath = Path.Combine(Application.persistentDataPath, PATH);
-        tempPath = Path.Combine(tempPath, dataFileName + FILE_ENDING);
+        SaveData(dataToSave, dataFileName, PATH, FILE_ENDING);
+    }
+
+    //Save Data
+    public static void SaveData<T>(T dataToSave, string dataFileName, string path, string fileEnding)
+    {
+        string tempPath = Path.Combine(Application.persistentDataPath, path);
+        tempPath = Path.Combine(tempPath, dataFileName + fileEnding);
 
         //Convert To Json then to bytes
         string jsonData = JsonUtility.ToJson(dataToSave, true);
@@ -38,11 +43,16 @@ public class DataSaver
         }
     }
 
-    //Load Data
     public static T LoadData<T>(string dataFileName)
     {
-        string tempPath = Path.Combine(Application.persistentDataPath, PATH);
-        tempPath = Path.Combine(tempPath, dataFileName + FILE_ENDING);
+        return LoadData<T>(dataFileName, PATH, FILE_ENDING);
+    }
+
+    //Load Data
+    public static T LoadData<T>(string dataFileName, string path, string fileEnding)
+    {
+        string tempPath = Path.Combine(Application.persistentDataPath, path);
+        tempPath = Path.Combine(tempPath, dataFileName + fileEnding);
 
         //Exit if Directory or File does not exist
         if (!Directory.Exists(Path.GetDirectoryName(tempPath)))
@@ -80,11 +90,16 @@ public class DataSaver
 
     public static bool DeleteData(string dataFileName)
     {
+        return DeleteData(dataFileName, PATH, FILE_ENDING);
+    }
+
+    public static bool DeleteData(string dataFileName, string path, string fileEnding)
+    {
         bool success = false;
 
         //Load Data
-        string tempPath = Path.Combine(Application.persistentDataPath, PATH);
-        tempPath = Path.Combine(tempPath, dataFileName + FILE_ENDING);
+        string tempPath = Path.Combine(Application.persistentDataPath, path);
+        tempPath = Path.Combine(tempPath, dataFileName + fileEnding);
 
         //Exit if Directory or File does not exist
         if (!Directory.Exists(Path.GetDirectoryName(tempPath)))

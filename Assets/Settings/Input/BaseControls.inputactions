@@ -22,6 +22,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "HideVNUI",
+                    "type": "Button",
+                    "id": "f3310ceb-21bf-4c3f-b6b6-51663341664d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "AutoProgress",
+                    "type": "Button",
+                    "id": "2d430734-c53a-44a6-98dd-5b1012c02ec9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -38,18 +56,29 @@
                 },
                 {
                     "name": "",
-                    "id": "ccf08c37-c664-43c1-a836-cc2f248ce6e9",
+                    "id": "e025cdfb-d83a-4de8-b2ac-7b5fee935d19",
                     "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Progress",
+                    "action": "HideVNUI",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "41396b4f-cf82-42ad-8d74-f1b317f0c1a7",
+                    "id": "e7836659-5c82-4d4c-81e7-08ee57551f6d",
+                    "path": "<Keyboard>/ctrl",
+                    "interactions": "Hold",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AutoProgress",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a9887e88-087d-4f0c-b473-7bfab9e756d9",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
@@ -65,6 +94,34 @@
             "id": "3ce75c68-a370-4db8-a61d-adfdd7dab573",
             "actions": [],
             "bindings": []
+        },
+        {
+            "name": "BgInspectionMap",
+            "id": "8e2200bd-56fc-4b08-a1a1-ac71988c83e4",
+            "actions": [
+                {
+                    "name": "HideVNUI",
+                    "type": "Button",
+                    "id": "f24537eb-f482-4d72-aba0-3a36d54aef59",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "de5a1f97-ac93-4847-92d3-f5bbf5dc3e3b",
+                    "path": "<Keyboard>/anyKey",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HideVNUI",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

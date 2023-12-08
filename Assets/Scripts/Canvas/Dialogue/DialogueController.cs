@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class DialogueController : MonoBehaviour
 {
     private SettingsController _settingsController;
+    private HistoryController _historyController;
 
     [Tooltip("The dialogue container on the canvas.")]
     public GameObject dialogueContainer;
@@ -24,6 +25,8 @@ public class DialogueController : MonoBehaviour
     public bool dialogueContainerDefaultVisible = true;
     [Tooltip("Event invoked on finishing writing the last string.")]
     public UnityEvent OnFinishedString = new();
+    [Tooltip("The animated TMP sprite asset that will be inserted at the end of a dialogue slide.")]
+    public string animDialogueIcon = "<sprite anim=\"0,33,60\">";
 
     private Coroutine currentCoroutine;
     // this is here so fontSize increase is not lost after changing it in the settings
@@ -35,9 +38,10 @@ public class DialogueController : MonoBehaviour
         //_originalNameFontSize = textBoxName.fontSize;
     }
 
-    void Start()
+    public void Start()
     {
         _settingsController = PlayerSingleton.Instance.settingsController;
+        _historyController = PlayerSingleton.Instance.historyController;
         dialogueContainer.SetActive(dialogueContainerDefaultVisible);
 
         SetFontSize(_settingsController.settings.fontSize);
@@ -63,11 +67,16 @@ public class DialogueController : MonoBehaviour
             return;
         }
 
+        if (speed != 0.0f)
+            AddDialogueToHistory(text, isNarrator ? null : name);
+
+        text = $"{text}{animDialogueIcon}";
+
         ShowDialogueContainer();
-        if (speed == 0f)
-            UpdateTextbox(text, -1, name, namePos, isNarrator, sizeIncrease);
-        else
+        if (speed != 0.0f)
             currentCoroutine = StartCoroutine(WriteString(text, name, namePos, speed, isNarrator, sizeIncrease));
+        else
+            UpdateTextbox(text, -1, name, namePos, isNarrator, sizeIncrease);
     }
 
     private IEnumerator WriteString(
@@ -80,6 +89,8 @@ public class DialogueController : MonoBehaviour
     {
         for (int i = 0; i < text.Length + 1; i++)
         {
+            i = GetTextIndexSkipRichText(text, i);
+
             UpdateTextbox(text, i, name, namePos, isNarrator, sizeIncrease);
 
             yield return new WaitForSeconds(speed);
@@ -87,6 +98,14 @@ public class DialogueController : MonoBehaviour
 
         OnFinishedString.Invoke();
         currentCoroutine = null;
+    }
+
+    private int GetTextIndexSkipRichText(string text, int i)
+    {
+        if (text[i >= text.Length ? text.Length - 1 : i] == '<')
+            return GetTextIndexSkipRichText(text, text[i..].IndexOf('>') + i + 1);
+
+        return i;
     }
 
     private void UpdateTextbox(
@@ -107,15 +126,16 @@ public class DialogueController : MonoBehaviour
 
         if (isNarrator)
         {
-            HideDialogueBgContainer();
-            textBox.alignment = TextAlignmentOptions.Center;
-            textBoxName.alignment = TextAlignmentOptions.Center;
+            //HideDialogueBgContainer();
+            ShowDialogueBgContainer();
+            textBox.alignment = TextAlignmentOptions.Top;
+            textBoxName.alignment = TextAlignmentOptions.Top;
         }
         else
         {
             ShowDialogueBgContainer();
-            textBox.alignment = TextAlignmentOptions.Left;
-            textBoxName.alignment = TextAlignmentOptions.Left;
+            textBox.alignment = TextAlignmentOptions.TopLeft;
+            textBoxName.alignment = TextAlignmentOptions.TopLeft;
         }
 
         textBoxName.SetText(name);
@@ -135,6 +155,14 @@ public class DialogueController : MonoBehaviour
             default:
                 return TextAlignmentOptions.Center;
         }
+    }
+
+    private void AddDialogueToHistory(string text, string name)
+    {
+        if (name != null)
+            _historyController.AddLine(name, text);
+        else
+            _historyController.AddLine(text);
     }
 
     public void ShowDialogueContainer()

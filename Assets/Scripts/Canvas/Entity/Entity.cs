@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
@@ -9,7 +8,8 @@ public class Entity : MonoBehaviour
     public static readonly Color BACKGROUND_COLOR = new(0.6f, 0.6f, 0.6f);
     public static readonly float COLOR_FADE_DURATION = 0.6f;
 
-    private UnityEvent fadedOutFinishedCanDestroy;
+    private UnityEvent _fadedOutFinishedCanDestroy;
+    private Coroutine _fadeEntityCoroutine;
 
     [Tooltip("Name of the entity. Used as an identifier.")]
     public string entityName;
@@ -25,6 +25,10 @@ public class Entity : MonoBehaviour
     [Tooltip("Animation state the entity is in. Corresponds to animation name in attached animator.")]
     public string animatedState;
     private Animator _animator;
+    [Tooltip("Whether the entity is flipped/mirrored.")]
+    public bool flipped = false;
+    [Tooltip("The current positional offset of the entity")]
+    public Vector2 curOffset = new();
 
     public void Awake()
     {
@@ -32,6 +36,15 @@ public class Entity : MonoBehaviour
             _animator = GetComponent<Animator>();
 
         _animator.enabled = false;
+    }
+
+    public void Flip()
+    {
+        Quaternion rot = transform.localRotation;
+        rot.y = flipped ? 0 : -180;
+
+        transform.SetLocalPositionAndRotation(transform.localPosition, rot);
+        flipped = !flipped;
     }
 
     public void SwitchTexture(Sprite texture, bool animated, string animatedState)
@@ -54,6 +67,25 @@ public class Entity : MonoBehaviour
         }
     }
 
+    public void Offset(Vector2 offset)
+    {
+        Vector3 curPos = transform.localPosition;
+        curPos.x += offset.x;
+        curPos.y += offset.y;
+        transform.localPosition = curPos;
+        curOffset += offset;
+    }
+
+    public void ResetOffset()
+    {
+        Vector3 curPos = transform.localPosition;
+        curPos.x -= curOffset.x;
+        curPos.y -= curOffset.y;
+        transform.localPosition = curPos;
+        curOffset.x = 0;
+        curOffset.y = 0;
+    }
+
     public void Teleport(EntityPositionEnum relativeMovePos)
     {
         if (relativeMovePos == curEntityPos)
@@ -71,7 +103,7 @@ public class Entity : MonoBehaviour
         curEntityPos = relativeMovePos;
     }
 
-    public void Move(EntityPositionEnum relativeMovePos, float duration)
+    public void Move(EntityPositionEnum relativeMovePos, float duration, AnimationCurve speed)
     {
         if (relativeMovePos == curEntityPos)
             return;
@@ -81,6 +113,7 @@ public class Entity : MonoBehaviour
         //int moveY = GetRelativeYUnitsMove(relativeMovePos);
         StartCoroutine(StartMove(
                 duration,
+                speed,
                 gameObject.transform.localPosition,
                 new(gameObject.transform.localPosition.x + moveX, gameObject.transform.localPosition.y)
             )
@@ -107,14 +140,15 @@ public class Entity : MonoBehaviour
         return 0;
     }
 
-    private IEnumerator StartMove(float duration, Vector3 startPos, Vector3 goalPos)
+    private IEnumerator StartMove(float duration, AnimationCurve speed, Vector3 startPos, Vector3 goalPos)
     {
         float currentTime = 0;
         while (currentTime < duration)
         {
             currentTime += Time.deltaTime;
             float t = Mathf.SmoothStep(0, 1, currentTime / duration);
-            transform.localPosition = Vector3.Lerp(startPos, goalPos, t);
+            float t_speed = speed.length != 0 ? speed.Evaluate(t) : t;
+            transform.localPosition = Vector3.Lerp(startPos, goalPos, t_speed);
             yield return null;
         }
 
@@ -122,34 +156,45 @@ public class Entity : MonoBehaviour
         yield break;
     }
 
+    private void ResetFadeOutCoroutine()
+    {
+        if (_fadeEntityCoroutine != null)
+            StopCoroutine(_fadeEntityCoroutine);
+        _fadeEntityCoroutine = null;
+    }
+
     public void PutInBackground()
     {
         fadedOut = true;
-        StartCoroutine(StartFade(COLOR_FADE_DURATION, entityImage.color, BACKGROUND_COLOR));
+        ResetFadeOutCoroutine();
+        _fadeEntityCoroutine = StartCoroutine(StartFade(COLOR_FADE_DURATION, entityImage.color, BACKGROUND_COLOR));
     }
 
     public void PutInForeground()
     {
         fadedOut = false;
-        StartCoroutine(StartFade(COLOR_FADE_DURATION, entityImage.color, new(1f, 1f, 1f)));
+        ResetFadeOutCoroutine();
+        _fadeEntityCoroutine = StartCoroutine(StartFade(COLOR_FADE_DURATION, entityImage.color, new(1f, 1f, 1f)));
     }
 
     public void FadeInstantiate(Color targetColor)
     {
-        StartCoroutine(StartFade(COLOR_FADE_DURATION, entityImage.color, targetColor));
+        ResetFadeOutCoroutine();
+        _fadeEntityCoroutine = StartCoroutine(StartFade(COLOR_FADE_DURATION, entityImage.color, targetColor));
     }
 
     public void FadeDestroy()
     {
-        StartCoroutine(StartFade(COLOR_FADE_DURATION, entityImage.color, new(0, 0, 0, 0)));
-        fadedOutFinishedCanDestroy = new();
-        fadedOutFinishedCanDestroy.AddListener(DestroySelf);
+        ResetFadeOutCoroutine();
+        _fadeEntityCoroutine = StartCoroutine(StartFade(COLOR_FADE_DURATION, entityImage.color, new(0, 0, 0, 0)));
+        _fadedOutFinishedCanDestroy = new();
+        _fadedOutFinishedCanDestroy.AddListener(DestroySelf);
     }
 
     private void DestroySelf()
     {
         Destroy(gameObject);
-        fadedOutFinishedCanDestroy.RemoveAllListeners();
+        _fadedOutFinishedCanDestroy.RemoveAllListeners();
     }
 
     private IEnumerator StartFade(float duration, Color startColor, Color targetColor)
@@ -162,7 +207,7 @@ public class Entity : MonoBehaviour
             yield return null;
         }
 
-        fadedOutFinishedCanDestroy?.Invoke();
+        _fadedOutFinishedCanDestroy?.Invoke();
 
         yield break;
     }

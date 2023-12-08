@@ -6,7 +6,11 @@ public class EntityController : MonoBehaviour
     [Tooltip("Entity container for the entity instances.")]
     public GameObject entityContainer;
     [Tooltip("The template prefab for new entities.")]
-    public Object entityPrefab;
+    public GameObject entityPrefab;
+    [Tooltip("The template prefab for new entities bound to left screenborder.")]
+    public GameObject entityPrefabLeftBorder;
+    [Tooltip("The template prefab for new entities bound to right screenborder.")]
+    public GameObject entityPrefabRightBorder;
     [Tooltip("List of instantiated entity instance hierarchies.")]
     public List<Entity> entityInstances = new();
 
@@ -24,7 +28,8 @@ public class EntityController : MonoBehaviour
     {
         foreach (EntityDataType e in entities)
         {
-            GameObject newEntity = Instantiate(entityPrefab, entityContainer.transform, false) as GameObject;
+            GameObject prefab = MapEntityPrefabTypeEnumToPrefab(e.prefabType);
+            GameObject newEntity = Instantiate(prefab, entityContainer.transform, false) as GameObject;
 
             // renaming as first step to avoid reordering into a hierarchy with a GO of the same name
             newEntity.name = e.entityName;
@@ -36,6 +41,9 @@ public class EntityController : MonoBehaviour
 
             Entity newEntityComponent = newEntity.GetComponent<Entity>();
 
+            // resize
+            newEntity.transform.localScale = e.size;
+
             // set image
             newEntityComponent.SwitchTexture(e.entityImage, e.animated, e.animatedState);
 
@@ -45,8 +53,15 @@ public class EntityController : MonoBehaviour
             // teleport entity to set position in history
             newEntityComponent.Teleport(e.relativeMovePos);
 
+            // set pos offset
+            newEntityComponent.Offset(e.posOffset);
+
             // set direction
             newEntityComponent.curEntityPos = e.relativeMovePos;
+
+            // set flipped
+            if (e.flipped)
+                newEntityComponent.Flip();
 
             // set faded
             Color fadeTo = e.fadedOut ? Entity.BACKGROUND_COLOR : new(1, 1, 1);
@@ -62,14 +77,29 @@ public class EntityController : MonoBehaviour
     {
         foreach ((Entity e, EntityDataType edt) in entityMap)
         {
+            // pos offset
+            // if it's set to 0, reset
+            if (edt.posOffset.x == 0 && edt.posOffset.y == 0)
+                e.ResetOffset();
+            else if (e.curOffset != edt.posOffset)
+                e.Offset(edt.posOffset);
+
             // move
-            e.Move(edt.relativeMovePos, edt.moveDuration);
+            e.Move(edt.relativeMovePos, edt.moveDuration, edt.moveSpeedCurve);
 
             // put in fore-/background
             if (e.fadedOut && !edt.fadedOut)
                 e.PutInForeground();
             else if (!e.fadedOut && edt.fadedOut)
                 e.PutInBackground();
+
+            // flip
+            if (e.flipped != edt.flipped)
+                e.Flip();
+
+            // resize
+            if (e.transform.localScale != edt.size)
+                e.transform.localScale = edt.size;
 
             // change sprite
             if (e.entityImage.sprite != edt.entityImage || e.animatedState != edt.animatedState)
@@ -118,5 +148,16 @@ public class EntityController : MonoBehaviour
         }
 
         return (toInitialize, toUpdate, toDestroy);
+    }
+
+    private GameObject MapEntityPrefabTypeEnumToPrefab(EntityPrefabTypeEnum type)
+    {
+        return type switch
+        {
+            EntityPrefabTypeEnum.BoundLeftScreenBorder => entityPrefabLeftBorder,
+            EntityPrefabTypeEnum.BoundRightScreenBorder => entityPrefabRightBorder,
+            EntityPrefabTypeEnum.UnboundMiddle => entityPrefab,
+            _ => entityPrefab,
+        };
     }
 }

@@ -1,5 +1,31 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1102 &-8159646216313013147
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Weaver_Thinking
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: c261cb48bca9fb64fabfbca43bc8b0cd, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!1102 &-7878447595438129377
 AnimatorState:
   serializedVersion: 6
@@ -7,7 +33,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Ushi_Confused_LessClothes
+  m_Name: Ushi_Thinking_LessClothes
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -21,32 +47,6 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: 5f3ca99a281d41342a6fd16fff4d3dbd, type: 2}
-  m_Tag: 
-  m_SpeedParameter: 
-  m_MirrorParameter: 
-  m_CycleOffsetParameter: 
-  m_TimeParameter: 
---- !u!1102 &-5675043096942514477
-AnimatorState:
-  serializedVersion: 6
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Ushi_Understand
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Transitions: []
-  m_StateMachineBehaviours: []
-  m_Position: {x: 50, y: 50, z: 0}
-  m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
-  m_Mirror: 0
-  m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
-  m_CycleOffsetParameterActive: 0
-  m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: b2cb69da864c1814d8424eccf75c92b8, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -104,14 +104,14 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &-2836346401113005686
+--- !u!1102 &-2770333871617007160
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Ushi_Full_Amused
+  m_Name: Ushi_Surprised_LessClothes
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -124,7 +124,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: fe3fc84be4ccc0e41aaf377f3192f3e5, type: 2}
+  m_Motion: {fileID: 7400000, guid: e54279e0d305c1c4cb3a97edc4a3bc7b, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -137,7 +137,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Ushi_Idle
+  m_Name: Weaver_Idle
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -150,7 +150,85 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 13cae2a2e0290614b92182bae1a6a952, type: 2}
+  m_Motion: {fileID: 7400000, guid: 423a86b7c0a8a6946af9f53accc8f005, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
+--- !u!1102 &-2143003676903461168
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Weaver_Embarrassed
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: ccfcec2bf783e084699f272858abe4b6, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
+--- !u!1102 &-1798021435282600187
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Weaver_Surprised
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 34e35fc7079e50d49ab19224a458d816, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
+--- !u!1102 &-1487508238504432026
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Ushi_Irritated_LessClothes
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: e1693fd548d5b884eafdf843fa2e05a5, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -192,34 +270,40 @@ AnimatorStateMachine:
     m_Position: {x: -20, y: 160, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -2160664217616492241}
-    m_Position: {x: -590, y: 160, z: 0}
+    m_Position: {x: -590, y: 530, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3444700509957812761}
     m_Position: {x: -300, y: 160, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: -2836346401113005686}
-    m_Position: {x: -590, y: 260, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: 6276570622933093508}
-    m_Position: {x: -590, y: 310, z: 0}
-  - serializedVersion: 1
     m_State: {fileID: -7878447595438129377}
-    m_Position: {x: -800, y: 310, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: -5675043096942514477}
-    m_Position: {x: -590, y: 360, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: 5901450613890648819}
-    m_Position: {x: -800, y: 360, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: 2796807240253946021}
     m_Position: {x: -590, y: 210, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: -4877711141112389773}
-    m_Position: {x: -800, y: 210, z: 0}
+    m_State: {fileID: 5901450613890648819}
+    m_Position: {x: -590, y: 260, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 1689649872366449849}
-    m_Position: {x: -1010, y: 210, z: 0}
+    m_State: {fileID: -4877711141112389773}
+    m_Position: {x: -590, y: 160, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -1798021435282600187}
+    m_Position: {x: -590, y: 580, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -2143003676903461168}
+    m_Position: {x: -590, y: 630, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 4934030171601015963}
+    m_Position: {x: -590, y: 680, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -8159646216313013147}
+    m_Position: {x: -590, y: 730, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -2770333871617007160}
+    m_Position: {x: -590, y: 310, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -1487508238504432026}
+    m_Position: {x: -590, y: 360, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 935975464782481092}
+    m_Position: {x: -590, y: 410, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -230,14 +314,14 @@ AnimatorStateMachine:
   m_ExitPosition: {x: 400, y: 100, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: 7484928272843001948}
---- !u!1102 &1689649872366449849
+--- !u!1102 &935975464782481092
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Ushi_Idle2_TopDown
+  m_Name: Ushi_Embarrassed_LessClothes
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -250,7 +334,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: eee589a704e8aef4e804a0631af1af83, type: 2}
+  m_Motion: {fileID: 7400000, guid: 48c2ea25195bb4c4d88a72c86ae07db3, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -278,14 +362,14 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
---- !u!1102 &2796807240253946021
+--- !u!1102 &4934030171601015963
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Ushi_Idle2
+  m_Name: Weaver_Irritated
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -298,7 +382,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 86cfcf8cbeccf15499869bd99f534d45, type: 2}
+  m_Motion: {fileID: 7400000, guid: 58b0b089f4ba11043883a4c97a00b1b7, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -325,32 +409,6 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: 6d52fc7fb83d4f34286c530845388f78, type: 2}
-  m_Tag: 
-  m_SpeedParameter: 
-  m_MirrorParameter: 
-  m_CycleOffsetParameter: 
-  m_TimeParameter: 
---- !u!1102 &6276570622933093508
-AnimatorState:
-  serializedVersion: 6
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Ushi_Confused
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Transitions: []
-  m_StateMachineBehaviours: []
-  m_Position: {x: 50, y: 50, z: 0}
-  m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
-  m_Mirror: 0
-  m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
-  m_CycleOffsetParameterActive: 0
-  m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 7c53d0d18098cce42879a3a75ff93192, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

@@ -11,14 +11,19 @@ public class ResetStatesOnStart : MonoBehaviour
     [Tooltip("The bg song data of this scene.")]
     public BgSongData bgSongs;
     [Tooltip("The audio effects data of this scene.")]
-    public AudioEffectData effects;
+    public AudioEffectData audioEffects;
+    [Tooltip("The particle system data of this scene.")]
+    public ParticleSystemData particleSystems;
 
-    public void Awake()
+    public void Start()
     {
+        Debug.Log("ResetStatesOnStart: Resetting states");
+
         localization.state = 0;
         backgrounds.state = 0;
         entityHistory.state = 0;
         bgSongs.state = 0;
-        effects.state = 0;
+        audioEffects.state = 0;
+        particleSystems.state = 0;
     }
 }

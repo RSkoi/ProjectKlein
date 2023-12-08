@@ -4,7 +4,6 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.UI;
 #endif
 
 public class InputProxy : MonoBehaviour
@@ -12,21 +11,45 @@ public class InputProxy : MonoBehaviour
     [Header("Player Input Values")]
     public UnityEvent progress = new();
 
+    [Header("Auto progress activated")]
+    public UnityEvent<bool> autoProgress = new();
+
     [Header("Mouse Cursor Settings")]
     public bool cursorLocked = true;
 
+    [Header("Hide VN UI")]
+    public UnityEvent hideUI = new();
+
 #if ENABLE_INPUT_SYSTEM
-    public void OnProgress(InputValue value)
+    public void OnProgress(InputAction.CallbackContext context)
     {
-        progress.Invoke();
+        if (context.phase == InputActionPhase.Performed)
+            progress.Invoke();
     }
 
-    public void OnProgressMouse(InputValue value)
+    public void OnHideVNUI(InputAction.CallbackContext context)
     {
-        var hitObject = UIRaycast(ScreenPosToPointerData(new(Input.mousePosition.x, Input.mousePosition.y)));
-        bool hit = hitObject != null && hitObject.layer == LayerMask.NameToLayer("UI");
-        if (!hit)
-            progress.Invoke();
+        if (context.phase == InputActionPhase.Performed)
+            hideUI.Invoke();
+    }
+
+    public void OnAutoProgress(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Performed)
+            autoProgress.Invoke(true);
+        else if (context.phase == InputActionPhase.Canceled)
+            autoProgress.Invoke(false);
+    }
+
+    public void OnProgressMouse(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Performed)
+        {
+            var hitObject = UIRaycast(ScreenPosToPointerData(new(Input.mousePosition.x, Input.mousePosition.y)));
+            bool hit = hitObject != null && hitObject.layer == LayerMask.NameToLayer("UI");
+            if (!hit)
+                progress.Invoke();
+        }
     }
 #endif
 

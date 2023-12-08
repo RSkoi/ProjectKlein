@@ -17,6 +17,7 @@ public class AudioEffectDataTypeDrawerUIE : PropertyDrawer
         var pitchField = new PropertyField(property.FindPropertyRelative("pitch"));
         var stereoPanField = new PropertyField(property.FindPropertyRelative("stereoPan"));
         var loopField = new PropertyField(property.FindPropertyRelative("loop"));
+        var forceNewInitField = new PropertyField(property.FindPropertyRelative("forceNewInit"));
 
         // Add fields to the container.
         container.Add(clipField);
@@ -25,6 +26,7 @@ public class AudioEffectDataTypeDrawerUIE : PropertyDrawer
         container.Add(pitchField);
         container.Add(stereoPanField);
         container.Add(loopField);
+        container.Add(forceNewInitField);
 
         return container;
     }

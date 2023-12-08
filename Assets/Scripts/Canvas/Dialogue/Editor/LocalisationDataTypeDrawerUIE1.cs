@@ -16,6 +16,12 @@ public class LocalisationDataTypeDrawerUIE : PropertyDrawer
         var namePosField = new PropertyField(property.FindPropertyRelative("namePos"));
         var isNarratorField = new PropertyField(property.FindPropertyRelative("isNarrator"));
         var sizeIncreaseField = new PropertyField(property.FindPropertyRelative("sizeIncrease"));
+        var hasChoicesField = new PropertyField(property.FindPropertyRelative("hasChoices"));
+        var choicesField = new PropertyField(property.FindPropertyRelative("choices"));
+        var hasChapterPopupField = new PropertyField(property.FindPropertyRelative("hasChapterPopup"));
+        var chapterPopupField = new PropertyField(property.FindPropertyRelative("chapterPopup"));
+        var isConditionalField = new PropertyField(property.FindPropertyRelative("isConditional"));
+        var conditionalTextField = new PropertyField(property.FindPropertyRelative("conditionalText"));
 
         // Add fields to the container.
         container.Add(textField);
@@ -23,6 +29,19 @@ public class LocalisationDataTypeDrawerUIE : PropertyDrawer
         container.Add(namePosField);
         container.Add(isNarratorField);
         container.Add(sizeIncreaseField);
+
+        container.Add(hasChoicesField);
+        // this is a bit fucky, choices property field will only be updated when the Editor view updates
+        if (property.FindPropertyRelative("hasChoices").boolValue)
+            container.Add(choicesField);
+
+        container.Add(hasChapterPopupField);
+        if (property.FindPropertyRelative("hasChapterPopup").boolValue)
+            container.Add(chapterPopupField);
+
+        container.Add(isConditionalField);
+        if (property.FindPropertyRelative("isConditional").boolValue)
+            container.Add(conditionalTextField);
 
         return container;
     }

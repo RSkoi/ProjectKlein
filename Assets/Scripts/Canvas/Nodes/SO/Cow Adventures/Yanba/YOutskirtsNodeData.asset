@@ -21,6 +21,7 @@ MonoBehaviour:
     title: '- Outskirts of Yanba -'
     nextNodeSceneNames:
     - CA_NodeMap_YanbaMain
+    packageName: Yanba
   itemSpawners:
   - item: {fileID: 11400000, guid: b33ad6dd2ba0db747a74d0130f579357, type: 2}
     quantityRangeMax: 5
@@ -28,3 +29,4 @@ MonoBehaviour:
   questStates:
     m_keys: []
     m_values: []
+  defaultQuestStates: []

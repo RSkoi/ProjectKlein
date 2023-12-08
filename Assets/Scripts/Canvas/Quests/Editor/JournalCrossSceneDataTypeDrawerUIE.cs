@@ -2,6 +2,7 @@ using UnityEditor.UIElements;
 using UnityEditor;
 using UnityEngine.UIElements;
 
+[CustomPropertyDrawer(typeof(JournalCrossSceneDataType))]
 public class JournalCrossSceneDataTypeDrawerUIE : PropertyDrawer
 {
     public override VisualElement CreatePropertyGUI(SerializedProperty property)

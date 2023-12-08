@@ -21,15 +21,42 @@ MonoBehaviour:
     title: '- Yanba -'
     nextNodeSceneNames:
     - 
-    - 
+    - CA_NodeMap_GandrielMain
     - CA_NodeMap_YanbaOutskirts
+    packageName: Yanba
   itemSpawners:
   - item: {fileID: 11400000, guid: b33ad6dd2ba0db747a74d0130f579357, type: 2}
     quantityRangeMax: 1
-    spawnerCapacity: 2
+    spawnerCapacity: 0
   questStates:
     m_keys:
     - Find the Mage called Weaver in Yanba
+    - Visit Eric in Yanba
     m_values:
     - quest: {fileID: 11400000, guid: 0d71dfc2eb236664aaa577c334d3ccf3, type: 2}
       state: 0
+    - quest: {fileID: 11400000, guid: 37b022f26d2dedc4db20925814184705, type: 2}
+      state: 0
+  defaultQuestStates: []
+  randomTextOnExplore:
+  - text: A bunch of goats stare off into the distance while lazily indulging on
+      some grass. They look kinda cute...
+    requiresFlag: 0
+    flagId: 
+    flagValue: 0
+    viewCharAnim: Ushi_Idle2_LessClothes
+  - text: Kids are playing in the streets. Elene gives them a friendly wave.
+    requiresFlag: 0
+    flagId: 
+    flagValue: 0
+    viewCharAnim: Ushi_Idle2_LessClothes
+  - text: Elderly women are busy gossiping.
+    requiresFlag: 0
+    flagId: 
+    flagValue: 0
+    viewCharAnim: Ushi_Thinking_LessClothes
+  - text: Elene tries to pet a horse, but it waddles away. What the hell is its problem?
+    requiresFlag: 0
+    flagId: 
+    flagValue: 0
+    viewCharAnim: Ushi_Irritated_LessClothes

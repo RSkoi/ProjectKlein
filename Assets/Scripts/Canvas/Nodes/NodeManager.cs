@@ -1,6 +1,7 @@
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -13,15 +14,12 @@ public class NodeManager : MonoBehaviour
     public TMP_Text descTextBox;
     private bool _descTextBoxBusy = false;
     private (string, Coroutine) _descTextBoxWriteCoroutine;
+    [Tooltip("The scroll view the description is in.")]
+    public ScrollRect descScrollRect;
     [Tooltip("The data SO of this node.")]
     public NodeData nodeData;
     [Tooltip("The image blocking input after transition to next node is triggered.")]
     public Image transitionBlockImage;
-    [Tooltip("Autotravel button.")]
-    public Button autotravelButton;
-    private TMP_Text _autotravelButtonLabel;
-    [Tooltip("Autotravel next direction.")]
-    public int autotravelNextDirection = -1;
     [Tooltip("Travel button list (indexes 0-4 == N-E-S-W).")]
     public Button[] compassButtons = new Button[4];
     [Tooltip("Indicator of available quests on this node.")]
@@ -33,11 +31,16 @@ public class NodeManager : MonoBehaviour
     private SettingsController _settingsController;
     private JournalManager _journalManager;
     private InventoryManager _inventoryManager;
+    private MapManager _mapManager;
+    private DNCycleController _dnCycleController;
+    private FlagManager _flagManager;
     private SceneTransition _sceneTransition;
     private AsyncOperation asyncLoadNextScene;
 
     private float _originalTitleFontSize;
     private float _originalDescFontSize;
+
+    private PlayAnimationFromController viewCharacter;
 
     public void Awake()
     {
@@ -50,26 +53,47 @@ public class NodeManager : MonoBehaviour
 
     public void Start()
     {
+        _inventoryManager = PlayerSingleton.Instance.inventoryManager;
+        _journalManager = PlayerSingleton.Instance.journalManager;
+        _dnCycleController = PlayerSingleton.Instance.dnCycleController;
+        _flagManager = PlayerSingleton.Instance.flagManager;
+
+        // WARNING: persistent quest state set in the editor will be removed if CrossSceneData files exist
+        CrossSceneDataSaver.LoadCrossNodeData();
+        AddDefaultQuestStates();
+
         if (vn)
             return;
 
         _settingsController = PlayerSingleton.Instance.settingsController;
         _sceneTransition = PlayerSingleton.Instance.sceneTransition;
-        _journalManager = PlayerSingleton.Instance.journalManager;
-        _inventoryManager = PlayerSingleton.Instance.inventoryManager;
+        _mapManager = PlayerSingleton.Instance.mapManager;
 
-        _autotravelButtonLabel = autotravelButton.gameObject.GetComponentInChildren<TMP_Text>();
+        InitViewCharacter();
 
         SetFontSize(_settingsController.settings.fontSize);
         titleTextBox.text = nodeData.node.title;
         WriteToDesc(nodeData.node.text);
         SetButtonsActive();
 
-        // WARNING: persistent quest state set in the editor will be removed if CrossSceneData files exist
-        LoadCrossNodeData();
-
+        _mapManager.Init();
         // this requires journal data
         SetIconsActive();
+        if (_dnCycleController.curCycle.data.newDay)
+            _dnCycleController.FadeInDay();
+    }
+
+    public void AddDefaultQuestStates()
+    {
+        foreach (QuestStateDataType questState in nodeData.defaultQuestStates)
+        {
+            if (!_journalManager.QuestIsTracked(questState))
+            {
+                _journalManager.TrackQuest(questState.quest.questName, questState);
+                if (questState.quest.dayLimited)
+                    questState.quest.dayLimitedLastTick = _dnCycleController.GetCurDayTick();
+            }
+        }
     }
 
     public void Explore()
@@ -78,6 +102,9 @@ public class NodeManager : MonoBehaviour
             return;
 
         if (SpawnRandomItem())
+            return;
+
+        if (AddRandomTextToDesc())
             return;
 
         AddToDesc("Seems like there's nothing of interest here.");
@@ -108,9 +135,11 @@ public class NodeManager : MonoBehaviour
 
     private bool CheckQuestTrackedAndUpdate(string questName)
     {
+        // quest is on node
         if (!nodeData.questStates.ContainsKey(questName))
             return false;
 
+        // quest has same state
         if (_journalManager.questStates[questName].state != nodeData.questStates[questName].state) 
             return false;
 
@@ -120,13 +149,20 @@ public class NodeManager : MonoBehaviour
         if (questOnNode.state != questInJournal.state)
             return false;
 
-        // quest is tracked and on node
+        // quest can be progressed
+        int curDayTick = _dnCycleController.GetCurDayTick();
+        if (questInJournal.quest.dayLimited && (questInJournal.quest.dayLimitedLastTick == curDayTick))
+            return false;
+
+        // quest is tracked, on node and can be progressed
 
         // if this is the last scene of the quest
         if (questOnNode.state == questOnNode.quest.questDescs.Count - 1)
             _journalManager.questStates.Remove(questName);
 
         Debug.Log($"Got quest from journal: {questName} playing scene {questInJournal.state}");
+        if (questInJournal.quest.dayLimited)
+            questInJournal.quest.dayLimitedLastTick = curDayTick;
         FadeAndLoadScene(questInJournal.quest.sceneNames[questInJournal.state++]);
 
         return true;
@@ -137,6 +173,8 @@ public class NodeManager : MonoBehaviour
         // no randomness needed, just get the first one from the list that is not tracked
         QuestStateDataType quest = nodeData.questStates[questName];
         _journalManager.TrackQuest(questName, quest);
+        if (quest.quest.dayLimited)
+            quest.quest.dayLimitedLastTick = _dnCycleController.GetCurDayTick();
         FadeAndLoadScene(quest.quest.sceneNames[quest.state++]);
         Debug.Log($"Got new quest: {questName} playing first scene");
     }
@@ -167,6 +205,33 @@ public class NodeManager : MonoBehaviour
         AddToDesc($"Found <color=#{(int)item.rarity:X6}>{item.itemName} [{item.rarity}]</color> x {quantity}");
     }
 
+    private bool AddRandomTextToDesc()
+    {
+        if (nodeData.randomTextOnExplore.Count == 0)
+            return false;
+
+        // filter random text on cur node with flags
+        List<NodeTextType> validTextTypes = nodeData.randomTextOnExplore
+            .Where(item =>
+            {
+                if (item.requiresFlag)
+                    if (item.flagValue != -1)
+                        return _flagManager.ContainsFlag(item.flagId, item.flagValue);
+                    else
+                        return _flagManager.ContainsFlag(item.flagId);
+                return true;
+            }).ToList();
+
+        if (validTextTypes.Count == 0)
+            return false;
+
+        NodeTextType randomTextType = validTextTypes[Random.Range(0, validTextTypes.Count)];
+        AddToDesc(randomTextType.text);
+        if (!randomTextType.viewCharAnim.Equals(""))
+            viewCharacter.PlayAnimation(randomTextType.viewCharAnim);
+        return true;
+    }
+
     public void WriteToDesc(string text)
     {
         if (_descTextBoxBusy)
@@ -176,6 +241,8 @@ public class NodeManager : MonoBehaviour
         }
 
         _descTextBoxWriteCoroutine = (text, StartCoroutine(WriteString(text)));
+
+        StartCoroutine(DescScrollToBottom());
     }
 
     public void AddToDesc(string text)
@@ -217,6 +284,8 @@ public class NodeManager : MonoBehaviour
             descTextBox.SetText(text);
         else
             descTextBox.SetText(text[..i]);
+
+        StartCoroutine(DescScrollToBottom());
     }
 
     private void AddToTextbox(string text, int i, string originalText)
@@ -225,6 +294,8 @@ public class NodeManager : MonoBehaviour
             descTextBox.SetText($"{originalText}\n\n{text}");
         else
             descTextBox.SetText($"{originalText}\n\n{text[..i]}");
+
+        StartCoroutine(DescScrollToBottom());
     }
 
     public void SetFontSize(float sizeIncreaseFactor)
@@ -233,34 +304,42 @@ public class NodeManager : MonoBehaviour
         //titleTextBox.fontSize = sizeIncreaseFactor * _originalTitleFontSize;
     }
 
-    public void AutotravelToNextNode()
-    {
-        if (autotravelNextDirection != -1)
-            return;
-
-        TravelToNextNode(autotravelNextDirection);
-    }
-
     public void TravelToNextNode(int direction)
     {
         if (direction >= nodeData.node.nextNodeSceneNames.Count)
             return;
 
-        string sceneName = nodeData.node.nextNodeSceneNames[direction];
-        if (sceneName != null && !sceneName.Equals(""))
-            FadeAndLoadScene(sceneName);
+        string nextNodeName = nodeData.node.nextNodeSceneNames[direction];
+        Travel(nextNodeName);
     }
 
+    public void Travel(string sceneName)
+    {
+        if (sceneName == null || sceneName.Equals(""))
+            return;
 
-    private void FadeAndLoadScene(string nextSceneName)
+        // day night cycle on 
+        int nextNodeNamePackageIndex = sceneName.IndexOf(DNCycleController.PACKAGE_IDENTIFIER);
+        if (nextNodeNamePackageIndex != -1)
+        {
+            string nextNodeNameCut = sceneName.Remove(nextNodeNamePackageIndex, DNCycleController.PACKAGE_IDENTIFIER.Length);
+            if (!nextNodeNameCut.StartsWith(nodeData.node.packageName))
+                _dnCycleController.Progress();
+        }
+
+        FadeAndLoadScene(sceneName);
+    }
+
+    public void FadeAndLoadScene(string nextSceneName)
     {
         transitionBlockImage.enabled = true;
         _sceneTransition.FadeOutScene();
 
-        SaveCrossNodeData();
+        CrossSceneDataSaver.SaveCrossNodeData();
 
         StartCoroutine(LoadNextScene(nextSceneName));
     }
+
     private IEnumerator LoadNextScene(string nextSceneName)
     {
         Debug.Log("Loading next scene");
@@ -282,55 +361,13 @@ public class NodeManager : MonoBehaviour
         asyncLoadNextScene.allowSceneActivation = true;
     }
 
-    private void SaveCrossNodeData()
-    {
-        JournalCrossSceneDataType saveDataJournal = _journalManager.PrepareJournalEntriesForSave();
-        Debug.Log(saveDataJournal.questStates.Length);
-        DataSaver.SaveData(saveDataJournal, "journal");
-
-        ItemCrossSceneDataType saveDataInventory = _inventoryManager.PrepareItemEntriesForSave();
-        DataSaver.SaveData(saveDataInventory, "inventory");
-    }
-
-    private void LoadCrossNodeData()
-    {
-        JournalCrossSceneDataType loadedQuestData = DataSaver.LoadData<JournalCrossSceneDataType>("journal");
-        if (loadedQuestData != null)
-            LoadJournal(loadedQuestData);
-
-        ItemCrossSceneDataType loadedItemsData = DataSaver.LoadData<ItemCrossSceneDataType>("inventory");
-        if (loadedItemsData != null)
-            LoadInventory(loadedItemsData);
-    }
-
-    private void LoadJournal(JournalCrossSceneDataType loadedQuestData)
-    {
-        _journalManager.questStates.Clear();
-        foreach (QuestReferenceDataType quest in loadedQuestData.questStates)
-        {
-            QuestData questData = _journalManager.LookupQuest(quest.guid);
-            QuestStateDataType questStateData = new(questData, quest.state);
-            _journalManager.questStates.Add(questData.questName, questStateData);
-        }
-    }
-
-    private void LoadInventory(ItemCrossSceneDataType loadedItemsData)
-    {
-        _inventoryManager.heldItems.Clear();
-        foreach (ItemReferenceDataType item in loadedItemsData.items)
-        {
-            ItemData itemData = _inventoryManager.LookupItem(item.guid);
-            ItemQuantityTuple itemTuple = new(itemData, item.quantity);
-            _inventoryManager.heldItems.Add(itemTuple);
-        }
-    }
-
     private void SetIconsActive()
     {
         foreach (QuestStateDataType quest in nodeData.questStates.Values)
         {
             if (_journalManager.QuestIsTracked(quest)
-                && _journalManager.questStates[quest.quest.questName].state == quest.state)
+                && _journalManager.questStates[quest.quest.questName].state == quest.state
+                && (!quest.quest.dayLimited || quest.quest.dayLimitedLastTick != _dnCycleController.GetCurDayTick()))
             {
                 questIndicator.SetActive(true);
                 break;
@@ -340,16 +377,8 @@ public class NodeManager : MonoBehaviour
 
     private void SetButtonsActive()
     {
-        SetAutoTravelButton();
+        //SetAutoTravelButton();
         SetCompassButtons();
-    }
-
-    private void SetAutoTravelButton()
-    {
-        if (autotravelNextDirection == -1)
-            return;
-
-        SetButtonInteractable(autotravelButton, _autotravelButtonLabel);
     }
 
     private void SetCompassButtons()
@@ -373,5 +402,17 @@ public class NodeManager : MonoBehaviour
         button.interactable = true;
         // faded out color of label is alpha 65
         buttonLabel.color = Color.white;
+    }
+
+    private IEnumerator DescScrollToBottom()
+    {
+        yield return new WaitForEndOfFrame();
+
+        descScrollRect.verticalNormalizedPosition = 0;
+    }
+
+    private void InitViewCharacter()
+    {
+        viewCharacter = GameObject.Find("ViewCharacter").GetComponent<PlayAnimationFromController>();
     }
 }

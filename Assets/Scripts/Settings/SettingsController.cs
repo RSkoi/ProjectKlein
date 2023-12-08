@@ -1,12 +1,15 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class SettingsController : MonoBehaviour
+public class SettingsController : ControllerWithWindow
 {
     private AudioController _audioController;
     private DialogueController _dialogueController;
     private NodeManager _nodeManager;
 
+    [Tooltip("The toggle component of the settings menu.")]
+    public SettingsWindowToggle windowToggleComponent;
     [Tooltip("The settings data.")]
     public SettingsData settings;
 
@@ -17,7 +20,7 @@ public class SettingsController : MonoBehaviour
 
     public void Awake()
     {
-        resolutions = Screen.resolutions;
+        resolutions = GetSupportedResolutions();
     }
 
     public void Start()
@@ -31,7 +34,8 @@ public class SettingsController : MonoBehaviour
 
     public void SetFontSize(float sizeIncreaseFactor)
     {
-        _dialogueController.SetFontSize(sizeIncreaseFactor);
+        if (_dialogueController != null)
+            _dialogueController.SetFontSize(sizeIncreaseFactor);
         if (_nodeManager != null && !_nodeManager.vn)
             _nodeManager.SetFontSize(sizeIncreaseFactor);
 
@@ -56,6 +60,14 @@ public class SettingsController : MonoBehaviour
         SetResolution(resolution.width, resolution.height);
     }
 
+    public void SetMasterVolume(float volume)
+    {
+        _audioController.audioMixer.SetFloat(_audioController.MASTER_VOLUME_PARAM, Mathf.Log10(volume) * 20);
+        settings.volumeMaster = volume;
+
+        PlayerPrefs.SetFloat("volumeMaster", volume);
+    }
+
     public void SetMusicVolume(float volume)
     {
         _audioController.audioMixer.SetFloat(_audioController.BG_SONG_VOLUME_PARAM, Mathf.Log10(volume) * 20);
@@ -70,6 +82,14 @@ public class SettingsController : MonoBehaviour
         settings.volumeEffects = volume;
 
         PlayerPrefs.SetFloat("volumeEffects", volume);
+    }
+
+    public void SetUIEffectsVolume(float volume)
+    {
+        _audioController.audioMixer.SetFloat(_audioController.UI_EFFECTS_VOLUME_PARAM, Mathf.Log10(volume) * 20);
+        settings.volumeUIEffects = volume;
+
+        PlayerPrefs.SetFloat("volumeUIEffects", volume);
     }
 
     public void SetFullscreen(bool isFullscreen)
@@ -97,8 +117,10 @@ public class SettingsController : MonoBehaviour
 
     public void SaveAll()
     {
+        PlayerPrefs.SetFloat("volumeMaster", settings.volumeMaster);
         PlayerPrefs.SetFloat("volumeMusic", settings.volumeMusic);
         PlayerPrefs.SetFloat("volumeEffects", settings.volumeEffects);
+        PlayerPrefs.SetFloat("volumeUIEffects", settings.volumeUIEffects);
         PlayerPrefs.SetFloat("fontSize", settings.fontSize);
         PlayerPrefs.SetInt("resolutionWidth", settings.resolutionWidth);
         PlayerPrefs.SetInt("resolutionHeight", settings.resolutionHeight);
@@ -107,11 +129,28 @@ public class SettingsController : MonoBehaviour
 
     public void LoadAll()
     {
+        SetMasterVolume(PlayerPrefs.GetFloat("volumeMaster", settings.volumeMaster));
         SetMusicVolume(PlayerPrefs.GetFloat("volumeMusic", settings.volumeMusic));
         SetEffectsVolume(PlayerPrefs.GetFloat("volumeEffects", settings.volumeEffects));
+        SetUIEffectsVolume(PlayerPrefs.GetFloat("volumeUIEffects", settings.volumeUIEffects));
         SetFontSize(PlayerPrefs.GetFloat("fontSize", settings.fontSize));
         SetResolution(PlayerPrefs.GetInt("resolutionWidth", settings.resolutionWidth),
             PlayerPrefs.GetInt("resolutionHeight", settings.resolutionHeight));
         SetFullscreen(PlayerPrefs.GetInt("fullscreen", Convert.ToInt32(Screen.fullScreen)));
+    }
+
+    public Resolution[] GetSupportedResolutions()
+    {
+        // remove non 16:9 aspect resolutions
+        List<Resolution> supportedRes = new();
+        foreach (Resolution r in Screen.resolutions)
+            if (Math.Round((float)r.width / (float)r.height, 2) == 1.78)
+                supportedRes.Add(r);
+        return supportedRes.ToArray();
+    }
+
+    public override void ToggleWindow()
+    {
+        windowToggleComponent.ToggleWindow();
     }
 }

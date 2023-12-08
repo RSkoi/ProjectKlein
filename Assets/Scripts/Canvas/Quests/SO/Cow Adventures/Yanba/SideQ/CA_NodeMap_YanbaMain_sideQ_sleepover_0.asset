@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d276c37631756041b520642796797a1, type: 3}
+  m_Name: CA_NodeMap_YanbaMain_sideQ_sleepover_0
+  m_EditorClassIdentifier: 
+  questName: Visit Eric in Yanba
+  questDescs:
+  - Elene promised Eric to visit him in Yanba to tell him a story from her adventures.
+  - 
+  sceneNames:
+  - CA_NodeMap_YanbaMain_sideQ_sleepover_1
+  - 
+  dayLimited: 1
+  dayLimitedLastTick: 0

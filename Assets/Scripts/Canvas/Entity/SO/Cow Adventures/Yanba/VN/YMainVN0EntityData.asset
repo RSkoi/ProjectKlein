@@ -19,412 +19,913 @@ MonoBehaviour:
       fadedOut: 0
       entityImage: {fileID: 0}
       moveDuration: 0
+      moveSpeedCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
       animated: 1
       animatedState: Ushi_Idle2_LessClothes
+      size: {x: 1, y: 1, z: 1}
+      flipped: 0
   - entities:
     - entityName: Ushi
       relativeMovePos: -250
       fadedOut: 1
       entityImage: {fileID: 0}
       moveDuration: 0
+      moveSpeedCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
       animated: 1
       animatedState: Ushi_Idle2_LessClothes
+      size: {x: 1, y: 1, z: 1}
+      flipped: 0
     - entityName: Weaver
       relativeMovePos: 250
       fadedOut: 0
-      entityImage: {fileID: 21300000, guid: 7242086db75802f4788f8c7c44705f37, type: 3}
+      entityImage: {fileID: 0}
       moveDuration: 0
-      animated: 0
-      animatedState: 
+      moveSpeedCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      animated: 1
+      animatedState: Weaver_Idle
+      size: {x: 1, y: 1, z: 1}
+      flipped: 0
   - entities:
     - entityName: Ushi
       relativeMovePos: -250
       fadedOut: 0
       entityImage: {fileID: 0}
       moveDuration: 0
+      moveSpeedCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
       animated: 1
       animatedState: Ushi_Idle2_LessClothes
+      size: {x: 1, y: 1, z: 1}
+      flipped: 0
     - entityName: Weaver
-      relativeMovePos: 250
+      relativeMovePos: 0
       fadedOut: 1
       entityImage: {fileID: 21300000, guid: 7242086db75802f4788f8c7c44705f37, type: 3}
-      moveDuration: 0
-      animated: 0
-      animatedState: 
+      moveDuration: 2
+      moveSpeedCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 0.30351096
+          value: 0.29955104
+          inSlope: 0.032760337
+          outSlope: 0.032760337
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.39477727
+        - serializedVersion: 3
+          time: 0.7027061
+          value: 0.70060503
+          inSlope: 0.020093722
+          outSlope: 0.020093722
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.4059757
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      animated: 1
+      animatedState: Weaver_Idle
+      size: {x: 1, y: 1, z: 1}
+      flipped: 0
   - entities:
     - entityName: Ushi
       relativeMovePos: -250
       fadedOut: 1
       entityImage: {fileID: 0}
       moveDuration: 0
+      moveSpeedCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
       animated: 1
       animatedState: Ushi_Idle2_LessClothes
+      size: {x: 1, y: 1, z: 1}
+      flipped: 0
     - entityName: Weaver
-      relativeMovePos: 250
+      relativeMovePos: 0
       fadedOut: 0
       entityImage: {fileID: 21300000, guid: 7242086db75802f4788f8c7c44705f37, type: 3}
       moveDuration: 0
-      animated: 0
-      animatedState: 
+      moveSpeedCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      animated: 1
+      animatedState: Weaver_Idle
+      size: {x: 1, y: 1, z: 1}
+      flipped: 0
   - entities:
     - entityName: Ushi
       relativeMovePos: -250
       fadedOut: 0
       entityImage: {fileID: 0}
       moveDuration: 0
+      moveSpeedCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      animated: 1
+      animatedState: Ushi_Surprised_LessClothes
+      size: {x: 1, y: 1, z: 1}
+      flipped: 0
+    - entityName: Weaver
+      relativeMovePos: 0
+      fadedOut: 1
+      entityImage: {fileID: 21300000, guid: 7242086db75802f4788f8c7c44705f37, type: 3}
+      moveDuration: 0
+      moveSpeedCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      animated: 1
+      animatedState: Weaver_Idle
+      size: {x: 1, y: 1, z: 1}
+      flipped: 0
+  - entities:
+    - entityName: Ushi
+      relativeMovePos: -250
+      fadedOut: 1
+      entityImage: {fileID: 0}
+      moveDuration: 0
+      moveSpeedCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      animated: 1
+      animatedState: Ushi_Surprised_LessClothes
+      size: {x: 1, y: 1, z: 1}
+      flipped: 0
+    - entityName: Weaver
+      relativeMovePos: 0
+      fadedOut: 0
+      entityImage: {fileID: 21300000, guid: 7242086db75802f4788f8c7c44705f37, type: 3}
+      moveDuration: 0
+      moveSpeedCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      animated: 1
+      animatedState: Weaver_Idle
+      size: {x: 1, y: 1, z: 1}
+      flipped: 0
+  - entities:
+    - entityName: Ushi
+      relativeMovePos: -250
+      fadedOut: 0
+      entityImage: {fileID: 0}
+      moveDuration: 0
+      moveSpeedCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      animated: 1
+      animatedState: Ushi_Thinking_LessClothes
+      size: {x: 1, y: 1, z: 1}
+      flipped: 0
+    - entityName: Weaver
+      relativeMovePos: 0
+      fadedOut: 1
+      entityImage: {fileID: 21300000, guid: 7242086db75802f4788f8c7c44705f37, type: 3}
+      moveDuration: 0
+      moveSpeedCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      animated: 1
+      animatedState: Weaver_Idle
+      size: {x: 1, y: 1, z: 1}
+      flipped: 0
+  - entities:
+    - entityName: Ushi
+      relativeMovePos: -250
+      fadedOut: 1
+      entityImage: {fileID: 0}
+      moveDuration: 0
+      moveSpeedCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      animated: 1
+      animatedState: Ushi_Thinking_LessClothes
+      size: {x: 1, y: 1, z: 1}
+      flipped: 0
+    - entityName: Weaver
+      relativeMovePos: 0
+      fadedOut: 0
+      entityImage: {fileID: 21300000, guid: 7242086db75802f4788f8c7c44705f37, type: 3}
+      moveDuration: 0
+      moveSpeedCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      animated: 1
+      animatedState: Weaver_Idle
+      size: {x: 1, y: 1, z: 1}
+      flipped: 0
+  - entities:
+    - entityName: Ushi
+      relativeMovePos: -250
+      fadedOut: 0
+      entityImage: {fileID: 0}
+      moveDuration: 0
+      moveSpeedCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
       animated: 1
       animatedState: Ushi_Idle2_LessClothes
+      size: {x: 1, y: 1, z: 1}
+      flipped: 0
     - entityName: Weaver
-      relativeMovePos: 250
+      relativeMovePos: 0
       fadedOut: 1
       entityImage: {fileID: 21300000, guid: 7242086db75802f4788f8c7c44705f37, type: 3}
       moveDuration: 0
-      animated: 0
-      animatedState: 
+      moveSpeedCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      animated: 1
+      animatedState: Weaver_Idle
+      size: {x: 1, y: 1, z: 1}
+      flipped: 0
   - entities:
     - entityName: Ushi
       relativeMovePos: -250
       fadedOut: 1
       entityImage: {fileID: 0}
       moveDuration: 0
+      moveSpeedCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
       animated: 1
       animatedState: Ushi_Idle2_LessClothes
+      size: {x: 1, y: 1, z: 1}
+      flipped: 0
     - entityName: Weaver
-      relativeMovePos: 250
+      relativeMovePos: 0
       fadedOut: 0
       entityImage: {fileID: 21300000, guid: 7242086db75802f4788f8c7c44705f37, type: 3}
       moveDuration: 0
-      animated: 0
-      animatedState: 
+      moveSpeedCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      animated: 1
+      animatedState: Weaver_Surprised
+      size: {x: 1, y: 1, z: 1}
+      flipped: 0
   - entities:
     - entityName: Ushi
       relativeMovePos: -250
       fadedOut: 0
       entityImage: {fileID: 0}
       moveDuration: 0
+      moveSpeedCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
       animated: 1
-      animatedState: Ushi_Confused_LessClothes
+      animatedState: Ushi_Thinking_LessClothes
+      size: {x: 1, y: 1, z: 1}
+      flipped: 0
     - entityName: Weaver
-      relativeMovePos: 250
+      relativeMovePos: 0
       fadedOut: 1
       entityImage: {fileID: 21300000, guid: 7242086db75802f4788f8c7c44705f37, type: 3}
       moveDuration: 0
-      animated: 0
-      animatedState: 
-  - entities:
-    - entityName: Ushi
-      relativeMovePos: -250
-      fadedOut: 1
-      entityImage: {fileID: 0}
-      moveDuration: 0
+      moveSpeedCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
       animated: 1
-      animatedState: Ushi_Idle2_LessClothes
-    - entityName: Weaver
-      relativeMovePos: 250
-      fadedOut: 0
-      entityImage: {fileID: 21300000, guid: 7242086db75802f4788f8c7c44705f37, type: 3}
-      moveDuration: 0
-      animated: 0
-      animatedState: 
-  - entities:
-    - entityName: Ushi
-      relativeMovePos: -250
-      fadedOut: 0
-      entityImage: {fileID: 0}
-      moveDuration: 0
-      animated: 1
-      animatedState: Ushi_Idle2_LessClothes
-    - entityName: Weaver
-      relativeMovePos: 250
-      fadedOut: 1
-      entityImage: {fileID: 21300000, guid: 7242086db75802f4788f8c7c44705f37, type: 3}
-      moveDuration: 0
-      animated: 0
-      animatedState: 
+      animatedState: Weaver_Surprised
+      size: {x: 1, y: 1, z: 1}
+      flipped: 0
   - entities:
     - entityName: Ushi
       relativeMovePos: -250
       fadedOut: 1
       entityImage: {fileID: 0}
       moveDuration: 0
-      animated: 1
-      animatedState: Ushi_Idle2_LessClothes
-    - entityName: Weaver
-      relativeMovePos: 250
-      fadedOut: 0
-      entityImage: {fileID: 21300000, guid: 7242086db75802f4788f8c7c44705f37, type: 3}
-      moveDuration: 0
-      animated: 0
-      animatedState: 
-  - entities:
-    - entityName: Ushi
-      relativeMovePos: -250
-      fadedOut: 0
-      entityImage: {fileID: 0}
-      moveDuration: 0
+      moveSpeedCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
       animated: 1
       animatedState: Ushi_Idle2_LessClothes
+      size: {x: 1, y: 1, z: 1}
+      flipped: 0
     - entityName: Weaver
-      relativeMovePos: 250
+      relativeMovePos: 0
+      fadedOut: 0
+      entityImage: {fileID: 21300000, guid: 7242086db75802f4788f8c7c44705f37, type: 3}
+      moveDuration: 0
+      moveSpeedCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      animated: 1
+      animatedState: Weaver_Irritated
+      size: {x: 1, y: 1, z: 1}
+      flipped: 0
+  - entities:
+    - entityName: Ushi
+      relativeMovePos: -250
+      fadedOut: 0
+      entityImage: {fileID: 0}
+      moveDuration: 0
+      moveSpeedCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      animated: 1
+      animatedState: Ushi_Thinking_LessClothes
+      size: {x: 1, y: 1, z: 1}
+      flipped: 0
+    - entityName: Weaver
+      relativeMovePos: 0
       fadedOut: 1
       entityImage: {fileID: 21300000, guid: 7242086db75802f4788f8c7c44705f37, type: 3}
       moveDuration: 0
-      animated: 0
-      animatedState: 
+      moveSpeedCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      animated: 1
+      animatedState: Weaver_Irritated
+      size: {x: 1, y: 1, z: 1}
+      flipped: 0
   - entities:
     - entityName: Ushi
       relativeMovePos: -250
       fadedOut: 1
       entityImage: {fileID: 0}
       moveDuration: 0
+      moveSpeedCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      animated: 1
+      animatedState: Ushi_Thinking_LessClothes
+      size: {x: 1, y: 1, z: 1}
+      flipped: 0
+    - entityName: Weaver
+      relativeMovePos: 0
+      fadedOut: 0
+      entityImage: {fileID: 21300000, guid: 7242086db75802f4788f8c7c44705f37, type: 3}
+      moveDuration: 0
+      moveSpeedCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      animated: 1
+      animatedState: Weaver_Thinking
+      size: {x: 1, y: 1, z: 1}
+      flipped: 0
+  - entities:
+    - entityName: Ushi
+      relativeMovePos: -250
+      fadedOut: 0
+      entityImage: {fileID: 0}
+      moveDuration: 0
+      moveSpeedCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      animated: 1
+      animatedState: Ushi_Surprised_LessClothes
+      size: {x: 1, y: 1, z: 1}
+      flipped: 0
+    - entityName: Weaver
+      relativeMovePos: 0
+      fadedOut: 1
+      entityImage: {fileID: 21300000, guid: 7242086db75802f4788f8c7c44705f37, type: 3}
+      moveDuration: 0
+      moveSpeedCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      animated: 1
+      animatedState: Weaver_Thinking
+      size: {x: 1, y: 1, z: 1}
+      flipped: 0
+  - entities:
+    - entityName: Ushi
+      relativeMovePos: -250
+      fadedOut: 1
+      entityImage: {fileID: 0}
+      moveDuration: 0
+      moveSpeedCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      animated: 1
+      animatedState: Ushi_Surprised_LessClothes
+      size: {x: 1, y: 1, z: 1}
+      flipped: 0
+    - entityName: Weaver
+      relativeMovePos: 0
+      fadedOut: 0
+      entityImage: {fileID: 21300000, guid: 7242086db75802f4788f8c7c44705f37, type: 3}
+      moveDuration: 0
+      moveSpeedCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      animated: 1
+      animatedState: Weaver_Irritated
+      size: {x: 1, y: 1, z: 1}
+      flipped: 0
+  - entities:
+    - entityName: Ushi
+      relativeMovePos: -250
+      fadedOut: 0
+      entityImage: {fileID: 0}
+      moveDuration: 0
+      moveSpeedCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
       animated: 1
       animatedState: Ushi_Idle2_LessClothes
+      size: {x: 1, y: 1, z: 1}
+      flipped: 0
     - entityName: Weaver
-      relativeMovePos: 250
-      fadedOut: 0
-      entityImage: {fileID: 21300000, guid: 7242086db75802f4788f8c7c44705f37, type: 3}
-      moveDuration: 0
-      animated: 0
-      animatedState: 
-  - entities:
-    - entityName: Ushi
-      relativeMovePos: -250
-      fadedOut: 0
-      entityImage: {fileID: 0}
-      moveDuration: 0
-      animated: 1
-      animatedState: Ushi_Confused_LessClothes
-    - entityName: Weaver
-      relativeMovePos: 250
+      relativeMovePos: 0
       fadedOut: 1
       entityImage: {fileID: 21300000, guid: 7242086db75802f4788f8c7c44705f37, type: 3}
       moveDuration: 0
-      animated: 0
-      animatedState: 
+      moveSpeedCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      animated: 1
+      animatedState: Weaver_Idle
+      size: {x: 1, y: 1, z: 1}
+      flipped: 0
   - entities:
     - entityName: Ushi
       relativeMovePos: -250
       fadedOut: 1
       entityImage: {fileID: 0}
       moveDuration: 0
-      animated: 1
-      animatedState: Ushi_Idle2_LessClothes
-    - entityName: Weaver
-      relativeMovePos: 250
-      fadedOut: 0
-      entityImage: {fileID: 21300000, guid: 7242086db75802f4788f8c7c44705f37, type: 3}
-      moveDuration: 0
-      animated: 0
-      animatedState: 
-  - entities:
-    - entityName: Ushi
-      relativeMovePos: -250
-      fadedOut: 0
-      entityImage: {fileID: 0}
-      moveDuration: 0
+      moveSpeedCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
       animated: 1
       animatedState: Ushi_Idle2_LessClothes
+      size: {x: 1, y: 1, z: 1}
+      flipped: 0
     - entityName: Weaver
-      relativeMovePos: 250
-      fadedOut: 1
+      relativeMovePos: 0
+      fadedOut: 0
       entityImage: {fileID: 21300000, guid: 7242086db75802f4788f8c7c44705f37, type: 3}
       moveDuration: 0
-      animated: 0
-      animatedState: 
+      moveSpeedCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      animated: 1
+      animatedState: Weaver_Idle
+      size: {x: 1, y: 1, z: 1}
+      flipped: 0
   - entities:
     - entityName: Ushi
       relativeMovePos: -250
-      fadedOut: 1
+      fadedOut: 0
       entityImage: {fileID: 0}
       moveDuration: 0
+      moveSpeedCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
       animated: 1
       animatedState: Ushi_Idle2_LessClothes
+      size: {x: 1, y: 1, z: 1}
+      flipped: 0
     - entityName: Weaver
-      relativeMovePos: 250
-      fadedOut: 0
+      relativeMovePos: 0
+      fadedOut: 1
       entityImage: {fileID: 21300000, guid: 7242086db75802f4788f8c7c44705f37, type: 3}
       moveDuration: 0
-      animated: 0
-      animatedState: 
+      moveSpeedCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      animated: 1
+      animatedState: Weaver_Idle
+      size: {x: 1, y: 1, z: 1}
+      flipped: 0
   - entities:
     - entityName: Ushi
       relativeMovePos: -250
-      fadedOut: 0
+      fadedOut: 1
       entityImage: {fileID: 0}
       moveDuration: 0
+      moveSpeedCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
       animated: 1
       animatedState: Ushi_Idle2_LessClothes
+      size: {x: 1, y: 1, z: 1}
+      flipped: 0
     - entityName: Weaver
-      relativeMovePos: 250
-      fadedOut: 1
+      relativeMovePos: 0
+      fadedOut: 0
       entityImage: {fileID: 21300000, guid: 7242086db75802f4788f8c7c44705f37, type: 3}
       moveDuration: 0
-      animated: 0
-      animatedState: 
-  - entities:
-    - entityName: Ushi
-      relativeMovePos: -250
-      fadedOut: 1
-      entityImage: {fileID: 0}
-      moveDuration: 0
+      moveSpeedCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
       animated: 1
-      animatedState: Ushi_Idle2_LessClothes
-    - entityName: Weaver
-      relativeMovePos: 250
-      fadedOut: 0
-      entityImage: {fileID: 21300000, guid: 7242086db75802f4788f8c7c44705f37, type: 3}
-      moveDuration: 0
-      animated: 0
-      animatedState: 
+      animatedState: Weaver_Surprised
+      size: {x: 1, y: 1, z: 1}
+      flipped: 0
   - entities:
     - entityName: Ushi
       relativeMovePos: -250
       fadedOut: 0
       entityImage: {fileID: 0}
       moveDuration: 0
+      moveSpeedCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
       animated: 1
-      animatedState: Ushi_Idle2_LessClothes
+      animatedState: Ushi_Thinking_LessClothes
+      size: {x: 1, y: 1, z: 1}
+      flipped: 0
     - entityName: Weaver
-      relativeMovePos: 250
+      relativeMovePos: 0
       fadedOut: 1
       entityImage: {fileID: 21300000, guid: 7242086db75802f4788f8c7c44705f37, type: 3}
       moveDuration: 0
-      animated: 0
-      animatedState: 
-  - entities:
-    - entityName: Ushi
-      relativeMovePos: -250
-      fadedOut: 1
-      entityImage: {fileID: 0}
-      moveDuration: 0
+      moveSpeedCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
       animated: 1
-      animatedState: Ushi_Idle2_LessClothes
-    - entityName: Weaver
-      relativeMovePos: 250
-      fadedOut: 0
-      entityImage: {fileID: 21300000, guid: 7242086db75802f4788f8c7c44705f37, type: 3}
-      moveDuration: 0
-      animated: 0
-      animatedState: 
-  - entities:
-    - entityName: Ushi
-      relativeMovePos: -250
-      fadedOut: 0
-      entityImage: {fileID: 0}
-      moveDuration: 0
-      animated: 1
-      animatedState: Ushi_Confused_LessClothes
-    - entityName: Weaver
-      relativeMovePos: 250
-      fadedOut: 1
-      entityImage: {fileID: 21300000, guid: 7242086db75802f4788f8c7c44705f37, type: 3}
-      moveDuration: 0
-      animated: 0
-      animatedState: 
+      animatedState: Weaver_Surprised
+      size: {x: 1, y: 1, z: 1}
+      flipped: 0
   - entities:
     - entityName: Ushi
       relativeMovePos: -250
       fadedOut: 1
       entityImage: {fileID: 0}
       moveDuration: 0
+      moveSpeedCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
       animated: 1
-      animatedState: Ushi_Idle2_LessClothes
+      animatedState: Ushi_Thinking_LessClothes
+      size: {x: 1, y: 1, z: 1}
+      flipped: 0
     - entityName: Weaver
-      relativeMovePos: 250
+      relativeMovePos: 0
       fadedOut: 0
       entityImage: {fileID: 21300000, guid: 7242086db75802f4788f8c7c44705f37, type: 3}
       moveDuration: 0
-      animated: 0
-      animatedState: 
+      moveSpeedCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      animated: 1
+      animatedState: Weaver_Idle
+      size: {x: 1, y: 1, z: 1}
+      flipped: 0
   - entities:
     - entityName: Ushi
       relativeMovePos: -250
       fadedOut: 0
       entityImage: {fileID: 0}
       moveDuration: 0
+      moveSpeedCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
       animated: 1
       animatedState: Ushi_Understand_LessClothes
+      size: {x: 1, y: 1, z: 1}
+      flipped: 0
     - entityName: Weaver
-      relativeMovePos: 250
+      relativeMovePos: 0
       fadedOut: 1
       entityImage: {fileID: 21300000, guid: 7242086db75802f4788f8c7c44705f37, type: 3}
       moveDuration: 0
-      animated: 0
-      animatedState: 
+      moveSpeedCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      animated: 1
+      animatedState: Weaver_Idle
+      size: {x: 1, y: 1, z: 1}
+      flipped: 0
   - entities:
     - entityName: Ushi
       relativeMovePos: -250
       fadedOut: 1
       entityImage: {fileID: 0}
       moveDuration: 0
+      moveSpeedCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
       animated: 1
-      animatedState: Ushi_Idle2_LessClothes
+      animatedState: Ushi_Understand_LessClothes
+      size: {x: 1, y: 1, z: 1}
+      flipped: 0
     - entityName: Weaver
-      relativeMovePos: 250
+      relativeMovePos: 0
       fadedOut: 0
       entityImage: {fileID: 21300000, guid: 7242086db75802f4788f8c7c44705f37, type: 3}
       moveDuration: 0
-      animated: 0
-      animatedState: 
+      moveSpeedCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      animated: 1
+      animatedState: Weaver_Irritated
+      size: {x: 1, y: 1, z: 1}
+      flipped: 0
   - entities:
     - entityName: Ushi
       relativeMovePos: -250
       fadedOut: 0
       entityImage: {fileID: 0}
       moveDuration: 0
+      moveSpeedCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
       animated: 1
       animatedState: Ushi_Idle2_LessClothes
+      size: {x: 1, y: 1, z: 1}
+      flipped: 0
     - entityName: Weaver
-      relativeMovePos: 250
+      relativeMovePos: 0
       fadedOut: 1
       entityImage: {fileID: 21300000, guid: 7242086db75802f4788f8c7c44705f37, type: 3}
       moveDuration: 0
-      animated: 0
-      animatedState: 
+      moveSpeedCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      animated: 1
+      animatedState: Weaver_Irritated
+      size: {x: 1, y: 1, z: 1}
+      flipped: 0
   - entities:
     - entityName: Ushi
       relativeMovePos: -250
       fadedOut: 1
       entityImage: {fileID: 0}
       moveDuration: 0
+      moveSpeedCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
       animated: 1
       animatedState: Ushi_Idle2_LessClothes
+      size: {x: 1, y: 1, z: 1}
+      flipped: 0
     - entityName: Weaver
-      relativeMovePos: 250
+      relativeMovePos: 0
       fadedOut: 0
       entityImage: {fileID: 21300000, guid: 7242086db75802f4788f8c7c44705f37, type: 3}
       moveDuration: 0
-      animated: 0
-      animatedState: 
+      moveSpeedCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      animated: 1
+      animatedState: Weaver_Idle
+      size: {x: 1, y: 1, z: 1}
+      flipped: 0
   - entities:
     - entityName: Ushi
       relativeMovePos: -250
       fadedOut: 0
       entityImage: {fileID: 0}
       moveDuration: 0
+      moveSpeedCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
       animated: 1
       animatedState: Ushi_Idle2_LessClothes
+      size: {x: 1, y: 1, z: 1}
+      flipped: 0
     - entityName: Weaver
-      relativeMovePos: 250
+      relativeMovePos: 0
       fadedOut: 1
       entityImage: {fileID: 21300000, guid: 7242086db75802f4788f8c7c44705f37, type: 3}
       moveDuration: 0
-      animated: 0
-      animatedState: 
+      moveSpeedCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      animated: 1
+      animatedState: Weaver_Idle
+      size: {x: 1, y: 1, z: 1}
+      flipped: 0
   - entities:
     - entityName: Ushi
       relativeMovePos: -250
       fadedOut: 1
       entityImage: {fileID: 0}
-      moveDuration: 0
+      moveDuration: 5
+      moveSpeedCurve:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
       animated: 1
       animatedState: Ushi_Idle2_LessClothes
+      size: {x: 1, y: 1, z: 1}
+      flipped: 0
     - entityName: Weaver
-      relativeMovePos: 250
+      relativeMovePos: 0
       fadedOut: 0
       entityImage: {fileID: 21300000, guid: 7242086db75802f4788f8c7c44705f37, type: 3}
       moveDuration: 0
-      animated: 0
-      animatedState: 
-  indexes: 000000000e0000000f00000010000000120000001300000015000000160000001700000018000000190000001b0000001e0000001f000000210000002500000027000000280000002b0000002d0000002e0000002f000000300000003100000032000000330000003400000035000000
-  state: 15
+      moveSpeedCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      animated: 1
+      animatedState: Weaver_Irritated
+      size: {x: 1, y: 1, z: 1}
+      flipped: 0
+  - entities:
+    - entityName: Ushi
+      relativeMovePos: 0
+      fadedOut: 0
+      entityImage: {fileID: 0}
+      moveDuration: 2
+      moveSpeedCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      animated: 1
+      animatedState: Ushi_Thinking_LessClothes
+      size: {x: 1, y: 1, z: 1}
+      flipped: 0
+  indexes: 000000000e0000000f00000010000000120000001300000015000000160000001700000018000000190000001b0000001e0000001f000000210000002500000027000000280000002b0000002d0000002e0000002f00000030000000310000003200000033000000340000003500000036000000
+  state: 29

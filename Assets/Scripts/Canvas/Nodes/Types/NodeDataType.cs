@@ -11,4 +11,5 @@ public class NodeDataType
     public string title;
     // indexes 0-4 == N-E-S-W
     public List<string> nextNodeSceneNames;
+    public string packageName;
 }

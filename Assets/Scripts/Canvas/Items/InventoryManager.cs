@@ -4,19 +4,28 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InventoryManager : MonoBehaviour
+public class InventoryManager : ControllerWithWindow
 {
     [Tooltip("The item lookup table data. Associates an item SO with a GUID.")]
     public ItemLookupData itemDataForLookup;
     [Tooltip("The items currently held by the inventory.")]
     public List<ItemQuantityTuple> heldItems;
 
-    [Tooltip("The inventory window container")]
-    public GameObject window;
     [Tooltip("The inventory item entry container")]
     public GameObject entryContainer;
     [Tooltip("Prefab template for the items displayed in the inventory.")]
     public GameObject itemEntryPrefab;
+
+    public void SetItems(ItemCrossSceneDataType loadedItemsData)
+    {
+        heldItems.Clear();
+        foreach (ItemReferenceDataType item in loadedItemsData.items)
+        {
+            ItemData itemData = LookupItem(item.guid);
+            ItemQuantityTuple itemTuple = new(itemData, item.quantity);
+            heldItems.Add(itemTuple);
+        }
+    }
 
     public void AddToInventory(ItemData item, int quantity)
     {
@@ -94,16 +103,6 @@ public class InventoryManager : MonoBehaviour
         return itemDataForLookup.lookupTable[guid];
     }
 
-    public void ToggleWindow()
-    {
-        window.SetActive(!window.activeSelf);
-
-        if (window.activeSelf)
-            Populate();
-        else
-            Depopulate();
-    }
-
     public void Populate()
     {
         foreach (ItemQuantityTuple iqt in heldItems)
@@ -127,5 +126,15 @@ public class InventoryManager : MonoBehaviour
     {
         Depopulate();
         Populate();
+    }
+
+    public override void ToggleWindow()
+    {
+        window.SetActive(!window.activeSelf);
+
+        if (window.activeSelf)
+            Populate();
+        else
+            Depopulate();
     }
 }
