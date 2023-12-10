@@ -86,19 +86,32 @@ public class DialogueController : MonoBehaviour
         bool isNarrator,
         float sizeIncrease)
     {
-        if (text.Equals(""))
+        // TODO: empty text that is replaced by a combined string and is skipped ends up here
+        if (string.IsNullOrEmpty(text))
         {
             HideDialogueContainer();
             return;
         }
 
-        if (speed != 0.0f)
+        bool instant = speed == 0.0f;
+
+        // text scroll has been skipped on combined string
+        // TODO: see below
+        if (instant && _combinedString.Count > 0)
+        {
+            text = string.Join('\n', _combinedString);
+            _combinedString.Clear();
+        }
+
+        // instant speed currently means that the scrolling effect has been skipped
+        // TODO: change when text speed becomes a setting
+        if (!instant && !text.Contains("Debug"))
             AddDialogueToHistory(text, isNarrator ? null : name);
 
         text = $"{text}{animDialogueIcon}";
 
         ShowDialogueContainer();
-        if (speed != 0.0f)
+        if (!instant)
             _currentCoroutine = StartCoroutine(WriteString(text, name, namePos, speed, isNarrator, sizeIncrease));
         else
             UpdateTextbox(text, -1, name, namePos, isNarrator, sizeIncrease);

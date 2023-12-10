@@ -15,4 +15,6 @@ public class QuestData : ScriptableObject
     public bool dayLimited = false;
     [Tooltip("Only relevant when dayLimited is true. Day count when this quest has been last progressed")]
     public int dayLimitedLastTick = -1;
+    [Tooltip("Whether this questline is still work in progress. WIP quests will not be removed from the journal.")]
+    public bool wip = true;
 }

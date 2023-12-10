@@ -58,11 +58,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
-  m_Name: AfSulistyo-gxo1E SDF
+  m_Name: AfSulistyo-gxo1E SDF dialogue
   m_EditorClassIdentifier: 
-  hashCode: 1334485133
+  hashCode: -563564939
   material: {fileID: 8217998590103372352}
-  materialHashCode: 2008117773
+  materialHashCode: 79688117
   m_Version: 1.1.0
   m_SourceFontFileGUID: b7b2ee0ba4bb8d84886b887741272e96
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: b7b2ee0ba4bb8d84886b887741272e96, type: 3}
@@ -3149,12 +3149,12 @@ Material:
     - _OutlineSoftness: 0
     - _OutlineUVSpeedX: 0
     - _OutlineUVSpeedY: 0
-    - _OutlineWidth: 0
+    - _OutlineWidth: 0.1
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
     - _ScaleRatioA: 0.9
     - _ScaleRatioB: 0.73125
-    - _ScaleRatioC: 0.4957627
+    - _ScaleRatioC: 0.34330985
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 0
@@ -3167,10 +3167,10 @@ Material:
     - _StencilWriteMask: 255
     - _TextureHeight: 1024
     - _TextureWidth: 1024
-    - _UnderlayDilate: 0.14
+    - _UnderlayDilate: 1
     - _UnderlayOffsetX: 1
     - _UnderlayOffsetY: -1
-    - _UnderlaySoftness: 0.335
+    - _UnderlaySoftness: 0.13
     - _VertexOffsetX: 0
     - _VertexOffsetY: 0
     - _WeightBold: 0.75

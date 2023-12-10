@@ -1151,8 +1151,8 @@ MonoBehaviour:
     et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
     sanctus est Lorem ipsum dolor sit amet.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: b2c838abc10d5ab41807b9d1fee2c56b, type: 2}
-  m_sharedMaterial: {fileID: 8217998590103372352, guid: b2c838abc10d5ab41807b9d1fee2c56b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: df7bcabd2c2d43440851dd600c990f35, type: 2}
+  m_sharedMaterial: {fileID: 8217998590103372352, guid: df7bcabd2c2d43440851dd600c990f35, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

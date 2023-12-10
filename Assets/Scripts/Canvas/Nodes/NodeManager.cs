@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -171,10 +170,15 @@ public class NodeManager : MonoBehaviour
         if (questInJournal.quest.dayLimited && (questInJournal.quest.dayLimitedLastTick == curDayTick))
             return false;
 
+        bool lastSceneOfQuest = questOnNode.state == questOnNode.quest.questDescs.Count - 1;
+        // this is here so that unfinished quests are not removed from the journal
+        if (lastSceneOfQuest && questOnNode.quest.wip)
+            return false;
+
         // quest is tracked, on node and can be progressed
 
-        // if this is the last scene of the quest
-        if (questOnNode.state == questOnNode.quest.questDescs.Count - 1)
+        // this is the last scene of the quest
+        if (lastSceneOfQuest)
             _journalManager.questStates.Remove(questName);
 
         Debug.Log($"Got quest from journal: {questName} playing scene {questInJournal.state}");
@@ -403,7 +407,8 @@ public class NodeManager : MonoBehaviour
         {
             if (_journalManager.QuestIsTracked(quest)
                 && _journalManager.questStates[quest.quest.questName].state == quest.state
-                && (!quest.quest.dayLimited || quest.quest.dayLimitedLastTick != _dnCycleController.GetCurDayTick()))
+                && (!quest.quest.dayLimited || quest.quest.dayLimitedLastTick != _dnCycleController.GetCurDayTick())
+                && !(quest.state == quest.quest.questDescs.Count - 1 && quest.quest.wip))
             {
                 questIndicator.SetActive(true);
                 break;
