@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using UnityEngine.Windows;
 
 public class SceneDirector : MonoBehaviour
 {
@@ -163,7 +165,7 @@ public class SceneDirector : MonoBehaviour
         string nextScene = nextSceneName;
         if (nextSceneDecidedByFlagManager)
             nextScene = _flagManager.GetNextSceneByFlag(nextScene);
-        if (nextScene != null && !nextScene.Equals(""))
+        if (!string.IsNullOrEmpty(nextScene))
             StartCoroutine(LoadNextScene(nextScene));
     }
 
@@ -343,9 +345,11 @@ public class SceneDirector : MonoBehaviour
             _audioController.PlayNewEffect(curLocData.chapterPopup.popupClip);
             // animation
             chapterPopupContainer.GetComponent<Animation>().Play();
-        }    
+        }
 
         SendStringToDialogue(false);
+
+        ScriptedEffect.InvokeEffects(curLocData.scriptedEffects);
     }
 
     private void ProgressCycleEntities()

@@ -19,11 +19,87 @@ MonoBehaviour:
     nextNodeSceneNames:
     - 
     - 
-    - 
+    - CA_NodeMap_GandrielInn
     - CA_NodeMap_YanbaMain
     packageName: Gandriel
+    travelConditions:
+    - rid: 6485552023845208075
+    - rid: 6485552023845208074
+    travelEffects:
+    - rid: 6485552023845208078
   itemSpawners: []
   questStates:
     m_keys: []
     m_values: []
   defaultQuestStates: []
+  randomTextOnExplore: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 6485552023845208074
+      type: {class: ItemCondition, ns: , asm: Assembly-CSharp}
+      data:
+        conditionName: CoinItemCondition
+        invertCondition: 0
+        writesConditionRefusedText: 1
+        conditionRefusedTextIsSetByScript: 1
+        conditionRefusedText: Required <color=#84D1FF>Coin [COMMON]</color> x 10
+          to travel
+        conditionRefusedTextColor: {r: 1, g: 0, b: 0, a: 1}
+        conditionRequiresFlag: 0
+        conditionRequiredFlagId: 
+        conditionRequiredFlagValue: -1
+        boundConditions:
+          m_keys:
+          - PackageCondition
+          m_values: 00000000
+        requiredItem: {fileID: 11400000, guid: b33ad6dd2ba0db747a74d0130f579357, type: 2}
+        requiredQuantity: 10
+    - rid: 6485552023845208075
+      type: {class: PackageCondition, ns: , asm: Assembly-CSharp}
+      data:
+        conditionName: PackageCondition
+        invertCondition: 0
+        writesConditionRefusedText: 1
+        conditionRefusedTextIsSetByScript: 1
+        conditionRefusedText: Cannot travel outside of Gandriel
+        conditionRefusedTextColor: {r: 1, g: 0, b: 0, a: 1}
+        conditionRequiresFlag: 0
+        conditionRequiredFlagId: 
+        conditionRequiredFlagValue: -1
+        boundConditions:
+          m_keys:
+          - CoinItemCondition
+          m_values: 00000000
+        packageName: Gandriel
+    - rid: 6485552023845208078
+      type: {class: ItemAddEffect, ns: , asm: Assembly-CSharp}
+      data:
+        effectName: ItemAddEffect
+        isNodeEffect: 1
+        conditions:
+        - rid: 6485552023845208081
+        writesEffectText: 0
+        writesEffectTextToNode: 0
+        effectTextIsSetByScript: 1
+        effectText: 'Removed Item: <color=#84D1FF>Coin [COMMON]</color> x 10'
+        effectTextColor: {r: 1, g: 1, b: 1, a: 1}
+        effectTextSpeed: 0.01
+        itemToAdd: {fileID: 11400000, guid: b33ad6dd2ba0db747a74d0130f579357, type: 2}
+        quantityToAdd: -10
+    - rid: 6485552023845208081
+      type: {class: PackageCondition, ns: , asm: Assembly-CSharp}
+      data:
+        conditionName: PackageCondition
+        invertCondition: 1
+        writesConditionRefusedText: 0
+        conditionRefusedTextIsSetByScript: 1
+        conditionRefusedText: Cannot travel outside of Gandriel
+        conditionRefusedTextColor: {r: 1, g: 0, b: 0, a: 1}
+        conditionRequiresFlag: 0
+        conditionRequiredFlagId: 
+        conditionRequiredFlagValue: -1
+        boundConditions:
+          m_keys: []
+          m_values: 
+        packageName: Gandriel

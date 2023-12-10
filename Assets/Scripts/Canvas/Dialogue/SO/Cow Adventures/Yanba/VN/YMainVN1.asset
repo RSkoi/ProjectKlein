@@ -37,6 +37,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: You showed up.
     name: <style="Weaver">Weaver</style>
     namePos: 0
@@ -61,6 +62,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Of course I did!
     name: <style="Elene">Elene</style>
     namePos: 0
@@ -85,6 +87,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: ... Hm.
     name: <style="Weaver">Weaver</style>
     namePos: 0
@@ -109,6 +112,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Here's the package. You'll be the one carrying it.
     name: <style="Weaver">Weaver</style>
     namePos: 0
@@ -133,6 +137,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Weaver presents Elene with a wrapped up... stick, of sorts.
     name: 
     namePos: 0
@@ -157,6 +162,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Oof, h-heavy...
     name: <style="Elene">Elene</style>
     namePos: 0
@@ -181,6 +187,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Elene can't help but wonder whether it's some kind of magic staff.
     name: 
     namePos: 0
@@ -205,6 +212,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: '*giggle*'
     name: <style="Elene">Elene</style>
     namePos: 0
@@ -229,6 +237,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: ...?
     name: <style="Weaver">Weaver</style>
     namePos: 0
@@ -253,6 +262,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: '*sigh*'
     name: <style="Weaver">Weaver</style>
     namePos: 0
@@ -277,6 +287,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Also, this.
     name: <style="Weaver">Weaver</style>
     namePos: 0
@@ -301,6 +312,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: A bag this time. Something clinks and clanks around inside of it.
     name: 
     namePos: 0
@@ -325,6 +337,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Elene tries picking it up, resting the staff on her shoulder.
     name: 
     namePos: 0
@@ -349,6 +362,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Hnnng-- I-I-It's even heavier!
     name: <style="Elene">Elene</style>
     namePos: 0
@@ -373,6 +387,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Now...
     name: <style="Weaver">Weaver</style>
     namePos: 0
@@ -397,6 +412,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: The outskirts of Gandriel aren't far from here, so we'll be going on foot.
     name: <style="Weaver">Weaver</style>
     namePos: 0
@@ -421,6 +437,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Besides, I know a shortcut through the woods.
     name: <style="Weaver">Weaver</style>
     namePos: 0
@@ -445,6 +462,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Also I sure hope you brought provisions with you, as we won't be taking
       any rest breaks.
     name: <style="Weaver">Weaver</style>
@@ -470,6 +488,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: ... Huh?
     name: <style="Elene">Elene</style>
     namePos: 0
@@ -494,6 +513,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: W-W-Wait a second Weaver! I didn't--
     name: <style="Elene">Elene</style>
     namePos: 0
@@ -518,6 +538,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: No whining. We're leaving.
     name: <style="Weaver">Weaver</style>
     namePos: 0
@@ -542,6 +563,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Hold on! How do I--
     name: <style="Elene">Elene</style>
     namePos: 0
@@ -566,6 +588,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: W-Weaver!
     name: <style="Elene">Elene</style>
     namePos: 0
@@ -590,6 +613,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Damn!
     name: <style="Elene">Elene</style>
     namePos: 0
@@ -614,6 +638,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Elene slings the bag over her shoulder, almost falling over backwards in
       the process.
     name: 
@@ -639,6 +664,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: While hunched over, she awkwardly holds on to the bag with one hand, and
       places the wrapped staff on her shoulder with the other one.
     name: 
@@ -664,6 +690,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Weaver has already walked off.
     name: 
     namePos: 0
@@ -688,6 +715,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Wait... for me...
     name: <style="Elene">Elene</style>
     namePos: 0
@@ -712,6 +740,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: ...
     name: 
     namePos: 0
@@ -736,6 +765,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: ......
     name: 
     namePos: 0
@@ -760,6 +790,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Withered ruins pepper the landscape.
     name: 
     namePos: 0
@@ -784,6 +815,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Derelict buildings, walls and forts harbor lost memories of a once imposing
       Gandriel.
     name: 
@@ -809,6 +841,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: The Great City.
     name: 
     namePos: 0
@@ -833,6 +866,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: The Capital.
     name: 
     namePos: 0
@@ -857,6 +891,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Uzh'tomer.
     name: 
     namePos: 0
@@ -881,6 +916,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Few call it that today.
     name: 
     namePos: 0
@@ -905,6 +941,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: To most, it's just Gandriel.
     name: 
     namePos: 0
@@ -929,6 +966,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: To some, it's barely even a city anymore.
     name: 
     namePos: 0
@@ -953,6 +991,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: But it's there, waiting.
     name: 
     namePos: 0
@@ -977,6 +1016,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: With it's bones broken, and jeweled eyes gouged out, it sits and waits
       until each and every last carved stone is conquered by moss.
     name: 
@@ -1002,6 +1042,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: ...
     name: <style="Weaver">Weaver</style>
     namePos: 0
@@ -1026,6 +1067,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: We're here.
     name: <style="Weaver">Weaver</style>
     namePos: 0
@@ -1050,6 +1092,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Elene crashes down on her knees, letting go of both the bag and staff,
       as soon as Weaver spoke the words.
     name: 
@@ -1075,6 +1118,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Hey!! You better watch it!
     name: <style="Weaver">Weaver</style>
     namePos: 0
@@ -1099,6 +1143,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: That fucking thing was more expensive than--
     name: <style="Weaver">Weaver</style>
     namePos: 0
@@ -1123,6 +1168,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: ...
     name: <style="Elene">Elene</style>
     namePos: 0
@@ -1147,6 +1193,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Hmph.
     name: <style="Weaver">Weaver</style>
     namePos: 0
@@ -1171,6 +1218,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Weaver looks towards a battered wall. Its stones are singed black.
     name: 
     namePos: 0
@@ -1195,6 +1243,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: ...
     name: 
     namePos: 0
@@ -1219,6 +1268,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: A figure approaches.
     name: 
     namePos: 0
@@ -1243,6 +1293,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Tah'm, Weaver.
     name: <style="Kamain">?</style>
     namePos: 0
@@ -1267,6 +1318,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: "Kama\xEFn... Tah'm."
     name: <style="Weaver">Weaver</style>
     namePos: 0
@@ -1291,6 +1343,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: ...
     name: <style="Weaver">Weaver</style>
     namePos: 0
@@ -1315,6 +1368,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Are you alone?
     name: <style="Weaver">Weaver</style>
     namePos: 0
@@ -1339,6 +1393,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: I am.
     name: "<style=\"Kamain\">Kama\xEFn</style>"
     namePos: 0
@@ -1363,6 +1418,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: ...
     name: <style="Weaver">Weaver</style>
     namePos: 0
@@ -1387,6 +1443,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Where is Koba?
     name: <style="Weaver">Weaver</style>
     namePos: 0
@@ -1411,6 +1468,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Her presence won't be necessary.
     name: "<style=\"Kamain\">Kama\xEFn</style>"
     namePos: 0
@@ -1435,6 +1493,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Mine will suffice.
     name: "<style=\"Kamain\">Kama\xEFn</style>"
     namePos: 0
@@ -1459,6 +1518,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: ... On that matter.
     name: "<style=\"Kamain\">Kama\xEFn</style>"
     namePos: 0
@@ -1483,6 +1543,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Who's that?
     name: "<style=\"Kamain\">Kama\xEFn</style>"
     namePos: 0
@@ -1507,6 +1568,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: A pack mule. Don't worry about it.
     name: <style="Weaver">Weaver</style>
     namePos: 0
@@ -1531,6 +1593,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: ...
     name: "<style=\"Kamain\">Kama\xEFn</style>"
     namePos: 0
@@ -1555,6 +1618,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: This is exactly the reason for why--
     name: "<style=\"Kamain\">Kama\xEFn</style>"
     namePos: 0
@@ -1579,6 +1643,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: '*sigh* Nevermind.'
     name: "<style=\"Kamain\">Kama\xEFn</style>"
     namePos: 0
@@ -1603,6 +1668,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Hand over what you promised and we'll be done here.
     name: "<style=\"Kamain\">Kama\xEFn</style>"
     namePos: 0
@@ -1627,6 +1693,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Hm.
     name: <style="Weaver">Weaver</style>
     namePos: 0
@@ -1651,6 +1718,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: "After a moment of hesitation, Weaver steps towards Elene, picks up the
       bag and staff, and then hands them over to Kama\xEFn."
     name: 
@@ -1676,6 +1744,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Very well. I'll make sure Koba gets these.
     name: "<style=\"Kamain\">Kama\xEFn</style>"
     namePos: 0
@@ -1700,6 +1769,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: You do that.
     name: <style="Weaver">Weaver</style>
     namePos: 0
@@ -1724,6 +1794,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Can I trust you'll keep your promises?
     name: <style="Weaver">Weaver</style>
     namePos: 0
@@ -1748,6 +1819,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: As I've said once before, it all depends on you.
     name: "<style=\"Kamain\">Kama\xEFn</style>"
     namePos: 0
@@ -1772,6 +1844,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Besides, repeatedly asking for trust makes you seem desperate.
     name: "<style=\"Kamain\">Kama\xEFn</style>"
     namePos: 0
@@ -1796,6 +1869,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Loah'n, Weaver.
     name: "<style=\"Kamain\">Kama\xEFn</style>"
     namePos: 0
@@ -1820,6 +1894,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: "With that, Kama\xEFn walks off."
     name: 
     namePos: 0
@@ -1844,6 +1919,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: ...
     name: <style="Weaver">Weaver</style>
     namePos: 0
@@ -1868,6 +1944,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Loah'n, you fuck.
     name: <style="Weaver">Weaver</style>
     namePos: 0
@@ -1892,6 +1969,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Weaver throws a glance over at Elene, still slumped down and non-responsive.
     name: 
     namePos: 0
@@ -1916,6 +1994,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: You sorry fool.
     name: <style="Weaver">Weaver</style>
     namePos: 0
@@ -1940,6 +2019,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Should've kept to your own kind.
     name: <style="Weaver">Weaver</style>
     namePos: 0
@@ -1964,6 +2044,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: ...
     name: 
     namePos: 0
@@ -1988,6 +2069,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: ......
     name: 
     namePos: 0
@@ -2012,6 +2094,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Where...
     name: <style="Elene">Elene</style>
     namePos: 0
@@ -2036,6 +2119,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Where am I...
     name: <style="Elene">Elene</style>
     namePos: 0
@@ -2060,6 +2144,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Is this... Gandriel?
     name: <style="Elene">Elene</style>
     namePos: 0
@@ -2084,6 +2169,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: We... made it?
     name: <style="Elene">Elene</style>
     namePos: 0
@@ -2108,6 +2194,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: My back hurts so badly...
     name: <style="Elene">Elene</style>
     namePos: 0
@@ -2132,6 +2219,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: I need a bed...
     name: <style="Elene">Elene</style>
     namePos: 0
@@ -2156,6 +2244,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: I just need a soft bed to sleep in...
     name: <style="Elene">Elene</style>
     namePos: 0
@@ -2180,7 +2269,8 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
-  - text: ...
+    scriptedEffects: []
+  - text: 
     name: 
     namePos: 0
     isNarrator: 1
@@ -2204,7 +2294,8 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
-  - text: ......
+    scriptedEffects: []
+  - text: 
     name: 
     namePos: 0
     isNarrator: 1
@@ -2228,6 +2319,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: ... Is this an inn?
     name: <style="Elene">Elene</style>
     namePos: 0
@@ -2252,6 +2344,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: M-Miss? You don't look too good...
     name: <style="MiscName>Innkeeper</style>
     namePos: 0
@@ -2276,6 +2369,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: How much... for a night...?
     name: <style="Elene">Elene</style>
     namePos: 0
@@ -2300,6 +2394,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: ... Five gold.
     name: <style="MiscName>Innkeeper</style>
     namePos: 0
@@ -2324,6 +2419,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Elene rummages about in her pockets...
     name: 
     namePos: 0
@@ -2348,6 +2444,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: These are my last ones...
     name: <style="Elene">Elene</style>
     namePos: 0
@@ -2372,6 +2469,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: ... and hands over five coins to the innkeeper.
     name: 
     namePos: 0
@@ -2396,6 +2494,33 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
+  - text: 
+    name: 
+    namePos: 0
+    isNarrator: 0
+    sizeIncrease: 0
+    hasChoices: 0
+    choices: []
+    hasChapterPopup: 0
+    chapterPopup:
+      text: 
+      pos: 0
+      popupClip:
+        clip: {fileID: 0}
+        priority: 0
+        volume: 0
+        pitch: 0
+        stereoPan: 0
+        loop: 0
+        forceNewInit: 0
+    isConditional: 0
+    conditionalText:
+      text: 
+      flagId: 
+      flagValue: -1
+    scriptedEffects:
+    - rid: 6485552020016070665
   - text: She collapses into the bed as soon as she reaches her room, and passes
       out.
     name: 
@@ -2421,6 +2546,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: ...
     name: 
     namePos: 0
@@ -2445,6 +2571,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: ......
     name: 
     namePos: 0
@@ -2469,6 +2596,7 @@ MonoBehaviour:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   dialogueSpeed:
   - 0.01
   - 0.01
@@ -2572,4 +2700,19 @@ MonoBehaviour:
   - 0.01
   - 0.01
   - 0.01
-  state: 8
+  - 0.01
+  state: 104
+  references:
+    version: 2
+    RefIds:
+    - rid: 6485552020016070665
+      type: {class: ItemAddEffect, ns: , asm: Assembly-CSharp}
+      data:
+        effectName: ItemAddEffect
+        writesEffectText: 1
+        effectTextIsSetByScript: 1
+        effectText: 'Removed Item: <color=#84D1FF>Coin [COMMON]</color> x 5'
+        effectTextColor: {r: 1, g: 1, b: 1, a: 1}
+        effectTextSpeed: 0.01
+        itemToAdd: {fileID: 11400000, guid: b33ad6dd2ba0db747a74d0130f579357, type: 2}
+        quantityToAdd: -5

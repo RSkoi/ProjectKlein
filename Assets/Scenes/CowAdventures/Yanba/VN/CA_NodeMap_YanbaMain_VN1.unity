@@ -153,7 +153,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: ae917bfedfb7bda4ea3567844dbe8543, type: 2}
     - target: {fileID: 562284004597346993, guid: c92d6e0247bd81b4d9306f88d8c1df47, type: 3}
       propertyPath: nextSceneName
-      value: CA_NodeMap_GandrielMain
+      value: CA_NodeMap_GandrielInn
       objectReference: {fileID: 0}
     - target: {fileID: 562284004597346993, guid: c92d6e0247bd81b4d9306f88d8c1df47, type: 3}
       propertyPath: particleSystems

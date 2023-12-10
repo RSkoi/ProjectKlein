@@ -49,11 +49,13 @@ MonoBehaviour:
         pitch: 1
         stereoPan: 0
         loop: 0
+        forceNewInit: 0
     isConditional: 0
     conditionalText:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Finally!
     name: <style="Elene">Elene</style>
     namePos: 0
@@ -72,11 +74,13 @@ MonoBehaviour:
         pitch: 0
         stereoPan: 0
         loop: 0
+        forceNewInit: 0
     isConditional: 0
     conditionalText:
       text: 
       flagId: 
       flagValue: 0
+    scriptedEffects: []
   - text: Elene's shout of joy travels far, making more than a few heads turn towards
       her, but she doesn't seem to notice.
     name: 
@@ -132,11 +136,13 @@ MonoBehaviour:
         pitch: 0
         stereoPan: 0
         loop: 0
+        forceNewInit: 0
     isConditional: 0
     conditionalText:
       text: 
       flagId: 
       flagValue: 0
+    scriptedEffects: []
   - text: Now, what to do first?
     name: <style="Elene">Elene</style>
     namePos: 0
@@ -155,11 +161,13 @@ MonoBehaviour:
         pitch: 0
         stereoPan: 0
         loop: 0
+        forceNewInit: 0
     isConditional: 0
     conditionalText:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Maybe get something to eat? All of that walking made me way too hungry.
     name: <style="Elene">Elene</style>
     namePos: 0
@@ -178,11 +186,13 @@ MonoBehaviour:
         pitch: 0
         stereoPan: 0
         loop: 0
+        forceNewInit: 0
     isConditional: 0
     conditionalText:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: I'm so hungry I could eat a whole cow!
     name: <style="Elene">Elene</style>
     namePos: 0
@@ -201,11 +211,13 @@ MonoBehaviour:
         pitch: 0
         stereoPan: 0
         loop: 0
+        forceNewInit: 0
     isConditional: 0
     conditionalText:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: ...
     name: <style="Elene">Elene</style>
     namePos: 0
@@ -224,11 +236,13 @@ MonoBehaviour:
         pitch: 0
         stereoPan: 0
         loop: 0
+        forceNewInit: 0
     isConditional: 0
     conditionalText:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Wait no, it feels like I shouldn't be saying that...
     name: <style="Elene">Elene</style>
     namePos: 0
@@ -247,11 +261,13 @@ MonoBehaviour:
         pitch: 0
         stereoPan: 0
         loop: 0
+        forceNewInit: 0
     isConditional: 0
     conditionalText:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: ...
     name: 
     namePos: 2
@@ -270,11 +286,13 @@ MonoBehaviour:
         pitch: 0
         stereoPan: 0
         loop: 0
+        forceNewInit: 0
     isConditional: 0
     conditionalText:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: ......
     name: 
     namePos: 2
@@ -293,11 +311,39 @@ MonoBehaviour:
         pitch: 0
         stereoPan: 0
         loop: 0
+        forceNewInit: 0
     isConditional: 0
     conditionalText:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
+  - text: 
+    name: 
+    namePos: 0
+    isNarrator: 0
+    sizeIncrease: 0
+    hasChoices: 0
+    choices: []
+    hasChapterPopup: 0
+    chapterPopup:
+      text: 
+      pos: 0
+      popupClip:
+        clip: {fileID: 0}
+        priority: 0
+        volume: 0
+        pitch: 0
+        stereoPan: 0
+        loop: 0
+        forceNewInit: 0
+    isConditional: 0
+    conditionalText:
+      text: 
+      flagId: 
+      flagValue: -1
+    scriptedEffects:
+    - rid: 6485552020016070667
   - text: '*munch* *munch*'
     name: <style="Elene">Elene</style>
     namePos: 0
@@ -316,11 +362,13 @@ MonoBehaviour:
         pitch: 0
         stereoPan: 0
         loop: 0
+        forceNewInit: 0
     isConditional: 0
     conditionalText:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: After bartering for a piece of bread and sausage with a local, Elene sits
       down on a stump. While it isn't much, anything tastes like a royal feast when
       your stomach is empty.
@@ -341,11 +389,13 @@ MonoBehaviour:
         pitch: 0
         stereoPan: 0
         loop: 0
+        forceNewInit: 0
     isConditional: 0
     conditionalText:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: '*munch* *munch* *munch*'
     name: <style="Elene">Elene</style>
     namePos: 0
@@ -364,11 +414,13 @@ MonoBehaviour:
         pitch: 0
         stereoPan: 0
         loop: 0
+        forceNewInit: 0
     isConditional: 0
     conditionalText:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Being so captivated by her food, she doesn't notice a figure approaching.
     name: 
     namePos: 2
@@ -387,11 +439,13 @@ MonoBehaviour:
         pitch: 0
         stereoPan: 0
         loop: 0
+        forceNewInit: 0
     isConditional: 0
     conditionalText:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: You gotta be kidding me.
     name: <style="Weaver">?</style>
     namePos: 0
@@ -410,11 +464,13 @@ MonoBehaviour:
         pitch: 0
         stereoPan: 0
         loop: 0
+        forceNewInit: 0
     isConditional: 0
     conditionalText:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Hmmgh?
     name: <style="Elene">Elene</style>
     namePos: 0
@@ -433,11 +489,13 @@ MonoBehaviour:
         pitch: 0
         stereoPan: 0
         loop: 0
+        forceNewInit: 0
     isConditional: 0
     conditionalText:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Elene...
     name: <style="Weaver">?</style>
     namePos: 0
@@ -456,11 +514,13 @@ MonoBehaviour:
         pitch: 0
         stereoPan: 0
         loop: 0
+        forceNewInit: 0
     isConditional: 0
     conditionalText:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: What the hell are you doing here?
     name: <style="Weaver">?</style>
     namePos: 0
@@ -479,11 +539,13 @@ MonoBehaviour:
         pitch: 0
         stereoPan: 0
         loop: 0
+        forceNewInit: 0
     isConditional: 0
     conditionalText:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Ohhh, Weaver! Nice seeing you! How have you been?
     name: <style="Elene">Elene</style>
     namePos: 0
@@ -502,11 +564,13 @@ MonoBehaviour:
         pitch: 0
         stereoPan: 0
         loop: 0
+        forceNewInit: 0
     isConditional: 0
     conditionalText:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Spare yourself the pleasantries, Elene.
     name: <style="Weaver">Weaver</style>
     namePos: 0
@@ -525,11 +589,13 @@ MonoBehaviour:
         pitch: 0
         stereoPan: 0
         loop: 0
+        forceNewInit: 0
     isConditional: 0
     conditionalText:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Last time I saw you was back in <style="Tooltip"><link="urs">Urs</link></style>.
       What are you doing on the other side of the continent?
     name: <style="Weaver">Weaver</style>
@@ -549,11 +615,13 @@ MonoBehaviour:
         pitch: 0
         stereoPan: 0
         loop: 0
+        forceNewInit: 0
     isConditional: 0
     conditionalText:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: What I'm doing here? Oh... oh, right! I've been looking for you!
     name: <style="Elene">Elene</style>
     namePos: 0
@@ -572,11 +640,13 @@ MonoBehaviour:
         pitch: 0
         stereoPan: 0
         loop: 0
+        forceNewInit: 0
     isConditional: 0
     conditionalText:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: ... What? Why?
     name: <style="Weaver">Weaver</style>
     namePos: 0
@@ -595,11 +665,13 @@ MonoBehaviour:
         pitch: 0
         stereoPan: 0
         loop: 0
+        forceNewInit: 0
     isConditional: 0
     conditionalText:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: The mages in the <style="Tooltip"><link="ursGuild">Urs Guild</link></style>
       told me that you can only become a true magician if you make the journey from
       <style="Tooltip"><link="urs">Urs</link></style> to <style="Tooltip"><link="gandriel">Gandriel</link></style>
@@ -621,11 +693,13 @@ MonoBehaviour:
         pitch: 0
         stereoPan: 0
         loop: 0
+        forceNewInit: 0
     isConditional: 0
     conditionalText:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: ...
     name: <style="Weaver">Weaver</style>
     namePos: 0
@@ -644,11 +718,13 @@ MonoBehaviour:
         pitch: 0
         stereoPan: 0
         loop: 0
+        forceNewInit: 0
     isConditional: 0
     conditionalText:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: But it's even more complicated than that!
     name: <style="Elene">Elene</style>
     namePos: 0
@@ -667,11 +743,13 @@ MonoBehaviour:
         pitch: 0
         stereoPan: 0
         loop: 0
+        forceNewInit: 0
     isConditional: 0
     conditionalText:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: They told me it only counts if I follow the steps of a <style="Tooltip"><link="titleBearer">Title
       Bearer</link></style>. And the only Title Bearer I know is you! So here I am!
     name: <style="Elene">Elene</style>
@@ -691,11 +769,13 @@ MonoBehaviour:
         pitch: 0
         stereoPan: 0
         loop: 0
+        forceNewInit: 0
     isConditional: 0
     conditionalText:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: I ...
     name: <style="Weaver">Weaver</style>
     namePos: 0
@@ -714,11 +794,13 @@ MonoBehaviour:
         pitch: 0
         stereoPan: 0
         loop: 0
+        forceNewInit: 0
     isConditional: 0
     conditionalText:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: ... Are all mongrels this stupid? I swear, beastmen are something else.
     name: <style="Weaver">Weaver</style>
     namePos: 0
@@ -737,11 +819,13 @@ MonoBehaviour:
         pitch: 0
         stereoPan: 0
         loop: 0
+        forceNewInit: 0
     isConditional: 0
     conditionalText:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Alright, listen closely, you magnificent, rotund idiot.
     name: <style="Weaver">Weaver</style>
     namePos: 0
@@ -760,11 +844,13 @@ MonoBehaviour:
         pitch: 0
         stereoPan: 0
         loop: 0
+        forceNewInit: 0
     isConditional: 0
     conditionalText:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: R-Rotund?
     name: <style="Elene">Elene</style>
     namePos: 0
@@ -783,11 +869,13 @@ MonoBehaviour:
         pitch: 0
         stereoPan: 0
         loop: 0
+        forceNewInit: 0
     isConditional: 0
     conditionalText:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: You've been tricked. There is no such thing as a pilgrimage for mages,
       none I know of anyway.
     name: <style="Weaver">Weaver</style>
@@ -807,11 +895,13 @@ MonoBehaviour:
         pitch: 0
         stereoPan: 0
         loop: 0
+        forceNewInit: 0
     isConditional: 0
     conditionalText:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: People don't like beastmen. You're too dumbwitted to have noticed, but
       pretty much everyone in the <style="Tooltip"><link="ursGuild">Urs Guild</link></style>
       wanted you gone for a long time now.
@@ -832,11 +922,13 @@ MonoBehaviour:
         pitch: 0
         stereoPan: 0
         loop: 0
+        forceNewInit: 0
     isConditional: 0
     conditionalText:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: No way! T-They even gave me detailed directions on which route to take!
     name: <style="Elene">Elene</style>
     namePos: 0
@@ -855,11 +947,13 @@ MonoBehaviour:
         pitch: 0
         stereoPan: 0
         loop: 0
+        forceNewInit: 0
     isConditional: 0
     conditionalText:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Elene takes out her leatherbound journal, skips a few pages and then triumphantly
       presents her scribbles to Weaver.
     name: 
@@ -879,11 +973,13 @@ MonoBehaviour:
         pitch: 0
         stereoPan: 0
         loop: 0
+        forceNewInit: 0
     isConditional: 0
     conditionalText:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: 'Here: first visit Dinkytown, then go towards Big Mountain Valley making
       a turn for Cowstadt after, and then wait for a carriage to Gravesend. But no
       matter who I ask, no one has ever heard of Dinkytown before!'
@@ -904,11 +1000,13 @@ MonoBehaviour:
         pitch: 0
         stereoPan: 0
         loop: 0
+        forceNewInit: 0
     isConditional: 0
     conditionalText:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Do you think it's some sort of hidden city? ... Oh! Maybe it's a nickname!
     name: <style="Elene">Elene</style>
     namePos: 0
@@ -927,11 +1025,13 @@ MonoBehaviour:
         pitch: 0
         stereoPan: 0
         loop: 0
+        forceNewInit: 0
     isConditional: 0
     conditionalText:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: ... Listening to this makes me question how you've managed to survive all
       on your own. I am positively shocked.
     name: <style="Weaver">Weaver</style>
@@ -951,11 +1051,13 @@ MonoBehaviour:
         pitch: 0
         stereoPan: 0
         loop: 0
+        forceNewInit: 0
     isConditional: 0
     conditionalText:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Forget it. How did you know where I'd be?
     name: <style="Weaver">Weaver</style>
     namePos: 0
@@ -974,11 +1076,13 @@ MonoBehaviour:
         pitch: 0
         stereoPan: 0
         loop: 0
+        forceNewInit: 0
     isConditional: 0
     conditionalText:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: You've mentioned to me Yanba being your hometown once. Here, I wrote it
       down! During the Yearthanking celebrations, in the inn!
     name: <style="Elene">Elene</style>
@@ -998,11 +1102,13 @@ MonoBehaviour:
         pitch: 0
         stereoPan: 0
         loop: 0
+        forceNewInit: 0
     isConditional: 0
     conditionalText:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Hm. And that alone prompted you to gamble on me being here?
     name: <style="Weaver">Weaver</style>
     namePos: 0
@@ -1021,11 +1127,13 @@ MonoBehaviour:
         pitch: 0
         stereoPan: 0
         loop: 0
+        forceNewInit: 0
     isConditional: 0
     conditionalText:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: No matter now. Still... you're in luck.
     name: <style="Weaver">Weaver</style>
     namePos: 0
@@ -1044,11 +1152,13 @@ MonoBehaviour:
         pitch: 0
         stereoPan: 0
         loop: 0
+        forceNewInit: 0
     isConditional: 0
     conditionalText:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: I've been meaning to go to <style="Tooltip"><link="gandriel">the capital</link></style>
       to deliver a package myself. Why not come along? I could use a helping hand.
       Or two.
@@ -1069,11 +1179,13 @@ MonoBehaviour:
         pitch: 0
         stereoPan: 0
         loop: 0
+        forceNewInit: 0
     isConditional: 0
     conditionalText:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Oh! Yes, gladly!
     name: <style="Elene">Elene</style>
     namePos: 0
@@ -1092,11 +1204,13 @@ MonoBehaviour:
         pitch: 0
         stereoPan: 0
         loop: 0
+        forceNewInit: 0
     isConditional: 0
     conditionalText:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Is that perhaps what following in the steps of a Title Bearer means? The
       others told me--
     name: <style="Elene">Elene</style>
@@ -1116,11 +1230,13 @@ MonoBehaviour:
         pitch: 0
         stereoPan: 0
         loop: 0
+        forceNewInit: 0
     isConditional: 0
     conditionalText:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: They, uh, meant it in a metaphorical way!
     name: <style="Weaver">Weaver</style>
     namePos: 0
@@ -1139,11 +1255,13 @@ MonoBehaviour:
         pitch: 0
         stereoPan: 0
         loop: 0
+        forceNewInit: 0
     isConditional: 0
     conditionalText:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Metaphorical way?
     name: <style="Elene">Elene</style>
     namePos: 0
@@ -1162,11 +1280,13 @@ MonoBehaviour:
         pitch: 0
         stereoPan: 0
         loop: 0
+        forceNewInit: 0
     isConditional: 0
     conditionalText:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Yes. "Following in one's steps" is like a master-student-type thing, right?
       By following the master's orders, the student can eventually become a master
       themself, you see?
@@ -1187,11 +1307,13 @@ MonoBehaviour:
         pitch: 0
         stereoPan: 0
         loop: 0
+        forceNewInit: 0
     isConditional: 0
     conditionalText:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Ohhh... does that mean that from now on I'm your student?
     name: <style="Elene">Elene</style>
     namePos: 0
@@ -1210,11 +1332,13 @@ MonoBehaviour:
         pitch: 0
         stereoPan: 0
         loop: 0
+        forceNewInit: 0
     isConditional: 0
     conditionalText:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Ugh... sure. Just, don't tell anyone, alright? It'll be our little secret.
     name: <style="Weaver">Weaver</style>
     namePos: 0
@@ -1233,11 +1357,13 @@ MonoBehaviour:
         pitch: 0
         stereoPan: 0
         loop: 0
+        forceNewInit: 0
     isConditional: 0
     conditionalText:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: I like secrets!
     name: <style="Elene">Elene</style>
     namePos: 0
@@ -1256,11 +1382,13 @@ MonoBehaviour:
         pitch: 0
         stereoPan: 0
         loop: 0
+        forceNewInit: 0
     isConditional: 0
     conditionalText:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Good girl. Head over to the marketplace during sunset, we'll meet up then.
       For now I have places to be at.
     name: <style="Weaver">Weaver</style>
@@ -1280,11 +1408,13 @@ MonoBehaviour:
         pitch: 0
         stereoPan: 0
         loop: 0
+        forceNewInit: 0
     isConditional: 0
     conditionalText:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: Yes, I understand! Until later, master!
     name: <style="Elene">Elene</style>
     namePos: 0
@@ -1303,11 +1433,13 @@ MonoBehaviour:
         pitch: 0
         stereoPan: 0
         loop: 0
+        forceNewInit: 0
     isConditional: 0
     conditionalText:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: ...
     name: <style="Weaver">Weaver</style>
     namePos: 0
@@ -1326,11 +1458,13 @@ MonoBehaviour:
         pitch: 0
         stereoPan: 0
         loop: 0
+        forceNewInit: 0
     isConditional: 0
     conditionalText:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   - text: (Now... I wonder what I should do until sunset?)
     name: <style="Elene">Elene</style>
     namePos: 0
@@ -1367,11 +1501,13 @@ MonoBehaviour:
         pitch: 0
         stereoPan: 0
         loop: 0
+        forceNewInit: 0
     isConditional: 0
     conditionalText:
       text: 
       flagId: 
       flagValue: -1
+    scriptedEffects: []
   dialogueSpeed:
   - 0.01
   - 0.01
@@ -1383,4 +1519,19 @@ MonoBehaviour:
   - 0.01
   - 0.1
   - 0.01
-  state: 21
+  - 0.01
+  state: 19
+  references:
+    version: 2
+    RefIds:
+    - rid: 6485552020016070667
+      type: {class: ItemAddEffect, ns: , asm: Assembly-CSharp}
+      data:
+        effectName: ItemAddEffect
+        writesEffectText: 1
+        effectTextIsSetByScript: 1
+        effectText: 'Removed Item: <color=#84D1FF>Coin [COMMON]</color> x 2'
+        effectTextColor: {r: 1, g: 1, b: 1, a: 1}
+        effectTextSpeed: 0.01
+        itemToAdd: {fileID: 11400000, guid: b33ad6dd2ba0db747a74d0130f579357, type: 2}
+        quantityToAdd: -2

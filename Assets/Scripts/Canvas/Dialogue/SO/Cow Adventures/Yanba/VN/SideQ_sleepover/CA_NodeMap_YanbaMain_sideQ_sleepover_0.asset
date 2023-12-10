@@ -20,6 +20,24 @@ MonoBehaviour:
     sizeIncrease: 0
     hasChoices: 0
     choices: []
+    hasChapterPopup: 0
+    chapterPopup:
+      text: 
+      pos: 0
+      popupClip:
+        clip: {fileID: 0}
+        priority: 0
+        volume: 0
+        pitch: 0
+        stereoPan: 0
+        loop: 0
+        forceNewInit: 0
+    isConditional: 0
+    conditionalText:
+      text: 
+      flagId: 
+      flagValue: -1
+    scriptedEffects: []
   - text: (So this is Yanba...)
     name: <style="Elene">Elene</style>
     namePos: 0
@@ -27,6 +45,24 @@ MonoBehaviour:
     sizeIncrease: 0
     hasChoices: 0
     choices: []
+    hasChapterPopup: 0
+    chapterPopup:
+      text: 
+      pos: 0
+      popupClip:
+        clip: {fileID: 0}
+        priority: 0
+        volume: 0
+        pitch: 0
+        stereoPan: 0
+        loop: 0
+        forceNewInit: 0
+    isConditional: 0
+    conditionalText:
+      text: 
+      flagId: 
+      flagValue: -1
+    scriptedEffects: []
   - text: (It's quite a cute little village.)
     name: <style="Elene">Elene</style>
     namePos: 0
@@ -34,6 +70,24 @@ MonoBehaviour:
     sizeIncrease: 0
     hasChoices: 0
     choices: []
+    hasChapterPopup: 0
+    chapterPopup:
+      text: 
+      pos: 0
+      popupClip:
+        clip: {fileID: 0}
+        priority: 0
+        volume: 0
+        pitch: 0
+        stereoPan: 0
+        loop: 0
+        forceNewInit: 0
+    isConditional: 0
+    conditionalText:
+      text: 
+      flagId: 
+      flagValue: -1
+    scriptedEffects: []
   - text: <sprite name="textarrow_sprites_34"><sprite name="textarrow_sprites_34">
     name: <style="Elene">Elene</style>
     namePos: 0
@@ -41,6 +95,24 @@ MonoBehaviour:
     sizeIncrease: 0
     hasChoices: 0
     choices: []
+    hasChapterPopup: 0
+    chapterPopup:
+      text: 
+      pos: 0
+      popupClip:
+        clip: {fileID: 0}
+        priority: 0
+        volume: 0
+        pitch: 0
+        stereoPan: 0
+        loop: 0
+        forceNewInit: 0
+    isConditional: 0
+    conditionalText:
+      text: 
+      flagId: 
+      flagValue: -1
+    scriptedEffects: []
   - text: Hm?
     name: <style="Elene">Elene</style>
     namePos: 0
@@ -48,6 +120,24 @@ MonoBehaviour:
     sizeIncrease: 0
     hasChoices: 0
     choices: []
+    hasChapterPopup: 0
+    chapterPopup:
+      text: 
+      pos: 0
+      popupClip:
+        clip: {fileID: 0}
+        priority: 0
+        volume: 0
+        pitch: 0
+        stereoPan: 0
+        loop: 0
+        forceNewInit: 0
+    isConditional: 0
+    conditionalText:
+      text: 
+      flagId: 
+      flagValue: -1
+    scriptedEffects: []
   - text: While walking along the main road, Elene spots a bunch of kids peeking
       out of a corner.
     name: 
@@ -56,6 +146,24 @@ MonoBehaviour:
     sizeIncrease: 0
     hasChoices: 0
     choices: []
+    hasChapterPopup: 0
+    chapterPopup:
+      text: 
+      pos: 0
+      popupClip:
+        clip: {fileID: 0}
+        priority: 0
+        volume: 0
+        pitch: 0
+        stereoPan: 0
+        loop: 0
+        forceNewInit: 0
+    isConditional: 0
+    conditionalText:
+      text: 
+      flagId: 
+      flagValue: -1
+    scriptedEffects: []
   - text: Eventually, one musters up his courage and steps in front of her.
     name: 
     namePos: 2
@@ -63,6 +171,24 @@ MonoBehaviour:
     sizeIncrease: 0
     hasChoices: 0
     choices: []
+    hasChapterPopup: 0
+    chapterPopup:
+      text: 
+      pos: 0
+      popupClip:
+        clip: {fileID: 0}
+        priority: 0
+        volume: 0
+        pitch: 0
+        stereoPan: 0
+        loop: 0
+        forceNewInit: 0
+    isConditional: 0
+    conditionalText:
+      text: 
+      flagId: 
+      flagValue: -1
+    scriptedEffects: []
   - text: Oh. Hello there!
     name: <style="Elene">Elene</style>
     namePos: 0
@@ -70,6 +196,24 @@ MonoBehaviour:
     sizeIncrease: 0
     hasChoices: 0
     choices: []
+    hasChapterPopup: 0
+    chapterPopup:
+      text: 
+      pos: 0
+      popupClip:
+        clip: {fileID: 0}
+        priority: 0
+        volume: 0
+        pitch: 0
+        stereoPan: 0
+        loop: 0
+        forceNewInit: 0
+    isConditional: 0
+    conditionalText:
+      text: 
+      flagId: 
+      flagValue: -1
+    scriptedEffects: []
   - text: ...
     name: <style="Eric">Boy</color>
     namePos: 0
@@ -77,6 +221,24 @@ MonoBehaviour:
     sizeIncrease: 0
     hasChoices: 0
     choices: []
+    hasChapterPopup: 0
+    chapterPopup:
+      text: 
+      pos: 0
+      popupClip:
+        clip: {fileID: 0}
+        priority: 0
+        volume: 0
+        pitch: 0
+        stereoPan: 0
+        loop: 0
+        forceNewInit: 0
+    isConditional: 0
+    conditionalText:
+      text: 
+      flagId: 
+      flagValue: -1
+    scriptedEffects: []
   - text: ...? What's the matter? Can I help you somehow?
     name: <style="Elene">Elene</style>
     namePos: 0
@@ -84,6 +246,24 @@ MonoBehaviour:
     sizeIncrease: 0
     hasChoices: 0
     choices: []
+    hasChapterPopup: 0
+    chapterPopup:
+      text: 
+      pos: 0
+      popupClip:
+        clip: {fileID: 0}
+        priority: 0
+        volume: 0
+        pitch: 0
+        stereoPan: 0
+        loop: 0
+        forceNewInit: 0
+    isConditional: 0
+    conditionalText:
+      text: 
+      flagId: 
+      flagValue: -1
+    scriptedEffects: []
   - text: ... M-My...
     name: <style="Eric">Boy</color>
     namePos: 0
@@ -91,6 +271,24 @@ MonoBehaviour:
     sizeIncrease: 0
     hasChoices: 0
     choices: []
+    hasChapterPopup: 0
+    chapterPopup:
+      text: 
+      pos: 0
+      popupClip:
+        clip: {fileID: 0}
+        priority: 0
+        volume: 0
+        pitch: 0
+        stereoPan: 0
+        loop: 0
+        forceNewInit: 0
+    isConditional: 0
+    conditionalText:
+      text: 
+      flagId: 
+      flagValue: -1
+    scriptedEffects: []
   - text: ... My?
     name: <style="Elene">Elene</style>
     namePos: 0
@@ -98,6 +296,24 @@ MonoBehaviour:
     sizeIncrease: 0
     hasChoices: 0
     choices: []
+    hasChapterPopup: 0
+    chapterPopup:
+      text: 
+      pos: 0
+      popupClip:
+        clip: {fileID: 0}
+        priority: 0
+        volume: 0
+        pitch: 0
+        stereoPan: 0
+        loop: 0
+        forceNewInit: 0
+    isConditional: 0
+    conditionalText:
+      text: 
+      flagId: 
+      flagValue: -1
+    scriptedEffects: []
   - text: My name's Eric!
     name: <style="Eric">Boy</color>
     namePos: 0
@@ -105,6 +321,24 @@ MonoBehaviour:
     sizeIncrease: 0
     hasChoices: 0
     choices: []
+    hasChapterPopup: 0
+    chapterPopup:
+      text: 
+      pos: 0
+      popupClip:
+        clip: {fileID: 0}
+        priority: 0
+        volume: 0
+        pitch: 0
+        stereoPan: 0
+        loop: 0
+        forceNewInit: 0
+    isConditional: 0
+    conditionalText:
+      text: 
+      flagId: 
+      flagValue: -1
+    scriptedEffects: []
   - text: I see! Nice to meet you Eric!
     name: <style="Elene">Elene</style>
     namePos: 0
@@ -112,6 +346,24 @@ MonoBehaviour:
     sizeIncrease: 0
     hasChoices: 0
     choices: []
+    hasChapterPopup: 0
+    chapterPopup:
+      text: 
+      pos: 0
+      popupClip:
+        clip: {fileID: 0}
+        priority: 0
+        volume: 0
+        pitch: 0
+        stereoPan: 0
+        loop: 0
+        forceNewInit: 0
+    isConditional: 0
+    conditionalText:
+      text: 
+      flagId: 
+      flagValue: -1
+    scriptedEffects: []
   - text: Umm, are those horns real?
     name: <style="Eric">Eric</color>
     namePos: 0
@@ -119,6 +371,24 @@ MonoBehaviour:
     sizeIncrease: 0
     hasChoices: 0
     choices: []
+    hasChapterPopup: 0
+    chapterPopup:
+      text: 
+      pos: 0
+      popupClip:
+        clip: {fileID: 0}
+        priority: 0
+        volume: 0
+        pitch: 0
+        stereoPan: 0
+        loop: 0
+        forceNewInit: 0
+    isConditional: 0
+    conditionalText:
+      text: 
+      flagId: 
+      flagValue: -1
+    scriptedEffects: []
   - text: Yes, they are.
     name: <style="Elene">Elene</style>
     namePos: 0
@@ -126,6 +396,24 @@ MonoBehaviour:
     sizeIncrease: 0
     hasChoices: 0
     choices: []
+    hasChapterPopup: 0
+    chapterPopup:
+      text: 
+      pos: 0
+      popupClip:
+        clip: {fileID: 0}
+        priority: 0
+        volume: 0
+        pitch: 0
+        stereoPan: 0
+        loop: 0
+        forceNewInit: 0
+    isConditional: 0
+    conditionalText:
+      text: 
+      flagId: 
+      flagValue: -1
+    scriptedEffects: []
   - text: Y-You're very pretty! What's y-your name, big sister?
     name: <style="Eric">Eric</color>
     namePos: 0
@@ -133,6 +421,24 @@ MonoBehaviour:
     sizeIncrease: 0
     hasChoices: 0
     choices: []
+    hasChapterPopup: 0
+    chapterPopup:
+      text: 
+      pos: 0
+      popupClip:
+        clip: {fileID: 0}
+        priority: 0
+        volume: 0
+        pitch: 0
+        stereoPan: 0
+        loop: 0
+        forceNewInit: 0
+    isConditional: 0
+    conditionalText:
+      text: 
+      flagId: 
+      flagValue: -1
+    scriptedEffects: []
   - text: W-Woah, he really said it!
     name: <style="MiscName">Kids</color>
     namePos: 0
@@ -140,6 +446,24 @@ MonoBehaviour:
     sizeIncrease: 0
     hasChoices: 0
     choices: []
+    hasChapterPopup: 0
+    chapterPopup:
+      text: 
+      pos: 0
+      popupClip:
+        clip: {fileID: 0}
+        priority: 0
+        volume: 0
+        pitch: 0
+        stereoPan: 0
+        loop: 0
+        forceNewInit: 0
+    isConditional: 0
+    conditionalText:
+      text: 
+      flagId: 
+      flagValue: -1
+    scriptedEffects: []
   - text: Go go Eric!
     name: <style="MiscName">Kids</color>
     namePos: 0
@@ -147,6 +471,24 @@ MonoBehaviour:
     sizeIncrease: 0
     hasChoices: 0
     choices: []
+    hasChapterPopup: 0
+    chapterPopup:
+      text: 
+      pos: 0
+      popupClip:
+        clip: {fileID: 0}
+        priority: 0
+        volume: 0
+        pitch: 0
+        stereoPan: 0
+        loop: 0
+        forceNewInit: 0
+    isConditional: 0
+    conditionalText:
+      text: 
+      flagId: 
+      flagValue: -1
+    scriptedEffects: []
   - text: Hehe, t-thank you! I'm Elene!
     name: <style="Elene">Elene</style>
     namePos: 0
@@ -154,6 +496,24 @@ MonoBehaviour:
     sizeIncrease: 0
     hasChoices: 0
     choices: []
+    hasChapterPopup: 0
+    chapterPopup:
+      text: 
+      pos: 0
+      popupClip:
+        clip: {fileID: 0}
+        priority: 0
+        volume: 0
+        pitch: 0
+        stereoPan: 0
+        loop: 0
+        forceNewInit: 0
+    isConditional: 0
+    conditionalText:
+      text: 
+      flagId: 
+      flagValue: -1
+    scriptedEffects: []
   - text: Umm, big sis Elene, did you come from afar?
     name: <style="Eric">Eric</color>
     namePos: 0
@@ -161,6 +521,24 @@ MonoBehaviour:
     sizeIncrease: 0
     hasChoices: 0
     choices: []
+    hasChapterPopup: 0
+    chapterPopup:
+      text: 
+      pos: 0
+      popupClip:
+        clip: {fileID: 0}
+        priority: 0
+        volume: 0
+        pitch: 0
+        stereoPan: 0
+        loop: 0
+        forceNewInit: 0
+    isConditional: 0
+    conditionalText:
+      text: 
+      flagId: 
+      flagValue: -1
+    scriptedEffects: []
   - text: Yes, from very far away! You could say I'm visiting a friend.
     name: <style="Elene">Elene</style>
     namePos: 0
@@ -168,6 +546,24 @@ MonoBehaviour:
     sizeIncrease: 0
     hasChoices: 0
     choices: []
+    hasChapterPopup: 0
+    chapterPopup:
+      text: 
+      pos: 0
+      popupClip:
+        clip: {fileID: 0}
+        priority: 0
+        volume: 0
+        pitch: 0
+        stereoPan: 0
+        loop: 0
+        forceNewInit: 0
+    isConditional: 0
+    conditionalText:
+      text: 
+      flagId: 
+      flagValue: -1
+    scriptedEffects: []
   - text: My mom told me only mercenaries and traders come here, and you don't look
       like the old traders at all! Are you a mercenary?
     name: <style="Eric">Eric</style>
@@ -176,6 +572,24 @@ MonoBehaviour:
     sizeIncrease: 0
     hasChoices: 0
     choices: []
+    hasChapterPopup: 0
+    chapterPopup:
+      text: 
+      pos: 0
+      popupClip:
+        clip: {fileID: 0}
+        priority: 0
+        volume: 0
+        pitch: 0
+        stereoPan: 0
+        loop: 0
+        forceNewInit: 0
+    isConditional: 0
+    conditionalText:
+      text: 
+      flagId: 
+      flagValue: -1
+    scriptedEffects: []
   - text: Well, something like that, yeah! I'm actually trying to become a mage right
       now!
     name: <style="Elene">Elene</style>
@@ -184,6 +598,24 @@ MonoBehaviour:
     sizeIncrease: 0
     hasChoices: 0
     choices: []
+    hasChapterPopup: 0
+    chapterPopup:
+      text: 
+      pos: 0
+      popupClip:
+        clip: {fileID: 0}
+        priority: 0
+        volume: 0
+        pitch: 0
+        stereoPan: 0
+        loop: 0
+        forceNewInit: 0
+    isConditional: 0
+    conditionalText:
+      text: 
+      flagId: 
+      flagValue: -1
+    scriptedEffects: []
   - text: Both Eric's and the huddled up kids' eyes light right up.
     name: 
     namePos: 2
@@ -191,6 +623,24 @@ MonoBehaviour:
     sizeIncrease: 0
     hasChoices: 0
     choices: []
+    hasChapterPopup: 0
+    chapterPopup:
+      text: 
+      pos: 0
+      popupClip:
+        clip: {fileID: 0}
+        priority: 0
+        volume: 0
+        pitch: 0
+        stereoPan: 0
+        loop: 0
+        forceNewInit: 0
+    isConditional: 0
+    conditionalText:
+      text: 
+      flagId: 
+      flagValue: -1
+    scriptedEffects: []
   - text: A m-m-mage?! Wow, you're amazing big sis!
     name: <style="Eric">Eric</style>
     namePos: 0
@@ -198,6 +648,24 @@ MonoBehaviour:
     sizeIncrease: 0
     hasChoices: 0
     choices: []
+    hasChapterPopup: 0
+    chapterPopup:
+      text: 
+      pos: 0
+      popupClip:
+        clip: {fileID: 0}
+        priority: 0
+        volume: 0
+        pitch: 0
+        stereoPan: 0
+        loop: 0
+        forceNewInit: 0
+    isConditional: 0
+    conditionalText:
+      text: 
+      flagId: 
+      flagValue: -1
+    scriptedEffects: []
   - text: Mage! A real mage!
     name: <style="MiscName">Kids</style>
     namePos: 0
@@ -205,6 +673,24 @@ MonoBehaviour:
     sizeIncrease: 0
     hasChoices: 0
     choices: []
+    hasChapterPopup: 0
+    chapterPopup:
+      text: 
+      pos: 0
+      popupClip:
+        clip: {fileID: 0}
+        priority: 0
+        volume: 0
+        pitch: 0
+        stereoPan: 0
+        loop: 0
+        forceNewInit: 0
+    isConditional: 0
+    conditionalText:
+      text: 
+      flagId: 
+      flagValue: -1
+    scriptedEffects: []
   - text: You must travel a lot then! Can you tell me a story from your adventures?
     name: <style="Eric">Eric</color>
     namePos: 0
@@ -212,6 +698,24 @@ MonoBehaviour:
     sizeIncrease: 0
     hasChoices: 0
     choices: []
+    hasChapterPopup: 0
+    chapterPopup:
+      text: 
+      pos: 0
+      popupClip:
+        clip: {fileID: 0}
+        priority: 0
+        volume: 0
+        pitch: 0
+        stereoPan: 0
+        loop: 0
+        forceNewInit: 0
+    isConditional: 0
+    conditionalText:
+      text: 
+      flagId: 
+      flagValue: -1
+    scriptedEffects: []
   - text: A story...? Well, I wasn't--
     name: <style="Elene">Elene</style>
     namePos: 0
@@ -219,6 +723,24 @@ MonoBehaviour:
     sizeIncrease: 0
     hasChoices: 0
     choices: []
+    hasChapterPopup: 0
+    chapterPopup:
+      text: 
+      pos: 0
+      popupClip:
+        clip: {fileID: 0}
+        priority: 0
+        volume: 0
+        pitch: 0
+        stereoPan: 0
+        loop: 0
+        forceNewInit: 0
+    isConditional: 0
+    conditionalText:
+      text: 
+      flagId: 
+      flagValue: -1
+    scriptedEffects: []
   - text: Pretty please? I really want to hear one!
     name: <style="Eric">Eric</color>
     namePos: 0
@@ -226,6 +748,24 @@ MonoBehaviour:
     sizeIncrease: 0
     hasChoices: 0
     choices: []
+    hasChapterPopup: 0
+    chapterPopup:
+      text: 
+      pos: 0
+      popupClip:
+        clip: {fileID: 0}
+        priority: 0
+        volume: 0
+        pitch: 0
+        stereoPan: 0
+        loop: 0
+        forceNewInit: 0
+    isConditional: 0
+    conditionalText:
+      text: 
+      flagId: 
+      flagValue: -1
+    scriptedEffects: []
   - text: How about this? I'll tell you one the next time I come to visit!
     name: <style="Elene">Elene</style>
     namePos: 0
@@ -233,6 +773,24 @@ MonoBehaviour:
     sizeIncrease: 0
     hasChoices: 0
     choices: []
+    hasChapterPopup: 0
+    chapterPopup:
+      text: 
+      pos: 0
+      popupClip:
+        clip: {fileID: 0}
+        priority: 0
+        volume: 0
+        pitch: 0
+        stereoPan: 0
+        loop: 0
+        forceNewInit: 0
+    isConditional: 0
+    conditionalText:
+      text: 
+      flagId: 
+      flagValue: -1
+    scriptedEffects: []
   - text: But how do I know you'll come back?
     name: <style="Eric">Eric</color>
     namePos: 0
@@ -240,6 +798,24 @@ MonoBehaviour:
     sizeIncrease: 0
     hasChoices: 0
     choices: []
+    hasChapterPopup: 0
+    chapterPopup:
+      text: 
+      pos: 0
+      popupClip:
+        clip: {fileID: 0}
+        priority: 0
+        volume: 0
+        pitch: 0
+        stereoPan: 0
+        loop: 0
+        forceNewInit: 0
+    isConditional: 0
+    conditionalText:
+      text: 
+      flagId: 
+      flagValue: -1
+    scriptedEffects: []
   - text: I'll make sure to! I promise!
     name: <style="Elene">Elene</style>
     namePos: 0
@@ -247,6 +823,24 @@ MonoBehaviour:
     sizeIncrease: 0
     hasChoices: 0
     choices: []
+    hasChapterPopup: 0
+    chapterPopup:
+      text: 
+      pos: 0
+      popupClip:
+        clip: {fileID: 0}
+        priority: 0
+        volume: 0
+        pitch: 0
+        stereoPan: 0
+        loop: 0
+        forceNewInit: 0
+    isConditional: 0
+    conditionalText:
+      text: 
+      flagId: 
+      flagValue: -1
+    scriptedEffects: []
   - text: ... You promise?
     name: <style="Eric">Eric</color>
     namePos: 0
@@ -254,6 +848,24 @@ MonoBehaviour:
     sizeIncrease: 0
     hasChoices: 0
     choices: []
+    hasChapterPopup: 0
+    chapterPopup:
+      text: 
+      pos: 0
+      popupClip:
+        clip: {fileID: 0}
+        priority: 0
+        volume: 0
+        pitch: 0
+        stereoPan: 0
+        loop: 0
+        forceNewInit: 0
+    isConditional: 0
+    conditionalText:
+      text: 
+      flagId: 
+      flagValue: -1
+    scriptedEffects: []
   - text: Yeah!
     name: <style="Elene">Elene</style>
     namePos: 0
@@ -261,6 +873,24 @@ MonoBehaviour:
     sizeIncrease: 0
     hasChoices: 0
     choices: []
+    hasChapterPopup: 0
+    chapterPopup:
+      text: 
+      pos: 0
+      popupClip:
+        clip: {fileID: 0}
+        priority: 0
+        volume: 0
+        pitch: 0
+        stereoPan: 0
+        loop: 0
+        forceNewInit: 0
+    isConditional: 0
+    conditionalText:
+      text: 
+      flagId: 
+      flagValue: -1
+    scriptedEffects: []
   - text: Then you also have to promise to come visit me at our house!
     name: <style="Eric">Eric</color>
     namePos: 0
@@ -268,6 +898,24 @@ MonoBehaviour:
     sizeIncrease: 0
     hasChoices: 0
     choices: []
+    hasChapterPopup: 0
+    chapterPopup:
+      text: 
+      pos: 0
+      popupClip:
+        clip: {fileID: 0}
+        priority: 0
+        volume: 0
+        pitch: 0
+        stereoPan: 0
+        loop: 0
+        forceNewInit: 0
+    isConditional: 0
+    conditionalText:
+      text: 
+      flagId: 
+      flagValue: -1
+    scriptedEffects: []
   - text: I bet my brothers would like to hear a story from you too! And I can show
       them how cool of a friend I've made today!
     name: <style="Eric">Eric</color>
@@ -276,6 +924,24 @@ MonoBehaviour:
     sizeIncrease: 0
     hasChoices: 0
     choices: []
+    hasChapterPopup: 0
+    chapterPopup:
+      text: 
+      pos: 0
+      popupClip:
+        clip: {fileID: 0}
+        priority: 0
+        volume: 0
+        pitch: 0
+        stereoPan: 0
+        loop: 0
+        forceNewInit: 0
+    isConditional: 0
+    conditionalText:
+      text: 
+      flagId: 
+      flagValue: -1
+    scriptedEffects: []
   - text: Hehe, sounds like fun! We have a deal then! Here, I'll write it down in
       my journal right now!
     name: <style="Elene">Elene</style>
@@ -284,6 +950,50 @@ MonoBehaviour:
     sizeIncrease: 0
     hasChoices: 0
     choices: []
+    hasChapterPopup: 0
+    chapterPopup:
+      text: 
+      pos: 0
+      popupClip:
+        clip: {fileID: 0}
+        priority: 0
+        volume: 0
+        pitch: 0
+        stereoPan: 0
+        loop: 0
+        forceNewInit: 0
+    isConditional: 0
+    conditionalText:
+      text: 
+      flagId: 
+      flagValue: -1
+    scriptedEffects: []
+  - text: 
+    name: 
+    namePos: 0
+    isNarrator: 0
+    sizeIncrease: 0
+    hasChoices: 0
+    choices: []
+    hasChapterPopup: 0
+    chapterPopup:
+      text: 
+      pos: 0
+      popupClip:
+        clip: {fileID: 0}
+        priority: 0
+        volume: 0
+        pitch: 0
+        stereoPan: 0
+        loop: 0
+        forceNewInit: 0
+    isConditional: 0
+    conditionalText:
+      text: 
+      flagId: 
+      flagValue: -1
+    scriptedEffects:
+    - rid: 6485552020016070669
   - text: Thank you so much, big sis Elene! Please visit soon!
     name: <style="Eric">Eric</color>
     namePos: 0
@@ -291,6 +1001,24 @@ MonoBehaviour:
     sizeIncrease: 0
     hasChoices: 0
     choices: []
+    hasChapterPopup: 0
+    chapterPopup:
+      text: 
+      pos: 0
+      popupClip:
+        clip: {fileID: 0}
+        priority: 0
+        volume: 0
+        pitch: 0
+        stereoPan: 0
+        loop: 0
+        forceNewInit: 0
+    isConditional: 0
+    conditionalText:
+      text: 
+      flagId: 
+      flagValue: -1
+    scriptedEffects: []
   - text: You're welcome, and I will! Bye-bye!
     name: <style="Elene">Elene</style>
     namePos: 0
@@ -298,6 +1026,24 @@ MonoBehaviour:
     sizeIncrease: 0
     hasChoices: 0
     choices: []
+    hasChapterPopup: 0
+    chapterPopup:
+      text: 
+      pos: 0
+      popupClip:
+        clip: {fileID: 0}
+        priority: 0
+        volume: 0
+        pitch: 0
+        stereoPan: 0
+        loop: 0
+        forceNewInit: 0
+    isConditional: 0
+    conditionalText:
+      text: 
+      flagId: 
+      flagValue: -1
+    scriptedEffects: []
   - text: After saying their goodbyes, Elene walks off, the kids' excited chatter
       behind her getting quieter with each step.
     name: 
@@ -306,6 +1052,24 @@ MonoBehaviour:
     sizeIncrease: 0
     hasChoices: 0
     choices: []
+    hasChapterPopup: 0
+    chapterPopup:
+      text: 
+      pos: 0
+      popupClip:
+        clip: {fileID: 0}
+        priority: 0
+        volume: 0
+        pitch: 0
+        stereoPan: 0
+        loop: 0
+        forceNewInit: 0
+    isConditional: 0
+    conditionalText:
+      text: 
+      flagId: 
+      flagValue: -1
+    scriptedEffects: []
   - text: An hour later, Elene finishes exploring the village.
     name: 
     namePos: 0
@@ -313,6 +1077,24 @@ MonoBehaviour:
     sizeIncrease: 0
     hasChoices: 0
     choices: []
+    hasChapterPopup: 0
+    chapterPopup:
+      text: 
+      pos: 0
+      popupClip:
+        clip: {fileID: 0}
+        priority: 0
+        volume: 0
+        pitch: 0
+        stereoPan: 0
+        loop: 0
+        forceNewInit: 0
+    isConditional: 0
+    conditionalText:
+      text: 
+      flagId: 
+      flagValue: -1
+    scriptedEffects: []
   dialogueSpeed:
   - 0.01
   - 0.01
@@ -354,4 +1136,22 @@ MonoBehaviour:
   - 0.01
   - 0.01
   - 0.01
+  - 0.01
   state: 43
+  references:
+    version: 2
+    RefIds:
+    - rid: 6485552020016070669
+      type: {class: TrackQuestEffect, ns: , asm: Assembly-CSharp}
+      data:
+        effectName: TrackQuestEffect
+        writesEffectText: 1
+        effectTextIsSetByScript: 1
+        effectText: 'Debug: DefaultEffectName'
+        effectTextColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+        effectTextSpeed: 0.01
+        questToTrack:
+          quest: {fileID: 11400000, guid: 37b022f26d2dedc4db20925814184705, type: 2}
+          state: 0
+        setsQuestState: 1
+        incrementTrackedQuestValue: 0

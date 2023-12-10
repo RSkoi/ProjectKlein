@@ -114,7 +114,7 @@ public class SaveController : ControllerWithWindow
 
         SaveFileDataType data = _dataToLoad;
 
-        if (data.sceneName != null && !data.sceneName.Equals(""))
+        if (!string.IsNullOrEmpty(data.sceneName))
             StartCoroutine(LoadNextScene(data.sceneName));
         else
             _asyncLoadingScene = null;
@@ -326,7 +326,7 @@ public class SaveController : ControllerWithWindow
 
         quicksave.save = DataSaver.LoadData<SaveFileDataType>("quicksave");
 
-        if (quicksave.save.sceneName != null && !quicksave.save.sceneName.Equals(""))
+        if (!string.IsNullOrEmpty(quicksave.save.sceneName))
             StartCoroutine(LoadNextScene(quicksave.save.sceneName));
         else
             _asyncLoadingScene = null;

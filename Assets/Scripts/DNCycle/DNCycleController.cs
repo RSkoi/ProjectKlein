@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class DNCycleController : MonoBehaviour
 {
-    public readonly static string PACKAGE_IDENTIFIER = "CA_NodeMap_";
     public readonly static string SPENT_DAYS_FLAG_NAME = "SPENT_DAYS_AMOUNT";
 
     private FlagManager _flagManager;

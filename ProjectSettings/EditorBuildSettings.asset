@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CowAdventures/Yanba/VN/CA_NodeMap_YanbaMain_VN1.unity
     guid: dbe820ba9d56fb741927cd83197b0764
+  - enabled: 1
+    path: Assets/Scenes/CowAdventures/Gandriel/CA_NodeMap_GandrielInn.unity
+    guid: d8919a852df12c847b9ff329d161a6a8
   m_configObjects: {}

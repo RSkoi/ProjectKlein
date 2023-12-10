@@ -28,7 +28,9 @@ MonoBehaviour:
       animated: 1
       animatedState: Ushi_Idle2_LessClothes
       size: {x: 1, y: 1, z: 1}
+      posOffset: {x: 0, y: 0}
       flipped: 0
+      prefabType: 0
   - entities:
     - entityName: Ushi
       relativeMovePos: -250
@@ -44,7 +46,9 @@ MonoBehaviour:
       animated: 1
       animatedState: Ushi_Idle2_LessClothes
       size: {x: 1, y: 1, z: 1}
+      posOffset: {x: 0, y: 0}
       flipped: 0
+      prefabType: 0
     - entityName: Weaver
       relativeMovePos: 250
       fadedOut: 0
@@ -59,7 +63,9 @@ MonoBehaviour:
       animated: 1
       animatedState: Weaver_Idle
       size: {x: 1, y: 1, z: 1}
+      posOffset: {x: 0, y: 0}
       flipped: 0
+      prefabType: 0
   - entities:
     - entityName: Ushi
       relativeMovePos: -250
@@ -75,7 +81,9 @@ MonoBehaviour:
       animated: 1
       animatedState: Ushi_Idle2_LessClothes
       size: {x: 1, y: 1, z: 1}
+      posOffset: {x: 0, y: 0}
       flipped: 0
+      prefabType: 0
     - entityName: Weaver
       relativeMovePos: 0
       fadedOut: 1
@@ -126,7 +134,9 @@ MonoBehaviour:
       animated: 1
       animatedState: Weaver_Idle
       size: {x: 1, y: 1, z: 1}
+      posOffset: {x: 0, y: 0}
       flipped: 0
+      prefabType: 0
   - entities:
     - entityName: Ushi
       relativeMovePos: -250
@@ -142,7 +152,9 @@ MonoBehaviour:
       animated: 1
       animatedState: Ushi_Idle2_LessClothes
       size: {x: 1, y: 1, z: 1}
+      posOffset: {x: 0, y: 0}
       flipped: 0
+      prefabType: 0
     - entityName: Weaver
       relativeMovePos: 0
       fadedOut: 0
@@ -157,7 +169,9 @@ MonoBehaviour:
       animated: 1
       animatedState: Weaver_Idle
       size: {x: 1, y: 1, z: 1}
+      posOffset: {x: 0, y: 0}
       flipped: 0
+      prefabType: 0
   - entities:
     - entityName: Ushi
       relativeMovePos: -250
@@ -173,7 +187,9 @@ MonoBehaviour:
       animated: 1
       animatedState: Ushi_Surprised_LessClothes
       size: {x: 1, y: 1, z: 1}
+      posOffset: {x: 0, y: 0}
       flipped: 0
+      prefabType: 0
     - entityName: Weaver
       relativeMovePos: 0
       fadedOut: 1
@@ -188,7 +204,9 @@ MonoBehaviour:
       animated: 1
       animatedState: Weaver_Idle
       size: {x: 1, y: 1, z: 1}
+      posOffset: {x: 0, y: 0}
       flipped: 0
+      prefabType: 0
   - entities:
     - entityName: Ushi
       relativeMovePos: -250
@@ -204,7 +222,9 @@ MonoBehaviour:
       animated: 1
       animatedState: Ushi_Surprised_LessClothes
       size: {x: 1, y: 1, z: 1}
+      posOffset: {x: 0, y: 0}
       flipped: 0
+      prefabType: 0
     - entityName: Weaver
       relativeMovePos: 0
       fadedOut: 0
@@ -219,7 +239,9 @@ MonoBehaviour:
       animated: 1
       animatedState: Weaver_Idle
       size: {x: 1, y: 1, z: 1}
+      posOffset: {x: 0, y: 0}
       flipped: 0
+      prefabType: 0
   - entities:
     - entityName: Ushi
       relativeMovePos: -250
@@ -235,7 +257,9 @@ MonoBehaviour:
       animated: 1
       animatedState: Ushi_Thinking_LessClothes
       size: {x: 1, y: 1, z: 1}
+      posOffset: {x: 0, y: 0}
       flipped: 0
+      prefabType: 0
     - entityName: Weaver
       relativeMovePos: 0
       fadedOut: 1
@@ -250,7 +274,9 @@ MonoBehaviour:
       animated: 1
       animatedState: Weaver_Idle
       size: {x: 1, y: 1, z: 1}
+      posOffset: {x: 0, y: 0}
       flipped: 0
+      prefabType: 0
   - entities:
     - entityName: Ushi
       relativeMovePos: -250
@@ -266,7 +292,9 @@ MonoBehaviour:
       animated: 1
       animatedState: Ushi_Thinking_LessClothes
       size: {x: 1, y: 1, z: 1}
+      posOffset: {x: 0, y: 0}
       flipped: 0
+      prefabType: 0
     - entityName: Weaver
       relativeMovePos: 0
       fadedOut: 0
@@ -281,7 +309,9 @@ MonoBehaviour:
       animated: 1
       animatedState: Weaver_Idle
       size: {x: 1, y: 1, z: 1}
+      posOffset: {x: 0, y: 0}
       flipped: 0
+      prefabType: 0
   - entities:
     - entityName: Ushi
       relativeMovePos: -250
@@ -297,7 +327,9 @@ MonoBehaviour:
       animated: 1
       animatedState: Ushi_Idle2_LessClothes
       size: {x: 1, y: 1, z: 1}
+      posOffset: {x: 0, y: 0}
       flipped: 0
+      prefabType: 0
     - entityName: Weaver
       relativeMovePos: 0
       fadedOut: 1
@@ -312,7 +344,9 @@ MonoBehaviour:
       animated: 1
       animatedState: Weaver_Idle
       size: {x: 1, y: 1, z: 1}
+      posOffset: {x: 0, y: 0}
       flipped: 0
+      prefabType: 0
   - entities:
     - entityName: Ushi
       relativeMovePos: -250
@@ -328,7 +362,9 @@ MonoBehaviour:
       animated: 1
       animatedState: Ushi_Idle2_LessClothes
       size: {x: 1, y: 1, z: 1}
+      posOffset: {x: 0, y: 0}
       flipped: 0
+      prefabType: 0
     - entityName: Weaver
       relativeMovePos: 0
       fadedOut: 0
@@ -343,7 +379,9 @@ MonoBehaviour:
       animated: 1
       animatedState: Weaver_Surprised
       size: {x: 1, y: 1, z: 1}
+      posOffset: {x: 0, y: 0}
       flipped: 0
+      prefabType: 0
   - entities:
     - entityName: Ushi
       relativeMovePos: -250
@@ -359,7 +397,9 @@ MonoBehaviour:
       animated: 1
       animatedState: Ushi_Thinking_LessClothes
       size: {x: 1, y: 1, z: 1}
+      posOffset: {x: 0, y: 0}
       flipped: 0
+      prefabType: 0
     - entityName: Weaver
       relativeMovePos: 0
       fadedOut: 1
@@ -374,7 +414,9 @@ MonoBehaviour:
       animated: 1
       animatedState: Weaver_Surprised
       size: {x: 1, y: 1, z: 1}
+      posOffset: {x: 0, y: 0}
       flipped: 0
+      prefabType: 0
   - entities:
     - entityName: Ushi
       relativeMovePos: -250
@@ -390,7 +432,9 @@ MonoBehaviour:
       animated: 1
       animatedState: Ushi_Idle2_LessClothes
       size: {x: 1, y: 1, z: 1}
+      posOffset: {x: 0, y: 0}
       flipped: 0
+      prefabType: 0
     - entityName: Weaver
       relativeMovePos: 0
       fadedOut: 0
@@ -405,7 +449,9 @@ MonoBehaviour:
       animated: 1
       animatedState: Weaver_Irritated
       size: {x: 1, y: 1, z: 1}
+      posOffset: {x: 0, y: 0}
       flipped: 0
+      prefabType: 0
   - entities:
     - entityName: Ushi
       relativeMovePos: -250
@@ -421,7 +467,9 @@ MonoBehaviour:
       animated: 1
       animatedState: Ushi_Thinking_LessClothes
       size: {x: 1, y: 1, z: 1}
+      posOffset: {x: 0, y: 0}
       flipped: 0
+      prefabType: 0
     - entityName: Weaver
       relativeMovePos: 0
       fadedOut: 1
@@ -436,7 +484,9 @@ MonoBehaviour:
       animated: 1
       animatedState: Weaver_Irritated
       size: {x: 1, y: 1, z: 1}
+      posOffset: {x: 0, y: 0}
       flipped: 0
+      prefabType: 0
   - entities:
     - entityName: Ushi
       relativeMovePos: -250
@@ -452,7 +502,9 @@ MonoBehaviour:
       animated: 1
       animatedState: Ushi_Thinking_LessClothes
       size: {x: 1, y: 1, z: 1}
+      posOffset: {x: 0, y: 0}
       flipped: 0
+      prefabType: 0
     - entityName: Weaver
       relativeMovePos: 0
       fadedOut: 0
@@ -467,7 +519,9 @@ MonoBehaviour:
       animated: 1
       animatedState: Weaver_Thinking
       size: {x: 1, y: 1, z: 1}
+      posOffset: {x: 0, y: 0}
       flipped: 0
+      prefabType: 0
   - entities:
     - entityName: Ushi
       relativeMovePos: -250
@@ -483,7 +537,9 @@ MonoBehaviour:
       animated: 1
       animatedState: Ushi_Surprised_LessClothes
       size: {x: 1, y: 1, z: 1}
+      posOffset: {x: 0, y: 0}
       flipped: 0
+      prefabType: 0
     - entityName: Weaver
       relativeMovePos: 0
       fadedOut: 1
@@ -498,7 +554,9 @@ MonoBehaviour:
       animated: 1
       animatedState: Weaver_Thinking
       size: {x: 1, y: 1, z: 1}
+      posOffset: {x: 0, y: 0}
       flipped: 0
+      prefabType: 0
   - entities:
     - entityName: Ushi
       relativeMovePos: -250
@@ -514,7 +572,9 @@ MonoBehaviour:
       animated: 1
       animatedState: Ushi_Surprised_LessClothes
       size: {x: 1, y: 1, z: 1}
+      posOffset: {x: 0, y: 0}
       flipped: 0
+      prefabType: 0
     - entityName: Weaver
       relativeMovePos: 0
       fadedOut: 0
@@ -529,7 +589,9 @@ MonoBehaviour:
       animated: 1
       animatedState: Weaver_Irritated
       size: {x: 1, y: 1, z: 1}
+      posOffset: {x: 0, y: 0}
       flipped: 0
+      prefabType: 0
   - entities:
     - entityName: Ushi
       relativeMovePos: -250
@@ -545,7 +607,9 @@ MonoBehaviour:
       animated: 1
       animatedState: Ushi_Idle2_LessClothes
       size: {x: 1, y: 1, z: 1}
+      posOffset: {x: 0, y: 0}
       flipped: 0
+      prefabType: 0
     - entityName: Weaver
       relativeMovePos: 0
       fadedOut: 1
@@ -560,7 +624,9 @@ MonoBehaviour:
       animated: 1
       animatedState: Weaver_Idle
       size: {x: 1, y: 1, z: 1}
+      posOffset: {x: 0, y: 0}
       flipped: 0
+      prefabType: 0
   - entities:
     - entityName: Ushi
       relativeMovePos: -250
@@ -576,7 +642,9 @@ MonoBehaviour:
       animated: 1
       animatedState: Ushi_Idle2_LessClothes
       size: {x: 1, y: 1, z: 1}
+      posOffset: {x: 0, y: 0}
       flipped: 0
+      prefabType: 0
     - entityName: Weaver
       relativeMovePos: 0
       fadedOut: 0
@@ -591,7 +659,9 @@ MonoBehaviour:
       animated: 1
       animatedState: Weaver_Idle
       size: {x: 1, y: 1, z: 1}
+      posOffset: {x: 0, y: 0}
       flipped: 0
+      prefabType: 0
   - entities:
     - entityName: Ushi
       relativeMovePos: -250
@@ -607,7 +677,9 @@ MonoBehaviour:
       animated: 1
       animatedState: Ushi_Idle2_LessClothes
       size: {x: 1, y: 1, z: 1}
+      posOffset: {x: 0, y: 0}
       flipped: 0
+      prefabType: 0
     - entityName: Weaver
       relativeMovePos: 0
       fadedOut: 1
@@ -622,7 +694,9 @@ MonoBehaviour:
       animated: 1
       animatedState: Weaver_Idle
       size: {x: 1, y: 1, z: 1}
+      posOffset: {x: 0, y: 0}
       flipped: 0
+      prefabType: 0
   - entities:
     - entityName: Ushi
       relativeMovePos: -250
@@ -638,7 +712,9 @@ MonoBehaviour:
       animated: 1
       animatedState: Ushi_Idle2_LessClothes
       size: {x: 1, y: 1, z: 1}
+      posOffset: {x: 0, y: 0}
       flipped: 0
+      prefabType: 0
     - entityName: Weaver
       relativeMovePos: 0
       fadedOut: 0
@@ -653,7 +729,9 @@ MonoBehaviour:
       animated: 1
       animatedState: Weaver_Surprised
       size: {x: 1, y: 1, z: 1}
+      posOffset: {x: 0, y: 0}
       flipped: 0
+      prefabType: 0
   - entities:
     - entityName: Ushi
       relativeMovePos: -250
@@ -669,7 +747,9 @@ MonoBehaviour:
       animated: 1
       animatedState: Ushi_Thinking_LessClothes
       size: {x: 1, y: 1, z: 1}
+      posOffset: {x: 0, y: 0}
       flipped: 0
+      prefabType: 0
     - entityName: Weaver
       relativeMovePos: 0
       fadedOut: 1
@@ -684,7 +764,9 @@ MonoBehaviour:
       animated: 1
       animatedState: Weaver_Surprised
       size: {x: 1, y: 1, z: 1}
+      posOffset: {x: 0, y: 0}
       flipped: 0
+      prefabType: 0
   - entities:
     - entityName: Ushi
       relativeMovePos: -250
@@ -700,7 +782,9 @@ MonoBehaviour:
       animated: 1
       animatedState: Ushi_Thinking_LessClothes
       size: {x: 1, y: 1, z: 1}
+      posOffset: {x: 0, y: 0}
       flipped: 0
+      prefabType: 0
     - entityName: Weaver
       relativeMovePos: 0
       fadedOut: 0
@@ -715,7 +799,9 @@ MonoBehaviour:
       animated: 1
       animatedState: Weaver_Idle
       size: {x: 1, y: 1, z: 1}
+      posOffset: {x: 0, y: 0}
       flipped: 0
+      prefabType: 0
   - entities:
     - entityName: Ushi
       relativeMovePos: -250
@@ -731,7 +817,9 @@ MonoBehaviour:
       animated: 1
       animatedState: Ushi_Understand_LessClothes
       size: {x: 1, y: 1, z: 1}
+      posOffset: {x: 0, y: 0}
       flipped: 0
+      prefabType: 0
     - entityName: Weaver
       relativeMovePos: 0
       fadedOut: 1
@@ -746,7 +834,9 @@ MonoBehaviour:
       animated: 1
       animatedState: Weaver_Idle
       size: {x: 1, y: 1, z: 1}
+      posOffset: {x: 0, y: 0}
       flipped: 0
+      prefabType: 0
   - entities:
     - entityName: Ushi
       relativeMovePos: -250
@@ -762,7 +852,9 @@ MonoBehaviour:
       animated: 1
       animatedState: Ushi_Understand_LessClothes
       size: {x: 1, y: 1, z: 1}
+      posOffset: {x: 0, y: 0}
       flipped: 0
+      prefabType: 0
     - entityName: Weaver
       relativeMovePos: 0
       fadedOut: 0
@@ -777,7 +869,9 @@ MonoBehaviour:
       animated: 1
       animatedState: Weaver_Irritated
       size: {x: 1, y: 1, z: 1}
+      posOffset: {x: 0, y: 0}
       flipped: 0
+      prefabType: 0
   - entities:
     - entityName: Ushi
       relativeMovePos: -250
@@ -793,7 +887,9 @@ MonoBehaviour:
       animated: 1
       animatedState: Ushi_Idle2_LessClothes
       size: {x: 1, y: 1, z: 1}
+      posOffset: {x: 0, y: 0}
       flipped: 0
+      prefabType: 0
     - entityName: Weaver
       relativeMovePos: 0
       fadedOut: 1
@@ -808,7 +904,9 @@ MonoBehaviour:
       animated: 1
       animatedState: Weaver_Irritated
       size: {x: 1, y: 1, z: 1}
+      posOffset: {x: 0, y: 0}
       flipped: 0
+      prefabType: 0
   - entities:
     - entityName: Ushi
       relativeMovePos: -250
@@ -824,7 +922,9 @@ MonoBehaviour:
       animated: 1
       animatedState: Ushi_Idle2_LessClothes
       size: {x: 1, y: 1, z: 1}
+      posOffset: {x: 0, y: 0}
       flipped: 0
+      prefabType: 0
     - entityName: Weaver
       relativeMovePos: 0
       fadedOut: 0
@@ -839,7 +939,9 @@ MonoBehaviour:
       animated: 1
       animatedState: Weaver_Idle
       size: {x: 1, y: 1, z: 1}
+      posOffset: {x: 0, y: 0}
       flipped: 0
+      prefabType: 0
   - entities:
     - entityName: Ushi
       relativeMovePos: -250
@@ -855,7 +957,9 @@ MonoBehaviour:
       animated: 1
       animatedState: Ushi_Idle2_LessClothes
       size: {x: 1, y: 1, z: 1}
+      posOffset: {x: 0, y: 0}
       flipped: 0
+      prefabType: 0
     - entityName: Weaver
       relativeMovePos: 0
       fadedOut: 1
@@ -870,7 +974,9 @@ MonoBehaviour:
       animated: 1
       animatedState: Weaver_Idle
       size: {x: 1, y: 1, z: 1}
+      posOffset: {x: 0, y: 0}
       flipped: 0
+      prefabType: 0
   - entities:
     - entityName: Ushi
       relativeMovePos: -250
@@ -895,7 +1001,9 @@ MonoBehaviour:
       animated: 1
       animatedState: Ushi_Idle2_LessClothes
       size: {x: 1, y: 1, z: 1}
+      posOffset: {x: 0, y: 0}
       flipped: 0
+      prefabType: 0
     - entityName: Weaver
       relativeMovePos: 0
       fadedOut: 0
@@ -910,7 +1018,9 @@ MonoBehaviour:
       animated: 1
       animatedState: Weaver_Irritated
       size: {x: 1, y: 1, z: 1}
+      posOffset: {x: 0, y: 0}
       flipped: 0
+      prefabType: 0
   - entities:
     - entityName: Ushi
       relativeMovePos: 0
@@ -926,6 +1036,8 @@ MonoBehaviour:
       animated: 1
       animatedState: Ushi_Thinking_LessClothes
       size: {x: 1, y: 1, z: 1}
+      posOffset: {x: 0, y: 0}
       flipped: 0
-  indexes: 000000000e0000000f00000010000000120000001300000015000000160000001700000018000000190000001b0000001e0000001f000000210000002500000027000000280000002b0000002d0000002e0000002f00000030000000310000003200000033000000340000003500000036000000
-  state: 29
+      prefabType: 0
+  indexes: 000000000f00000010000000110000001300000014000000160000001700000018000000190000001a0000001c0000001f00000020000000220000002600000028000000290000002c0000002e0000002f0000003000000031000000320000003300000034000000350000003600000037000000
+  state: 9

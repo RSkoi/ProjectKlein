@@ -80,7 +80,6 @@ public class InventoryManager : ControllerWithWindow
 
             if (iqt.quantity >= quantity)
                 return true;
-            break;
         }
 
         return false;

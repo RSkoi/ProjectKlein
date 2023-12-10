@@ -12,4 +12,8 @@ public class NodeDataType
     // indexes 0-4 == N-E-S-W
     public List<string> nextNodeSceneNames;
     public string packageName;
+    [SerializeReference]
+    public List<ScriptedCondition> travelConditions = new();
+    [SerializeReference]
+    public List<ScriptedEffect> travelEffects = new();
 }

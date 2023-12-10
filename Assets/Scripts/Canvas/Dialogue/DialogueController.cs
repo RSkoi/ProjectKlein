@@ -1,4 +1,6 @@
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -28,9 +30,10 @@ public class DialogueController : MonoBehaviour
     [Tooltip("The animated TMP sprite asset that will be inserted at the end of a dialogue slide.")]
     public string animDialogueIcon = "<sprite anim=\"0,33,60\">";
 
-    private Coroutine currentCoroutine;
+    private Coroutine _currentCoroutine;
     // this is here so fontSize increase is not lost after changing it in the settings
-    private float currentFontIncrease = 0f;
+    private float _currentFontIncrease = 0f;
+    private readonly List<string> _combinedString = new();
 
     private void Awake()
     {
@@ -45,12 +48,34 @@ public class DialogueController : MonoBehaviour
         dialogueContainer.SetActive(dialogueContainerDefaultVisible);
 
         SetFontSize(_settingsController.settings.fontSize);
+        OnFinishedString.AddListener(ClearCombinedString);
     }
 
     public void StopWriting()
     {
-        if (currentCoroutine != null)
-            StopCoroutine(currentCoroutine);
+        if (_currentCoroutine != null)
+            StopCoroutine(_currentCoroutine);
+    }
+
+    public void ShowStringCombined(
+        string text,
+        string name,
+        LocalisationNamePosEnum namePos,
+        float speed,
+        bool isNarrator,
+        float sizeIncrease)
+    {
+        if (!_combinedString.Contains(text))
+        {
+            _combinedString.Add(text);
+            StopWriting();
+            ShowString(string.Join('\n', _combinedString), name, namePos, speed, isNarrator, sizeIncrease);
+        }
+    }
+
+    public void ClearCombinedString()
+    {
+        _combinedString.Clear();
     }
 
     public void ShowString(
@@ -74,7 +99,7 @@ public class DialogueController : MonoBehaviour
 
         ShowDialogueContainer();
         if (speed != 0.0f)
-            currentCoroutine = StartCoroutine(WriteString(text, name, namePos, speed, isNarrator, sizeIncrease));
+            _currentCoroutine = StartCoroutine(WriteString(text, name, namePos, speed, isNarrator, sizeIncrease));
         else
             UpdateTextbox(text, -1, name, namePos, isNarrator, sizeIncrease);
     }
@@ -97,7 +122,7 @@ public class DialogueController : MonoBehaviour
         }
 
         OnFinishedString.Invoke();
-        currentCoroutine = null;
+        _currentCoroutine = null;
     }
 
     private int GetTextIndexSkipRichText(string text, int i)
@@ -116,7 +141,7 @@ public class DialogueController : MonoBehaviour
         bool isNarrator,
         float sizeIncrease)
     {
-        currentFontIncrease = sizeIncrease;
+        _currentFontIncrease = sizeIncrease;
         SetFontSize(_settingsController.settings.fontSize);
 
         if (i < 0)
@@ -159,7 +184,7 @@ public class DialogueController : MonoBehaviour
 
     private void AddDialogueToHistory(string text, string name)
     {
-        if (name != null)
+        if (!string.IsNullOrEmpty(name))
             _historyController.AddLine(name, text);
         else
             _historyController.AddLine(text);
@@ -194,7 +219,7 @@ public class DialogueController : MonoBehaviour
         if (sizeIncreaseFactor == 0f)
             sizeIncreaseFactor = 1f;
 
-        sizeIncreaseFactor += currentFontIncrease;
+        sizeIncreaseFactor += _currentFontIncrease;
         textBox.fontSize = sizeIncreaseFactor * _originalFontSize;
         //textBoxName.fontSize = (sizeIncreaseFactor * _originalNameFontSize) + textNameFontSizeOffset;
     }

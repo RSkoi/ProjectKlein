@@ -12,4 +12,9 @@ public class ItemData : ScriptableObject
     public Sprite itemSprite;
     [Tooltip("The rarity classification of this item.")]
     public ItemRarityEnum rarity = ItemRarityEnum.COMMON;
+
+    public override string ToString()
+    {
+        return $"<color=#{(int)rarity:X6}>{itemName} [{rarity}]</color>";
+    }
 }

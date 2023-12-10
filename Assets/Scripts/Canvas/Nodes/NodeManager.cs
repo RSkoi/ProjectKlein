@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,6 +40,11 @@ public class NodeManager : MonoBehaviour
 
     private float _originalTitleFontSize;
     private float _originalDescFontSize;
+
+    [HideInInspector]
+    public readonly static string PACKAGE_IDENTIFIER = "CA_NodeMap_";
+    [HideInInspector]
+    public string _travelNextPackageAndSceneName;
 
     private PlayAnimationFromController viewCharacter;
 
@@ -181,14 +187,17 @@ public class NodeManager : MonoBehaviour
 
     public bool SpawnRandomItem()
     {
-        ItemSpawnerDataType itemSpawner = nodeData.itemSpawners[Random.Range(0, nodeData.itemSpawners.Count - 1)];
+        if (nodeData.itemSpawners.Count == 0)
+            return false;
+
+        ItemSpawnerDataType itemSpawner = nodeData.itemSpawners[UnityEngine.Random.Range(0, nodeData.itemSpawners.Count - 1)];
         // spawner is empty, tough luck
         if (itemSpawner.spawnerCapacity == 0)
             return false;
 
         ItemData item = itemSpawner.item;
         int quantityUpperRange = itemSpawner.spawnerCapacity == -1 ? itemSpawner.quantityRangeMax : itemSpawner.spawnerCapacity;
-        int quantity = Random.Range(1, Mathf.Min(itemSpawner.quantityRangeMax, quantityUpperRange));
+        int quantity = UnityEngine.Random.Range(1, Mathf.Min(itemSpawner.quantityRangeMax, quantityUpperRange));
 
         if (itemSpawner.spawnerCapacity != -1)
             itemSpawner.spawnerCapacity -= quantity;
@@ -202,7 +211,7 @@ public class NodeManager : MonoBehaviour
     {
         _inventoryManager.AddToInventory(item, quantity);
 
-        AddToDesc($"Found <color=#{(int)item.rarity:X6}>{item.itemName} [{item.rarity}]</color> x {quantity}");
+        AddToDesc($"Found {item} x {quantity}");
     }
 
     private bool AddRandomTextToDesc()
@@ -225,7 +234,7 @@ public class NodeManager : MonoBehaviour
         if (validTextTypes.Count == 0)
             return false;
 
-        NodeTextType randomTextType = validTextTypes[Random.Range(0, validTextTypes.Count)];
+        NodeTextType randomTextType = validTextTypes[UnityEngine.Random.Range(0, validTextTypes.Count)];
         AddToDesc(randomTextType.text);
         if (!randomTextType.viewCharAnim.Equals(""))
             viewCharacter.PlayAnimation(randomTextType.viewCharAnim);
@@ -315,17 +324,33 @@ public class NodeManager : MonoBehaviour
 
     public void Travel(string sceneName)
     {
-        if (sceneName == null || sceneName.Equals(""))
+        if (string.IsNullOrEmpty(sceneName))
             return;
 
-        // day night cycle on 
-        int nextNodeNamePackageIndex = sceneName.IndexOf(DNCycleController.PACKAGE_IDENTIFIER);
+        _travelNextPackageAndSceneName = "Unknown";
+        int nextNodeNamePackageIndex = sceneName.IndexOf(PACKAGE_IDENTIFIER);
         if (nextNodeNamePackageIndex != -1)
+            _travelNextPackageAndSceneName = sceneName.Remove(nextNodeNamePackageIndex, PACKAGE_IDENTIFIER.Length);
+
+        // travel conditions
+        List<string> failedConditionsText = ScriptedCondition.CheckConditions(nodeData.node.travelConditions);
+        if (failedConditionsText.Count > 0)
         {
-            string nextNodeNameCut = sceneName.Remove(nextNodeNamePackageIndex, DNCycleController.PACKAGE_IDENTIFIER.Length);
-            if (!nextNodeNameCut.StartsWith(nodeData.node.packageName))
-                _dnCycleController.Progress();
+            foreach (string text in failedConditionsText)
+                if (!string.IsNullOrEmpty(text))
+                    AddToDesc(text);
+
+            if (_mapManager.window.activeSelf)
+                _mapManager.ToggleWindow();
+            return;
         }
+
+        // travel effects
+        ScriptedEffect.InvokeEffects(nodeData.node.travelEffects);
+
+        // day night cycle
+        if (!_travelNextPackageAndSceneName.StartsWith(nodeData.node.packageName))
+            _dnCycleController.Progress();
 
         FadeAndLoadScene(sceneName);
     }
@@ -377,7 +402,6 @@ public class NodeManager : MonoBehaviour
 
     private void SetButtonsActive()
     {
-        //SetAutoTravelButton();
         SetCompassButtons();
     }
 
@@ -390,7 +414,7 @@ public class NodeManager : MonoBehaviour
         int i = 0;
         foreach (string nodeName in nodeData.node.nextNodeSceneNames)
         {
-            if (nodeName != "")
+            if (!string.IsNullOrEmpty(nodeName))
                 SetButtonInteractable(compassButtons[i], compassButtons[i].gameObject.GetComponentInChildren<TMP_Text>());
 
             i++;

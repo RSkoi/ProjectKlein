@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
@@ -18,4 +19,6 @@ public class LocalisationDataType
     public ChapterPopupType chapterPopup;
     public bool isConditional = false;
     public ConditionalTextDataType conditionalText;
+    [SerializeReference]
+    public List<ScriptedEffect> scriptedEffects = new();
 }
