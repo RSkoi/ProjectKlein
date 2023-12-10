@@ -64,7 +64,7 @@ public class ScriptedCondition
     public int conditionRequiredFlagValue = DEFAULT_CONDITION_REQUIRED_FLAG_VALUE;
 
     // <ScriptedCondition.conditionName, ConditionLogicalCombinationEnum>
-    public TravelConditionDictionary boundConditions = new();
+    public ScriptedConditionDictionary boundConditions = new();
 
     public void InitDynamic() { Debug.LogError("ScriptedCondition does not hide default method InitDynamic()"); }
     public bool CheckCondition() { Debug.LogError("ScriptedCondition does not hide default method CheckCondition()"); return false; }
