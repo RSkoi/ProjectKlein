@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/AudioEffectData")]
+[CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/Audio/AudioEffectData")]
 public class AudioEffectData : ScriptableObject
 {
     [Tooltip("List of audio effects.")]

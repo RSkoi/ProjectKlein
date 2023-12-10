@@ -21,18 +21,24 @@ EditorBuildSettings:
     path: Assets/Scenes/CowAdventures/Yanba/CA_NodeMap_YanbaMain.unity
     guid: 4e932a70c8ab4c54a96134393ebc12e4
   - enabled: 1
-    path: Assets/Scenes/CowAdventures/Yanba/VN/CA_NodeMap_YanbaMain_VN0.unity
-    guid: 18183f197f5fbf44a8d15516d14a4b51
-  - enabled: 1
     path: Assets/Scenes/CowAdventures/Yanba/VN/SideQ_sleepover/CA_NodeMap_YanbaMain_sideQ_sleepover_0.unity
     guid: 318603a1b86890a489c2cb4786cd1f95
   - enabled: 1
-    path: Assets/Scenes/CowAdventures/Gandriel/CA_NodeMap_GandrielMain.unity
-    guid: 5ecddb47530017647853ad6b8d75386c
+    path: Assets/Scenes/CowAdventures/Yanba/VN/CA_NodeMap_YanbaMain_VN0.unity
+    guid: 18183f197f5fbf44a8d15516d14a4b51
   - enabled: 1
     path: Assets/Scenes/CowAdventures/Yanba/VN/CA_NodeMap_YanbaMain_VN1.unity
     guid: dbe820ba9d56fb741927cd83197b0764
   - enabled: 1
+    path: Assets/Scenes/CowAdventures/Gandriel/CA_NodeMap_GandrielMain.unity
+    guid: 5ecddb47530017647853ad6b8d75386c
+  - enabled: 1
     path: Assets/Scenes/CowAdventures/Gandriel/CA_NodeMap_GandrielInn.unity
     guid: d8919a852df12c847b9ff329d161a6a8
+  - enabled: 1
+    path: Assets/Scenes/CowAdventures/Gandriel/CA_NodeMap_GandrielGates.unity
+    guid: 81a4c78d36f2ec0439ec4c59ae463275
+  - enabled: 1
+    path: Assets/Scenes/CowAdventures/Gandriel/VN/SideQ_hostess/CA_NodeMap_GandrielInn_sideQ_hostess_0.unity
+    guid: ba9e72df7c6aa7b47b13723081b1b918
   m_configObjects: {}

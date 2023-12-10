@@ -96,13 +96,16 @@ public class AudioController : MonoBehaviour
         yield return new WaitForSeconds(splitFadeTimeInSeconds);
 
         bgSongSource.Stop();
-        bgSongSource.clip = song.clip;
-        bgSongSource.priority = song.priority;
-        bgSongSource.loop = song.loop;
-        bgSongSource.volume = song.volume;
-        bgSongSource.pitch = song.pitch;
-        bgSongSource.panStereo = song.stereoPan;
-        bgSongSource.Play();
+        if (song != null)
+        {
+            bgSongSource.clip = song.clip;
+            bgSongSource.priority = song.priority;
+            bgSongSource.loop = song.loop;
+            bgSongSource.volume = song.volume;
+            bgSongSource.pitch = song.pitch;
+            bgSongSource.panStereo = song.stereoPan;
+            bgSongSource.Play();
+        }
 
         ResetBgSongFadeCoroutines();
         _fadeBgSongCoroutine = StartCoroutine(StartFade(audioMixer, BG_SONG_VOLUME_PARAM, splitFadeTimeInSeconds, maxBgVolume));

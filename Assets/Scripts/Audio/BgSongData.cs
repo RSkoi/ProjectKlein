@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/BgSongData")]
+[CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/Audio/BgSongData")]
 public class BgSongData : ScriptableObject
 {
     [Tooltip("List of background songs.")]

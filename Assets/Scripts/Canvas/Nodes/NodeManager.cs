@@ -107,11 +107,22 @@ public class NodeManager : MonoBehaviour
         if (GetQuest())
             return;
 
-        if (SpawnRandomItem())
-            return;
-
-        if (AddRandomTextToDesc())
-            return;
+        int action = UnityEngine.Random.Range(0, 1);
+        switch (action)
+        {
+            case 0:
+                if (SpawnRandomItem())
+                    return;
+                if (action != 0)
+                    break;
+                goto case 1;
+            case 1:
+                if (AddRandomTextToDesc())
+                    return;
+                if (action != 1)
+                    break;
+                goto case 0;
+        }
 
         AddToDesc("Seems like there's nothing of interest here.");
     }
