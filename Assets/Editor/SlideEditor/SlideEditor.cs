@@ -250,6 +250,7 @@ public class SlideEditor : EditorWindow
 
     private void CreateSlide(VisualElement root)
     {
+        Debug.Log($"{slideIndex} {_localization} {_localization.dialogue}");
         int newSlideIndex = _localization.dialogue.Count > 0 ? ++slideIndex.value : 0;
         int prevSlideIndex = Math.Clamp(newSlideIndex - 1, 0, int.MaxValue);
 
@@ -313,26 +314,44 @@ public class SlideEditor : EditorWindow
 
         CreateAssetFolders(_pathFields["LOC_ASSET_DIR"].value.Split('/')[..^1]);
         LocalisationData loc = CreateInstance<LocalisationData>();
+        loc.dialogue = new();
+        loc.dialogueSpeed = new();
+        _localization = loc;
         AssetDatabase.CreateAsset(loc, _pathFields["LOC_ASSET_DIR"].value);
 
         CreateAssetFolders(_pathFields["BG_ASSET_DIR"].value.Split('/')[..^1]);
         BackgroundData bg = CreateInstance<BackgroundData>();
+        bg.textures = new();
+        bg.indexes = new();
+        _backgrounds = bg;
         AssetDatabase.CreateAsset(bg, _pathFields["BG_ASSET_DIR"].value);
 
         CreateAssetFolders(_pathFields["ENTITY_ASSET_DIR"].value.Split('/')[..^1]);
         EntityHistoryData entities = CreateInstance<EntityHistoryData>();
+        entities.history = new();
+        entities.indexes = new();
+        _entityHistory = entities;
         AssetDatabase.CreateAsset(entities, _pathFields["ENTITY_ASSET_DIR"].value);
 
         CreateAssetFolders(_pathFields["BG_SONG_ASSET_DIR"].value.Split('/')[..^1]);
         BgSongData bgSongs = CreateInstance<BgSongData>();
+        bgSongs.songs = new();
+        bgSongs.indexes = new();
+        _bgSongs = bgSongs;
         AssetDatabase.CreateAsset(bgSongs, _pathFields["BG_SONG_ASSET_DIR"].value);
 
         CreateAssetFolders(_pathFields["AUDIO_EFFECT_ASSET_DIR"].value.Split('/')[..^1]);
         AudioEffectData audioEffects = CreateInstance<AudioEffectData>();
+        audioEffects.effects = new List<AudioEffectDataTypeCollection>().ToArray();
+        audioEffects.indexes = new();
+        _audioEffects = audioEffects;
         AssetDatabase.CreateAsset(audioEffects, _pathFields["AUDIO_EFFECT_ASSET_DIR"].value);
 
         CreateAssetFolders(_pathFields["PARTICLE_ASSET_DIR"].value.Split('/')[..^1]);
         ParticleSystemData particleSystems = CreateInstance<ParticleSystemData>();
+        particleSystems.particleHistory = new();
+        particleSystems.indexes = new();
+        _particleSystems = particleSystems;
         AssetDatabase.CreateAsset(particleSystems, _pathFields["PARTICLE_ASSET_DIR"].value);
 
         if (soAutoAssignToSceneDirector.value && _sceneDirector != null)
