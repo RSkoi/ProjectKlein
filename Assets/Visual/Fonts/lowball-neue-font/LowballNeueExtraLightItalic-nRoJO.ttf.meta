@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: 038be4dae0550d349a089b6648466ec4
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Lowball Neue
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 21440aeb5bf76164f889b550fd0a63e9, type: 3}
+  - {fileID: 12800000, guid: c00918f119423ab428a5f45939d546a2, type: 3}
+  - {fileID: 12800000, guid: 4171d93c71f0ea049adfddd3b65e1206, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

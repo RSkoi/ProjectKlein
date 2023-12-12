@@ -4,6 +4,8 @@ public class CrossSceneDataSaver : MonoBehaviour
 {
     public static void SaveCrossNodeData()
     {
+        // saveStates not relevant here
+
         JournalManager journalManager = PlayerSingleton.Instance.journalManager;
         InventoryManager inventoryManager = PlayerSingleton.Instance.inventoryManager;
         MapManager mapManager = PlayerSingleton.Instance.mapManager;
@@ -20,6 +22,8 @@ public class CrossSceneDataSaver : MonoBehaviour
 
     public static void LoadCrossNodeData()
     {
+        // saveStates not relevant here
+
         JournalManager journalManager = PlayerSingleton.Instance.journalManager;
         InventoryManager inventoryManager = PlayerSingleton.Instance.inventoryManager;
         MapManager mapManager = PlayerSingleton.Instance.mapManager;
@@ -35,5 +39,13 @@ public class CrossSceneDataSaver : MonoBehaviour
         MapNodeVisitedDictionary loadedVisitedNodesData = DataSaver.LoadData<MapNodeVisitedDictionary>("visitedNodes");
         if (loadedVisitedNodesData != null)
             mapManager.SetVisistedNodes(loadedVisitedNodesData);
+    }
+
+    public static void DeleteCrossNodeData()
+    {
+        DataSaver.DeleteData("saveStates");
+        DataSaver.DeleteData("journal");
+        DataSaver.DeleteData("inventory");
+        DataSaver.DeleteData("visitedNodes");
     }
 }

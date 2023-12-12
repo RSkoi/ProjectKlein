@@ -7,6 +7,8 @@ public class EntityController : MonoBehaviour
     public GameObject entityContainer;
     [Tooltip("The template prefab for new entities.")]
     public GameObject entityPrefab;
+    [Tooltip("The template prefab for new entities bound to all screen borders.")]
+    public GameObject entityPrefabStretchFull;
     [Tooltip("The template prefab for new entities bound to left screenborder.")]
     public GameObject entityPrefabLeftBorder;
     [Tooltip("The template prefab for new entities bound to right screenborder.")]
@@ -157,6 +159,7 @@ public class EntityController : MonoBehaviour
             EntityPrefabTypeEnum.BoundLeftScreenBorder => entityPrefabLeftBorder,
             EntityPrefabTypeEnum.BoundRightScreenBorder => entityPrefabRightBorder,
             EntityPrefabTypeEnum.UnboundMiddle => entityPrefab,
+            EntityPrefabTypeEnum.BoundStretchFull => entityPrefabStretchFull,
             _ => entityPrefab,
         };
     }

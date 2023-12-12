@@ -8,12 +8,15 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/_SplashScreen.unity
     guid: 2cb8052eacc77ce4fa643c414029564b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/_Empty.unity
     guid: 2bdd3c2c3e149684db2756a46710d561
   - enabled: 0
     path: Assets/Scenes/_SampleScene.unity
     guid: 71e434aad9d4934429a79e5fc5796c1f
+  - enabled: 1
+    path: Assets/Scenes/CowAdventures/CA_MainMenu.unity
+    guid: 72d0fc64c1d3cf645948346d2c8b127a
   - enabled: 1
     path: Assets/Scenes/CowAdventures/Yanba/CA_NodeMap_YanbaOutskirts.unity
     guid: ffd7deab95a212b43bcc089f57dabf6c
@@ -23,6 +26,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CowAdventures/Yanba/VN/SideQ_sleepover/CA_NodeMap_YanbaMain_sideQ_sleepover_0.unity
     guid: 318603a1b86890a489c2cb4786cd1f95
+  - enabled: 1
+    path: Assets/Scenes/CowAdventures/Yanba/VN/SideQ_sleepover/CA_NodeMap_YanbaMain_sideQ_sleepover_1.unity
+    guid: 5498642365fea9d40a4e4f4ba51a8019
   - enabled: 1
     path: Assets/Scenes/CowAdventures/Yanba/VN/CA_NodeMap_YanbaMain_VN0.unity
     guid: 18183f197f5fbf44a8d15516d14a4b51

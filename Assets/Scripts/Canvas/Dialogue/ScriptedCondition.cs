@@ -7,7 +7,7 @@ using UnityEngine;
 [Serializable]
 public class ScriptedCondition
 {
-    public static Dictionary<ScriptedConditionEnum, Type> travelConditionTypes = new()
+    public static Dictionary<ScriptedConditionEnum, Type> conditionTypes = new()
     {
         { ScriptedConditionEnum.ItemCondition, typeof(ItemCondition) },
         { ScriptedConditionEnum.FlagCondition, typeof(FlagCondition) },
@@ -32,7 +32,7 @@ public class ScriptedCondition
 
     public static Type GetTypeOfDerivedTravelCondition(ScriptedCondition condition)
     {
-        foreach (Type type in travelConditionTypes.Values)
+        foreach (Type type in conditionTypes.Values)
             if (condition.GetType() == type)
                 return type;
         return typeof(ScriptedCondition);

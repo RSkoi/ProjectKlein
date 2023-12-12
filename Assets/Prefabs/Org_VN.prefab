@@ -168,6 +168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   entityContainer: {fileID: 2942111924425527356}
   entityPrefab: {fileID: 5436370582165592144, guid: 47339eb6015a5114a8ac67ef8cda38da, type: 3}
+  entityPrefabStretchFull: {fileID: 7470845817308882537, guid: bb036a7f8fdd64c4ea9a17f6180904c0, type: 3}
   entityPrefabLeftBorder: {fileID: 7946217531785928479, guid: 45f1eed5b7b1d964eaf6a09adb39e973, type: 3}
   entityPrefabRightBorder: {fileID: 701272021329690803, guid: 00b05065d6a386845851be0b554832f7, type: 3}
   entityInstances: []

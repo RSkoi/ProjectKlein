@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cf4364596ee994ab4918fc8207c164, type: 3}
   m_Name: GlobalFlagContainer
   m_EditorClassIdentifier: 
-  flags: []
+  flags:
+  - id: MainQuestProgress_0
+    _value: 0
+    _behaviorName: 

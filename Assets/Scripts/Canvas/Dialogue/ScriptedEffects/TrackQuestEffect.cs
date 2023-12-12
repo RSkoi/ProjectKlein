@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -51,7 +50,7 @@ public class TrackQuestEffect : ScriptedEffect
             QuestStateDataType newQuest = new(questToTrack.quest, setsQuestState ? questToTrack.state : 0);
             if (incrementTrackedQuestValue)
                 newQuest.state++;
-            _journalManager.TrackQuest(questToTrack.quest.name, newQuest);
+            _journalManager.TrackQuest(newQuest);
         }
 
         if (writesEffectText && !isNodeEffect)

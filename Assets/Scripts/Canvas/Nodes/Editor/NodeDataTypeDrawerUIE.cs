@@ -16,6 +16,7 @@ public class NodeDataTypeDrawerUIE : PropertyDrawer
         var textField = new PropertyField(property.FindPropertyRelative("text"));
         var speedField = new PropertyField(property.FindPropertyRelative("speed"));
         var titleField = new PropertyField(property.FindPropertyRelative("title"));
+        var nextNodeSceneListsField = new PropertyField(property.FindPropertyRelative("nextNodeSceneLists"));
         var nextNodeSceneNamesField = new PropertyField(property.FindPropertyRelative("nextNodeSceneNames"));
         var packageNameField = new PropertyField(property.FindPropertyRelative("packageName"));
 
@@ -29,6 +30,7 @@ public class NodeDataTypeDrawerUIE : PropertyDrawer
         container.Add(textField);
         container.Add(speedField);
         container.Add(titleField);
+        container.Add(nextNodeSceneListsField);
         container.Add(nextNodeSceneNamesField);
         container.Add(packageNameField);
         container.Add(travelConditionsField);
@@ -44,7 +46,7 @@ public class NodeDataTypeDrawerUIE : PropertyDrawer
         {
             travelConditionsProperty.InsertArrayElementAtIndex(0);
             travelConditionsProperty.GetArrayElementAtIndex(0).managedReferenceValue =
-                Activator.CreateInstance(ScriptedCondition.travelConditionTypes[Enum.Parse<ScriptedCondition.ScriptedConditionEnum>(dropdownAddCondition.value)]);
+                Activator.CreateInstance(ScriptedCondition.conditionTypes[Enum.Parse<ScriptedCondition.ScriptedConditionEnum>(dropdownAddCondition.value)]);
             property.serializedObject.ApplyModifiedProperties();
         };
         container.Add(buttonAddCondition);

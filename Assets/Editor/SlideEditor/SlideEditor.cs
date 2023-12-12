@@ -33,12 +33,12 @@ public class SlideEditor : EditorWindow
     private Toggle soAutoAssignToSceneDirector;
     private Toggle addBlankSlide;
     private readonly Dictionary<string, string> _assetPaths = new() {
-        { "LOC_ASSET_DIR", "Assets/Scripts/Canvas/Dialogue/SO/Cow Adventures/" },
-        { "BG_ASSET_DIR", "Assets/Scripts/Canvas/Backgrounds/SO/Cow Adventures/" },
-        { "ENTITY_ASSET_DIR", "Assets/Scripts/Canvas/Entity/SO/Cow Adventures/" },
-        { "BG_SONG_ASSET_DIR", "Assets/Scripts/Audio/SO/BgSongs/Cow Adventures/" },
-        { "AUDIO_EFFECT_ASSET_DIR", "Assets/Scripts/Audio/SO/AudioEffects/Cow Adventures/" },
-        { "PARTICLE_ASSET_DIR", "Assets/Scripts/Canvas/Particle Systems/SO/Cow Adventures/" }
+        { "LOC_ASSET_DIR", "Assets/Scripts/Canvas/Dialogue/SO/" },
+        { "BG_ASSET_DIR", "Assets/Scripts/Canvas/Backgrounds/SO/" },
+        { "ENTITY_ASSET_DIR", "Assets/Scripts/Canvas/Entity/SO/" },
+        { "BG_SONG_ASSET_DIR", "Assets/Scripts/Audio/SO/BgSongs/" },
+        { "AUDIO_EFFECT_ASSET_DIR", "Assets/Scripts/Audio/SO/AudioEffects/" },
+        { "PARTICLE_ASSET_DIR", "Assets/Scripts/Canvas/Particle Systems/SO/" }
     };
 
     [MenuItem("Window/Klein/SlideEditor")]
@@ -94,7 +94,7 @@ public class SlideEditor : EditorWindow
             name = "buttonCreateSlideSO",
             text = "Generate slide SOs"
         };
-        buttonCreateSlideSO.clicked += () => CreateSlideSOs(_sceneDirector);
+        buttonCreateSlideSO.clicked += () => CreateSlideSOs(_sceneDirector, root);
         if (_localization != null)
             buttonCreateSlideSO.SetEnabled(false);
         root.Add(buttonCreateSlideSO);
@@ -190,7 +190,6 @@ public class SlideEditor : EditorWindow
             CreateSlide(root);
             return;
         }
-        int prevSlideIndex = Math.Clamp(clampedIndex - 1, 0, int.MaxValue);
 
         _localization.dialogue.Insert(clampedIndex, new());
         _localization.dialogueSpeed.Insert(clampedIndex, 0.01f);
@@ -307,7 +306,7 @@ public class SlideEditor : EditorWindow
         Redraw(root);
     }
 
-    private void CreateSlideSOs(SceneDirector _sceneDirector)
+    private void CreateSlideSOs(SceneDirector _sceneDirector, VisualElement root)
     {
         if (!EditorUtility.DisplayDialog("Slide SO Assets", "This will create multiple ScriptableObjects as Assets. Continue?", "Yes", "No"))
             return;
@@ -345,6 +344,10 @@ public class SlideEditor : EditorWindow
             _sceneDirector.audioEffects = audioEffects;
             _sceneDirector.particleSystems = particleSystems;
         }
+
+        addBlankSlide.value = true;
+        CreateSlide(root);
+        addBlankSlide.value = false;
     }
 
     private void CreateAssetFolders(string[] pathSplit)
@@ -567,26 +570,6 @@ public class SlideEditor : EditorWindow
 
     private (int spawnedAtIndex, int indexPos) FindIndex(List<int> indexes, int slideIndex)
     {
-        /* Context: things like entities and audio effects are spawned at specific slide indexes
-         * but are not required to align with them. This results in two parallel arrays for (e.g.)
-         * entities: the entity slides themselves and the list of indexes these slides are supposed to
-         * be applied at. FindIndex()'s job is to find the loc index at which entities will be spawned
-         * at (spawnedAtIndex) and the index of the array element itself (indexPos) */
-
-        int result = indexes[0];
-        int resultIndex = 0;
-
-        for (int i = 0; i < indexes.Count; i++)
-        {
-            if (indexes[i] <= slideIndex)
-            {
-                result = indexes[i];
-                resultIndex = i;
-            }
-            else
-                break;
-        }
-
-        return (result, resultIndex);
+        return SceneDirector.FindIndex(indexes, slideIndex);
     }
 }

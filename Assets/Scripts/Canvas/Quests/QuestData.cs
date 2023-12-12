@@ -7,6 +7,9 @@ public class QuestData : ScriptableObject
     [Tooltip("Quest name.")]
     public string questName;
     [TextArea]
+    [Tooltip("The titles for each section/desc of the quest.")]
+    public List<string> questTitles = new();
+    [TextArea]
     [Tooltip("The descriptions of the quest.")]
     public List<string> questDescs = new();
     [Tooltip("Quest scene names.")]

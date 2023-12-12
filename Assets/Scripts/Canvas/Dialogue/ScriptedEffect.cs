@@ -9,12 +9,14 @@ public class ScriptedEffect
     public static Dictionary<ScriptedEffectEnum, Type> scriptedEffectTypes = new()
     {
         { ScriptedEffectEnum.ItemAddEffect, typeof(ItemAddEffect) },
+        { ScriptedEffectEnum.FlagAddEffect, typeof(FlagAddEffect) },
         { ScriptedEffectEnum.TrackQuestEffect, typeof(TrackQuestEffect) },
     };
 
     public enum ScriptedEffectEnum
     {
         ItemAddEffect,
+        FlagAddEffect,
         TrackQuestEffect,
     }
 

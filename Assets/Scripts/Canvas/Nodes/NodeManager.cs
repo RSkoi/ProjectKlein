@@ -86,6 +86,9 @@ public class NodeManager : MonoBehaviour
         SetIconsActive();
         if (_dnCycleController.curCycle.data.newDay)
             _dnCycleController.FadeInDay();
+
+        if (_flagManager.ContainsFlag(SceneDirector.SCENE_LOADED_FLAG))
+            _flagManager.DeleteFlag(SceneDirector.SCENE_LOADED_FLAG);
     }
 
     public void AddDefaultQuestStates()
@@ -94,7 +97,7 @@ public class NodeManager : MonoBehaviour
         {
             if (!_journalManager.QuestIsTracked(questState))
             {
-                _journalManager.TrackQuest(questState.quest.questName, questState);
+                _journalManager.TrackQuest(questState);
                 if (questState.quest.dayLimited)
                     questState.quest.dayLimitedLastTick = _dnCycleController.GetCurDayTick();
             }
@@ -128,76 +131,74 @@ public class NodeManager : MonoBehaviour
 
     public bool GetQuest()
     {
-        foreach (string questNameTracked in _journalManager.questStates.Keys)
-            if (CheckQuestTrackedAndUpdate(questNameTracked))
+        foreach ((string questGuidTracked, QuestStateDataType qsdt) in _journalManager.questStates)
+            if (CheckQuestTrackedAndUpdate(questGuidTracked, qsdt))
                 return true;
 
-        string questName = "";
-        foreach (string questNameNew in nodeData.questStates.Keys)
-        {
-            if (_journalManager.questStates.ContainsKey(questNameNew))
-                continue;
+        (string questGuid, NodeQuestStateDataType nodeQuestState)
+            = nodeData.nodeQuestStates.FirstOrDefault(x => !_journalManager.questStates.ContainsKey(x.Key));
 
-            questName = questNameNew;
-            break;
-        }
-        if (questName.Equals(""))
+        if (string.IsNullOrEmpty(questGuid))
             return false;
 
         // quest is not tracked and on node
-        AddNewQuest(questName);
+        AddNewQuest(questGuid, nodeQuestState);
         return true;
     }
 
-    private bool CheckQuestTrackedAndUpdate(string questName)
+    private bool CheckQuestTrackedAndUpdate(string questGuid, QuestStateDataType questInJournal)
     {
         // quest is on node
-        if (!nodeData.questStates.ContainsKey(questName))
+        if (!nodeData.nodeQuestStates.ContainsKey(questGuid))
+            return false;
+
+        // quest on node has the "next" (tracked by journal) state
+        int questOnNodeIndex = nodeData.nodeQuestStates[questGuid].states.IndexOf(questInJournal.state);
+        if (questOnNodeIndex == -1)
             return false;
 
         // quest has same state
-        if (_journalManager.questStates[questName].state != nodeData.questStates[questName].state) 
-            return false;
+        //if (!nodeData.nodeQuestStates[questGuid].states.Contains(_journalManager.questStates[questGuid].state)) 
+        //    return false;
 
         // this throws an exception if no manual check for the quest being present is done
-        QuestStateDataType questOnNode = nodeData.questStates[questName];
-        QuestStateDataType questInJournal = _journalManager.questStates[questName];
-        if (questOnNode.state != questInJournal.state)
-            return false;
+        NodeQuestStateDataType questsOnNode = nodeData.nodeQuestStates[questGuid];
+        QuestData questOnNode = questsOnNode.quests[questOnNodeIndex];
 
         // quest can be progressed
         int curDayTick = _dnCycleController.GetCurDayTick();
         if (questInJournal.quest.dayLimited && (questInJournal.quest.dayLimitedLastTick == curDayTick))
             return false;
 
-        bool lastSceneOfQuest = questOnNode.state == questOnNode.quest.questDescs.Count - 1;
-        // this is here so that unfinished quests are not removed from the journal
-        if (lastSceneOfQuest && questOnNode.quest.wip)
-            return false;
-
         // quest is tracked, on node and can be progressed
 
         // this is the last scene of the quest
-        if (lastSceneOfQuest)
-            _journalManager.questStates.Remove(questName);
+        bool lastSceneOfQuest = questInJournal.state == questOnNode.questDescs.Count - 1;
+        if (lastSceneOfQuest && !questOnNode.wip)
+            _journalManager.questStates.Remove(questGuid);
 
-        Debug.Log($"Got quest from journal: {questName} playing scene {questInJournal.state}");
         if (questInJournal.quest.dayLimited)
             questInJournal.quest.dayLimitedLastTick = curDayTick;
-        FadeAndLoadScene(questInJournal.quest.sceneNames[questInJournal.state++]);
+
+        Debug.Log($"Got quest from journal: {questInJournal.quest.questName} playing scene {questInJournal.state}");
+        // empty scene names should be allowed in wip scenes => return false
+        if (!string.IsNullOrEmpty(questInJournal.quest.sceneNames[questInJournal.state]))
+            FadeAndLoadScene(questInJournal.quest.sceneNames[questInJournal.state++]);
+        else
+            return false;
 
         return true;
     }
 
-    private void AddNewQuest(string questName)
+    private void AddNewQuest(string questGuid, NodeQuestStateDataType nodeQuestState)
     {
-        // no randomness needed, just get the first one from the list that is not tracked
-        QuestStateDataType quest = nodeData.questStates[questName];
-        _journalManager.TrackQuest(questName, quest);
-        if (quest.quest.dayLimited)
-            quest.quest.dayLimitedLastTick = _dnCycleController.GetCurDayTick();
-        FadeAndLoadScene(quest.quest.sceneNames[quest.state++]);
-        Debug.Log($"Got new quest: {questName} playing first scene");
+        // get the first quest and state from the top of the lists in NodeQuestStateDataType
+        QuestStateDataType questState = new(nodeQuestState.quests[0], nodeQuestState.states[0]);
+        _journalManager.TrackQuest(questState);
+        if (questState.quest.dayLimited)
+            questState.quest.dayLimitedLastTick = _dnCycleController.GetCurDayTick();
+        FadeAndLoadScene(questState.quest.sceneNames[questState.state++]);
+        Debug.Log($"Got new quest: {questState.quest.questName} playing first scene");
     }
 
     public bool SpawnRandomItem()
@@ -330,10 +331,10 @@ public class NodeManager : MonoBehaviour
 
     public void TravelToNextNode(int direction)
     {
-        if (direction >= nodeData.node.nextNodeSceneNames.Count)
+        if (direction >= nodeData.node.nextNodeSceneLists.Count)
             return;
 
-        string nextNodeName = nodeData.node.nextNodeSceneNames[direction];
+        string nextNodeName = nodeData.node.nextNodeSceneLists[direction].sceneName;
         Travel(nextNodeName);
     }
 
@@ -403,12 +404,17 @@ public class NodeManager : MonoBehaviour
 
     private void SetIconsActive()
     {
-        foreach (QuestStateDataType quest in nodeData.questStates.Values)
+        foreach ((string questGuid, NodeQuestStateDataType nodeQuests) in nodeData.nodeQuestStates)
         {
-            if (_journalManager.QuestIsTracked(quest)
-                && _journalManager.questStates[quest.quest.questName].state == quest.state
-                && (!quest.quest.dayLimited || quest.quest.dayLimitedLastTick != _dnCycleController.GetCurDayTick())
-                && !(quest.state == quest.quest.questDescs.Count - 1 && quest.quest.wip))
+            QuestData quest = _journalManager.LookupQuest(questGuid);
+                // quest is tracked by journal
+            if (_journalManager.QuestIsTracked(questGuid)
+                // node contains next state of this quest
+                && nodeQuests.states.IndexOf(_journalManager.questStates[questGuid].state) != -1
+                // quest can be progressed
+                && (!quest.dayLimited || quest.dayLimitedLastTick != _dnCycleController.GetCurDayTick())
+                // not last scene of wip quest
+                && ((_journalManager.questStates[questGuid].state == quest.questDescs.Count - 1) ? !quest.wip : true))
             {
                 questIndicator.SetActive(true);
                 break;
@@ -423,14 +429,15 @@ public class NodeManager : MonoBehaviour
 
     private void SetCompassButtons()
     {
-        if (nodeData.node.nextNodeSceneNames == null
-            || nodeData.node.nextNodeSceneNames.Count == 0)
+        if (nodeData.node.nextNodeSceneLists == null
+            || nodeData.node.nextNodeSceneLists.Count == 0)
             return;
 
         int i = 0;
-        foreach (string nodeName in nodeData.node.nextNodeSceneNames)
+        foreach (NextNodeListType nextNode in nodeData.node.nextNodeSceneLists)
         {
-            if (!string.IsNullOrEmpty(nodeName))
+            if (!string.IsNullOrEmpty(nextNode.sceneName)
+                && ScriptedCondition.CheckConditions(nextNode.sceneTravelConditions).Count == 0)
                 SetButtonInteractable(compassButtons[i], compassButtons[i].gameObject.GetComponentInChildren<TMP_Text>());
 
             i++;

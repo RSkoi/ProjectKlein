@@ -19,6 +19,7 @@ public class SaveFileDataTypeDrawerUIE : PropertyDrawer
         var bgSongsStateField = new PropertyField(property.FindPropertyRelative("bgSongsState"));
         var audioEffectsStateField = new PropertyField(property.FindPropertyRelative("audioEffectsState"));
         var particleSystemsStateField = new PropertyField(property.FindPropertyRelative("particleSystemsState"));
+        var saveStatesField = new PropertyField(property.FindPropertyRelative("saveStates"));
         var itemsDataField = new PropertyField(property.FindPropertyRelative("itemsData"));
         var journalDataField = new PropertyField(property.FindPropertyRelative("journalData"));
         var flagDataField = new PropertyField(property.FindPropertyRelative("flagData"));
@@ -33,6 +34,7 @@ public class SaveFileDataTypeDrawerUIE : PropertyDrawer
         container.Add(bgSongsStateField);
         container.Add(audioEffectsStateField);
         container.Add(particleSystemsStateField);
+        container.Add(saveStatesField);
         container.Add(itemsDataField);
         container.Add(journalDataField);
         container.Add(flagDataField);

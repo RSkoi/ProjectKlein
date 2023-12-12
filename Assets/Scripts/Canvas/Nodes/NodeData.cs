@@ -8,6 +8,8 @@ public class NodeData : ScriptableObject
     public NodeDataType node;
     [Tooltip("The item spawners of this scene.")]
     public List<ItemSpawnerDataType> itemSpawners = new();
+    [Tooltip("The quest states attached to this node. Key is quest guid (see QuestLookupData).")]
+    public NodeQuestStateDictionary nodeQuestStates;
     [Tooltip("The quest states attached to this node. Key is quest name")]
     public QuestStateDictionary questStates;
     [Tooltip("The quest states attached to this node that should be automatically added to the journal on scene start. " +

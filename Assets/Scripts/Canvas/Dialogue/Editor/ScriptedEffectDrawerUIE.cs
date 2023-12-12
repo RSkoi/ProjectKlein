@@ -29,7 +29,7 @@ public class ScriptedEffectDrawerUIE : PropertyDrawer
         {
             conditionsProperty.InsertArrayElementAtIndex(0);
             conditionsProperty.GetArrayElementAtIndex(0).managedReferenceValue =
-                Activator.CreateInstance(ScriptedCondition.travelConditionTypes[Enum.Parse<ScriptedCondition.ScriptedConditionEnum>(dropdownAddCondition.value)]);
+                Activator.CreateInstance(ScriptedCondition.conditionTypes[Enum.Parse<ScriptedCondition.ScriptedConditionEnum>(dropdownAddCondition.value)]);
             property.serializedObject.ApplyModifiedProperties();
         };
         container.Add(buttonAddCondition);

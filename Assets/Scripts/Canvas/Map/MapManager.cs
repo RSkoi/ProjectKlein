@@ -51,13 +51,17 @@ public class MapManager : ControllerWithWindow
         //mapNode.transform.GetComponentInChildren<TMP_Text>().alpha = 0.6f;
     }
 
-    // this method should be used to mark the current node as visisted on encountering it
+    /// <summary>
+    /// this method should be used to mark the current node as visisted on encountering it
+    /// <summary>
     public void SetVisistedNode(string sceneName, bool visisted)
     {
         visitedNodes[sceneName] = visisted;
     }
 
-    // this method should be used to load all visisted node data as CrossSceneData from the NodeManager
+    /// <summary>
+    /// this method should be used to load all visisted node data as CrossSceneData from the NodeManager
+    /// <summary>
     public void SetVisistedNodes(MapNodeVisitedDictionary dictionary)
     {
         visitedNodes = dictionary;

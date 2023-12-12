@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.RegularExpressions;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -119,18 +120,19 @@ public class SaveController : ControllerWithWindow
         else
             _asyncLoadingScene = null;
 
-        _dialogueController.StopWriting();
+        if (_dialogueController != null)
+            _dialogueController.StopWriting();
 
         // TODO: implement backwards compatibility
         if (!data.gameVersion.Equals(Application.version))
             Debug.Log("Game version mismatch on loading save");
 
-        _sceneDirector.localization.state = data.dialogueState;
+        /*_sceneDirector.localization.state = data.dialogueState;
         _sceneDirector.backgrounds.state = data.backgroundState;
         _sceneDirector.entityHistory.state = data.entityState;
         _sceneDirector.audioEffects.state = data.audioEffectsState;
         _sceneDirector.bgSongs.state = data.bgSongsState;
-        _sceneDirector.particleSystems.state = data.particleSystemsState;
+        _sceneDirector.particleSystems.state = data.particleSystemsState;*/
 
         // journal and item entries are not directly saved to an SO and are node-specific
         // meaning the values loaded here will be overwritten by the default values of the scene/node
@@ -138,6 +140,7 @@ public class SaveController : ControllerWithWindow
         //_journalManager.SetJournal(quicksave.save.journalData);
 
         // => save loaded data to CrossSceneData folder; this means a redundant save/read to/from files
+        DataSaver.SaveData(data.saveStates, "saveStates");
         DataSaver.SaveData(data.itemsData, "inventory");
         DataSaver.SaveData(data.journalData, "journal");
         DataSaver.SaveData(data.visitedNodes, "visitedNodes");
@@ -145,7 +148,7 @@ public class SaveController : ControllerWithWindow
         _dnCycleController.SetCycle(data.dnCycleData);
 
         _sceneDirector.FirstExecutionRemoveChecks();
-        SceneDirector.sceneWasLoaded = true;
+        _flagManager.AddFlag(SceneDirector.SCENE_LOADED_FLAG);
 
         loading = false;
 
@@ -187,18 +190,7 @@ public class SaveController : ControllerWithWindow
             saveName = FormatSaveName(timestamp),
             timestamp = timestamp,
             sceneName = SceneManager.GetActiveScene().name,
-            dialogueState = _sceneDirector.localization.state - 1 >= 0
-                ? _sceneDirector.localization.state - 1 : 0,
-            backgroundState = _sceneDirector.backgrounds.state - 1 >= 0
-                ? _sceneDirector.backgrounds.state - 1 : 0,
-            entityState = _sceneDirector.entityHistory.state - 1 >= 0
-                ? _sceneDirector.entityHistory.state - 1 : 0,
-            audioEffectsState = _sceneDirector.audioEffects.state - 1 >= 0
-                ? _sceneDirector.audioEffects.state - 1 : 0,
-            bgSongsState = _sceneDirector.bgSongs.state - 1 >= 0
-                ? _sceneDirector.bgSongs.state - 1 : 0,
-            particleSystemsState = _sceneDirector.particleSystems.state - 1 >= 0
-                ? _sceneDirector.particleSystems.state - 1 : 0,
+            saveStates = PrepareSaveStates(),
             itemsData = _inventoryManager.PrepareItemEntriesForSave(),
             journalData = _journalManager.PrepareJournalEntriesForSave(),
             flagData = _flagManager.PrepareFlagEntriesForSave(),
@@ -209,19 +201,40 @@ public class SaveController : ControllerWithWindow
         return save;
     }
 
+    private SaveStatesDataType PrepareSaveStates()
+    {
+        return new(
+            _sceneDirector.localization.state - 1 >= 0 ? _sceneDirector.localization.state - 1 : 0,
+            _sceneDirector.backgrounds.state - 1 >= 0 ? _sceneDirector.backgrounds.state - 1 : 0,
+            _sceneDirector.entityHistory.state - 1 >= 0 ? _sceneDirector.entityHistory.state - 1 : 0,
+            _sceneDirector.audioEffects.state - 1 >= 0 ? _sceneDirector.audioEffects.state - 1 : 0,
+            _sceneDirector.bgSongs.state - 1 >= 0 ? _sceneDirector.bgSongs.state - 1 : 0,
+            _sceneDirector.particleSystems.state - 1 >= 0 ? _sceneDirector.particleSystems.state - 1 : 0);
+    }
+
     public void SwitchSaveMenuPage(int page)
     {
         // pages are zero indexed
         _curPage = page;
-        saveMenuLabel.SetText($"Save & Load - Page {page + 1}");
+        saveMenuLabel.SetText(Regex.Replace(saveMenuLabel.text, "Page [0-9]+", $"Page {page + 1}"));
 
         Repopulate();
     }
 
-    private void ShowEntry(string fileDir, int poolIndex)
+    private bool ShowEntry(string fileDir, int poolIndex)
     {
         string fileName = Path.GetFileNameWithoutExtension(fileDir);
-        SaveFileDataType saveData = DataSaver.LoadData<SaveFileDataType>(fileName, $"{SAVE_LOCATION}/{_curPage}", SAVE_FILE_FORMAT);
+
+        SaveFileDataType saveData;
+        try {
+            saveData = DataSaver.LoadData<SaveFileDataType>(fileName, $"{SAVE_LOCATION}/{_curPage}", SAVE_FILE_FORMAT);
+        }
+        catch (ArgumentException)
+        {
+            Debug.LogError($"Save file {fileName} corrupted. Could not parse.");
+            return false;
+        }
+
         // get thumb
         Texture2D thumb;
         if (_thumbPool.ContainsKey(saveData.timestamp))
@@ -241,6 +254,8 @@ public class SaveController : ControllerWithWindow
         Transform saveInPool = saveEntryContainer.transform.GetChild(poolIndex);
         saveInPool.gameObject.SetActive(true);
         saveInPool.gameObject.GetComponent<SaveEntry>().Init(saveData, saveData.saveName, thumb.width != 1 ? thumb : null);
+
+        return true;
     }
 
     private void PopulateMenu()
@@ -255,7 +270,8 @@ public class SaveController : ControllerWithWindow
             Populate(fileDirs.Length - (saveEntryContainer.transform.childCount - 1));
 
         for (int i = 1; i < fileDirs.Length + 1; i++)
-            ShowEntry(fileDirs[i - 1], i);
+            if (!ShowEntry(fileDirs[i - 1], i))
+                saveEntryContainer.transform.GetChild(i).gameObject.SetActive(false);
     }
 
     private void Populate(int count)
@@ -290,19 +306,7 @@ public class SaveController : ControllerWithWindow
         quicksave.save.saveName = FormatSaveName(timestamp);
         quicksave.save.timestamp = DateTime.Now.ToString(SAVE_FORMAT);
         quicksave.save.sceneName = SceneManager.GetActiveScene().name;
-        quicksave.save.dialogueState = _sceneDirector.localization.state - 1 >= 0
-            ? _sceneDirector.localization.state - 1 : 0;
-        quicksave.save.backgroundState = _sceneDirector.backgrounds.state - 1 >= 0
-            ? _sceneDirector.backgrounds.state - 1 : 0;
-        quicksave.save.entityState = _sceneDirector.entityHistory.state - 1 >= 0
-            ? _sceneDirector.entityHistory.state - 1 : 0;
-        quicksave.save.audioEffectsState = _sceneDirector.audioEffects.state - 1 >= 0
-            ? _sceneDirector.audioEffects.state - 1 : 0;
-        quicksave.save.bgSongsState = _sceneDirector.bgSongs.state - 1 >= 0
-            ? _sceneDirector.bgSongs.state - 1 : 0;
-        quicksave.save.particleSystemsState = _sceneDirector.particleSystems.state - 1 >= 0
-            ? _sceneDirector.particleSystems.state - 1 : 0;
-
+        quicksave.save.saveStates = PrepareSaveStates();
         quicksave.save.itemsData = _inventoryManager.PrepareItemEntriesForSave();
         quicksave.save.journalData = _journalManager.PrepareJournalEntriesForSave();
         quicksave.save.flagData = _flagManager.PrepareFlagEntriesForSave();
@@ -331,14 +335,15 @@ public class SaveController : ControllerWithWindow
         else
             _asyncLoadingScene = null;
 
-        _dialogueController.StopWriting();
+        if (_dialogueController != null)
+            _dialogueController.StopWriting();
 
-        _sceneDirector.localization.state = quicksave.save.dialogueState;
+        /*_sceneDirector.localization.state = quicksave.save.dialogueState;
         _sceneDirector.backgrounds.state = quicksave.save.backgroundState;
         _sceneDirector.entityHistory.state = quicksave.save.entityState;
         _sceneDirector.audioEffects.state = quicksave.save.audioEffectsState;
         _sceneDirector.bgSongs.state = quicksave.save.bgSongsState;
-        _sceneDirector.particleSystems.state = quicksave.save.particleSystemsState;
+        _sceneDirector.particleSystems.state = quicksave.save.particleSystemsState;*/
 
         // journal and item entries are not directly saved to an SO and are node-specific
         // meaning the values loaded here will be overwritten by the default values of the scene/node
@@ -346,6 +351,7 @@ public class SaveController : ControllerWithWindow
         //_journalManager.SetJournal(quicksave.save.journalData);
 
         // => save loaded data to CrossSceneData folder; this means a redundant save/read to/from files
+        DataSaver.SaveData(quicksave.save.saveStates, "saveStates");
         DataSaver.SaveData(quicksave.save.itemsData, "inventory");
         DataSaver.SaveData(quicksave.save.journalData, "journal");
         DataSaver.SaveData(quicksave.save.visitedNodes, "visitedNodes");
@@ -353,12 +359,19 @@ public class SaveController : ControllerWithWindow
         _dnCycleController.SetCycle(quicksave.save.dnCycleData);
 
         _sceneDirector.FirstExecutionRemoveChecks();
-        SceneDirector.sceneWasLoaded = true;
+        _flagManager.AddFlag(SceneDirector.SCENE_LOADED_FLAG);
 
         loading = false;
 
         if (_asyncLoadingScene != null)
             _asyncLoadingScene.allowSceneActivation = true;
+    }
+
+    public void DeleteQuick()
+    {
+        Debug.Log("Deleting quicksave");
+
+        DataSaver.DeleteData("quicksave");
     }
 
     private IEnumerator LoadNextScene(string nextSceneName)

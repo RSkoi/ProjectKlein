@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -17,6 +18,8 @@ public class PlayerSingleton : MonoBehaviour
 
     public GameObject player;
     public PlayerInput playerInput;
+
+    public MainMenuController mainMenuController;
 
     public GameObject sceneDirector;
     public SceneDirector sceneDirectorComponent;
@@ -55,6 +58,18 @@ public class PlayerSingleton : MonoBehaviour
         player = GameObject.Find("Player");
         player.TryGetComponent(out playerInput);
 
+        try
+        {
+            controller = GameObject.Find("MainMenu");
+            controller.TryGetComponent(out mainMenuController);
+            mainMenuController.SetupData(this);
+            return;
+        }
+        catch (NullReferenceException)
+        {
+            Debug.Log("Not the main menu. Continuing setup.");
+        }
+
         sceneDirector = GameObject.Find("SceneDirector");
         sceneDirector.TryGetComponent(out sceneTransition);
         sceneDirector.TryGetComponent(out sceneDirectorComponent);
@@ -70,10 +85,10 @@ public class PlayerSingleton : MonoBehaviour
 
         controller = GameObject.Find("Controller");
         controller.TryGetComponent(out dialogueController);
-        if (!sceneDirectorComponent.idle)
-            SetupVNSpecific(controller);
-        else
+        if (sceneDirectorComponent.idle)
             SetupNodeSpecific();
+        else
+            SetupVNSpecific(controller);
 
         controller = GameObject.Find("ConfirmationController");
         controller.TryGetComponent(out confirmationController);

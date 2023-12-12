@@ -1,0 +1,31 @@
+fileFormatVersion: 2
+guid: 9d673085d205d9346bbee2a86f7dd2f8
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Lowball Neue
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 9b7abb3bc6bf2364683edadd374e1bb4, type: 3}
+  - {fileID: 12800000, guid: 3d373c10ea4b53c419932fce61ab6abc, type: 3}
+  - {fileID: 12800000, guid: 21440aeb5bf76164f889b550fd0a63e9, type: 3}
+  - {fileID: 12800000, guid: c00918f119423ab428a5f45939d546a2, type: 3}
+  - {fileID: 12800000, guid: 4171d93c71f0ea049adfddd3b65e1206, type: 3}
+  - {fileID: 12800000, guid: c84b685f7533eba418c6678e6d45b1ac, type: 3}
+  - {fileID: 12800000, guid: b89156435cdc25242858f4a35cf069d8, type: 3}
+  - {fileID: 12800000, guid: 29651f320d10dea4789dfca8cc0be707, type: 3}
+  - {fileID: 12800000, guid: 3d9eebddaf3fa4e42ad71c7cbf51b576, type: 3}
+  - {fileID: 12800000, guid: 038be4dae0550d349a089b6648466ec4, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

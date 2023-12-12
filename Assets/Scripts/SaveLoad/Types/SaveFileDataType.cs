@@ -10,20 +10,10 @@ public class SaveFileDataType
     public string saveName;
     [Tooltip("The timestamp of the save.")]
     public string timestamp;
-    [Tooltip("The scene name of the quicksave.")]
+    [Tooltip("The scene name of the save.")]
     public string sceneName;
-    [Tooltip("The dialogue state of the quicksave.")]
-    public int dialogueState;
-    [Tooltip("The background state of the quicksave.")]
-    public int backgroundState;
-    [Tooltip("The entity state of the quicksave.")]
-    public int entityState;
-    [Tooltip("The background state of the quicksave.")]
-    public int bgSongsState;
-    [Tooltip("The background state of the quicksave.")]
-    public int audioEffectsState;
-    [Tooltip("The particle system state of the quicksave.")]
-    public int particleSystemsState;
+    [Tooltip("The SO states of the save")]
+    public SaveStatesDataType saveStates;
     [Tooltip("The items data.")]
     public ItemCrossSceneDataType itemsData;
     [Tooltip("The journal data.")]

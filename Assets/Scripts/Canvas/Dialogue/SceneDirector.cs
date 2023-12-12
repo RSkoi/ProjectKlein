@@ -1,14 +1,13 @@
-using System;
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
-using UnityEngine.Windows;
 
 public class SceneDirector : MonoBehaviour
 {
-    public static bool sceneWasLoaded = false;
+    public readonly static string SCENE_LOADED_FLAG = "SCENE_LOADED_FLAG";
 
     //private PlayerInput _playerInput;
     private ProgressController _progressController;
@@ -81,7 +80,9 @@ public class SceneDirector : MonoBehaviour
 
         PreloadSceneAudioClips();
 
-        if (!sceneWasLoaded)
+        if (_flagManager.ContainsFlag(SCENE_LOADED_FLAG))
+            ReadSaveStates();
+        else
             ResetStates();
 
         // 1. block player input
@@ -128,10 +129,10 @@ public class SceneDirector : MonoBehaviour
         // loading CrossSceneData is handled by NodeManager
 
         FirstExecutionRemoveChecks();
-        if (sceneWasLoaded)
+        if (_flagManager.ContainsFlag(SCENE_LOADED_FLAG))
         {
-            BypassProgressCycles();
-            sceneWasLoaded = false;
+            GetStatesUpToDate();
+            _flagManager.DeleteFlag(SCENE_LOADED_FLAG);
         }
         else
             Progress();
@@ -190,7 +191,7 @@ public class SceneDirector : MonoBehaviour
         asyncLoadNextScene.allowSceneActivation = true;
     }
 
-    public void BypassProgressCycles()
+    /*public void BypassProgressCycles()
     {
         // loc doesn't need bypassing, as loc.state doesn't depend on other states or indeces
         ProgressCycleLoc();
@@ -207,7 +208,7 @@ public class SceneDirector : MonoBehaviour
             SendParticleSystemsToCanvas();
 
         localization.state++;
-    }
+    }*/
 
     public void AutoProgress(bool inputStarted)
     {
@@ -433,11 +434,14 @@ public class SceneDirector : MonoBehaviour
         SendParticleSystemsToCanvas();
     }
 
-    private void SendStringToDialogue(bool instant)
+    private void SendStringToDialogue(bool instant, int index = -1)
     {
+        if (index == -1)
+            index = localization.state;
+
         _lastStringIsFinished = false;
-        int speedIndex = localization.state < localization.dialogueSpeed.Count ? localization.state : 0;
-        LocalisationDataType l = localization.dialogue[localization.state];
+        int speedIndex = index < localization.dialogueSpeed.Count ? index : 0;
+        LocalisationDataType l = localization.dialogue[index];
         bool isConditional = l.isConditional && 
             (l.conditionalText.flagValue == -1
             ? _flagManager.ContainsFlag(l.conditionalText.flagId)
@@ -453,11 +457,14 @@ public class SceneDirector : MonoBehaviour
         );
     }
 
-    private void SendStringToDialogueInjected(bool instant)
+    private void SendStringToDialogueInjected(bool instant, int index = -1)
     {
+        if (index == -1)
+            index = _choiceNestedLoc.state;
+
         _lastStringIsFinished = false;
-        int speedIndex = _choiceNestedLoc.state < _choiceNestedLoc.dialogueSpeed.Count ? _choiceNestedLoc.state : 0;
-        LocalisationDataType l = _choiceNestedLoc.dialogue[_choiceNestedLoc.state];
+        int speedIndex = index < _choiceNestedLoc.dialogueSpeed.Count ? index : 0;
+        LocalisationDataType l = _choiceNestedLoc.dialogue[index];
         bool isConditional = l.isConditional &&
             (l.conditionalText.flagValue == -1
             ? _flagManager.ContainsFlag(l.conditionalText.flagId)
@@ -499,27 +506,43 @@ public class SceneDirector : MonoBehaviour
 
     private void SendBackgroundToCanvas()
     {
-        _backgroundController.ShowBackground(backgrounds.textures[backgrounds.state].texture);
-        backgrounds.state++;
+        SendBackgroundToCanvas(-1);
+    }
+    private void SendBackgroundToCanvas(int index = -1)
+    {
+        if (index == -1)
+            index = backgrounds.state;
+
+        _backgroundController.ShowBackground(backgrounds.textures[index].texture);
         BackgroundFadeOutIsDone();
+        backgrounds.state++;
     }
 
-    private void SendEntitiesToCanvas()
+    private void SendEntitiesToCanvas(int index = -1)
     {
-        _entityController.RenderEntitySlide(entityHistory.history[entityHistory.state].entities);
+        if (index == -1)
+            index = entityHistory.state;
+
+        _entityController.RenderEntitySlide(entityHistory.history[index].entities);
         entityHistory.state++;
     }
 
-    private void SendBgSongToAudio()
+    private void SendBgSongToAudio(int index = -1)
     {
-        _audioController.SwitchBgSong(bgSongs.songs[bgSongs.state]);
+        if (index == -1)
+            index = bgSongs.state;
+
+        _audioController.SwitchBgSong(bgSongs.songs[index]);
         bgSongs.state++;
     }
 
     
-    private void SendEffectToAudio()
+    private void SendEffectToAudio(int index = -1)
     {
-        AudioEffectDataTypeCollection effects = audioEffects.effects[audioEffects.state];
+        if (index == -1)
+            index = audioEffects.state;
+
+        AudioEffectDataTypeCollection effects = audioEffects.effects[index];
         int PlayEffectsCallback(AudioEffectDataTypeCollection effects)
         {
             _audioController.PlayEffect(effects);
@@ -530,13 +553,15 @@ public class SceneDirector : MonoBehaviour
             _audioController.StopAllLoopingEffectsWithFade(PlayEffectsCallback, effects);
         else if (effects.effects.Length > 0)
             _audioController.PlayEffect(effects);
-
         audioEffects.state++;
     }
 
-    private void SendParticleSystemsToCanvas()
+    private void SendParticleSystemsToCanvas(int index = -1)
     {
-        _particleSystemController.Spawn(particleSystems.particleHistory[particleSystems.state]);
+        if (index == -1)
+            index = particleSystems.state;
+
+        _particleSystemController.Spawn(particleSystems.particleHistory[index]);
         particleSystems.state++;
     }
 
@@ -552,13 +577,73 @@ public class SceneDirector : MonoBehaviour
                 _audioController.PreloadClip(loc.chapterPopup.popupClip.clip);
     }
 
+    public static (int spawnedAtIndex, int indexPos) FindIndex(List<int> indexes, int slideIndex)
+    {
+        /* Context: things like entities and audio effects are spawned at specific slide indexes
+         * but are not required to align with them. This results in two parallel arrays for (e.g.)
+         * entities: the entity slides themselves and the list of indexes these slides are supposed to
+         * be applied at. FindIndex()'s job is to find the loc index at which entities will be spawned
+         * at (spawnedAtIndex) and the index of the array element itself (indexPos) */
+
+        // this is probably the reason why the Editor displays the first entry on index 0, even if
+        // it will not be spawned on loc index 0
+        int result = indexes[0];
+        int resultIndex = 0;
+
+        for (int i = 0; i < indexes.Count; i++)
+        {
+            if (indexes[i] <= slideIndex)
+            {
+                result = indexes[i];
+                resultIndex = i;
+            }
+            else
+                break;
+        }
+
+        return (result, resultIndex);
+    }
+
     public void ResetStates()
     {
+        Debug.Log("Resetting states");
+
         localization.state = 0;
         backgrounds.state = 0;
         entityHistory.state = 0;
         bgSongs.state = 0;
         audioEffects.state = 0;
         particleSystems.state = 0;
+    }
+
+    private void ReadSaveStates()
+    {
+        Debug.Log("Reading save states");
+
+        SaveStatesDataType saveStates = DataSaver.LoadData<SaveStatesDataType>("saveStates");
+        localization.state = saveStates.dialogueState;
+        backgrounds.state = saveStates.backgroundState;
+        entityHistory.state = saveStates.entityState;
+        bgSongs.state = saveStates.bgSongsState;
+        audioEffects.state = saveStates.audioEffectsState;
+        particleSystems.state = saveStates.particleSystemsState;
+    }
+
+    private void GetStatesUpToDate()
+    {
+        ProgressCycleLoc();
+
+        if (backgrounds.textures.Count > 0)
+            SendBackgroundToCanvas(FindIndex(backgrounds.indexes, localization.state).indexPos);
+        if (entityHistory.history.Count > 0)
+            SendEntitiesToCanvas(FindIndex(entityHistory.indexes, localization.state).indexPos);
+        if (bgSongs.songs.Count > 0)
+            SendBgSongToAudio(FindIndex(bgSongs.indexes, localization.state).indexPos);
+        if (audioEffects.effects.Length > 0)
+            SendEffectToAudio(FindIndex(audioEffects.indexes, localization.state).indexPos);
+        if (particleSystems.particleHistory.Count > 0)
+            SendParticleSystemsToCanvas(FindIndex(particleSystems.indexes, localization.state).indexPos);
+
+        localization.state++;
     }
 }

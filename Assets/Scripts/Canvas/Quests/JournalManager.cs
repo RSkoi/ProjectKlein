@@ -7,7 +7,7 @@ public class JournalManager : ControllerWithWindow
 {
     [Tooltip("The quest lookup table data. Associates a quest SO with a GUID.")]
     public QuestLookupData questDataForLookup;
-    [Tooltip("The quest states currently tracked by the journal. Key is quest name")]
+    [Tooltip("The quest states currently tracked by the journal. Key is quest guid (lookup data).")]
     public QuestStateDictionary questStates;
 
     [Tooltip("The quest journal entry container")]
@@ -24,13 +24,13 @@ public class JournalManager : ControllerWithWindow
             questData.dayLimited = quest.dayLimited;
             questData.dayLimitedLastTick = quest.dayLimitedLastTick;
             QuestStateDataType questStateData = new(questData, quest.state);
-            questStates.Add(questData.questName, questStateData);
+            questStates.Add(quest.guid, questStateData);
         }
     }
 
-    public void TrackQuest(string questName, QuestStateDataType stateData)
+    public void TrackQuest(QuestStateDataType stateData)
     {
-        questStates.Add(questName, stateData);
+        questStates.Add(LookupQuestGuid(stateData.quest), stateData);
 
         if (window.activeSelf)
             Repopulate();
@@ -39,27 +39,29 @@ public class JournalManager : ControllerWithWindow
     public void TrackQuest(QuestStateDataType[] quests)
     {
         foreach (QuestStateDataType quest in quests)
-            TrackQuest(quest.quest.questName, quest);
+            TrackQuest(quest);
     }
 
-    public void UntrackQuest(string questName)
+    public void UntrackQuest(string questGuid)
     {
-        questStates.Remove(questName);
+        questStates.Remove(questGuid);
     }
 
     public bool QuestIsTracked(QuestData quest)
     {
-        return questStates.ContainsKey(quest.questName);
+        string questGuid = LookupQuestGuid(quest);
+        return questStates.ContainsKey(questGuid);
     }
 
     public bool QuestIsTracked(QuestStateDataType questState)
     {
-        return questStates.ContainsKey(questState.quest.questName);
+        string questGuid = LookupQuestGuid(questState.quest);
+        return questStates.ContainsKey(questGuid);
     }
 
-    public bool QuestIsTracked(string questName)
+    public bool QuestIsTracked(string questGuid)
     {
-        return questStates.ContainsKey(questName);
+        return questStates.ContainsKey(questGuid);
     }
 
     public JournalCrossSceneDataType PrepareJournalEntriesForSave()
@@ -67,7 +69,7 @@ public class JournalManager : ControllerWithWindow
         List<QuestReferenceDataType> questStatesToSave = new();
         foreach (QuestStateDataType qsdt in questStates.Values)
             questStatesToSave.Add(new(
-                questDataForLookup.lookupTable.FirstOrDefault(x => x.Value.GetInstanceID() == qsdt.quest.GetInstanceID()).Key,
+                LookupQuestGuid(qsdt.quest),
                 qsdt.state,
                 qsdt.quest.dayLimited,
                 qsdt.quest.dayLimitedLastTick
@@ -81,13 +83,18 @@ public class JournalManager : ControllerWithWindow
         return questDataForLookup.lookupTable[guid];
     }
 
+    public string LookupQuestGuid(QuestData quest)
+    {
+        return questDataForLookup.lookupTable.FirstOrDefault(x => x.Value.GetInstanceID() == quest.GetInstanceID()).Key;
+    }
+
     public void Populate()
     {
         foreach (QuestStateDataType qsdt in questStates.Values)
         {
             GameObject entry = Instantiate(questEntryPrefab, entryContainer.transform);
             // this will potentially create problems if the prefab changes
-            entry.transform.GetChild(0).GetComponent<TMP_Text>().text = qsdt.quest.questName;
+            entry.transform.GetChild(0).GetComponent<TMP_Text>().text = qsdt.quest.questTitles[qsdt.state];
         }
     }
 

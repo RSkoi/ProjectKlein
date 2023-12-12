@@ -10,7 +10,7 @@ public class NodeDataType
     public float speed;
     public string title;
     // indexes 0-4 == N-E-S-W
-    public List<string> nextNodeSceneNames;
+    public List<NextNodeListType> nextNodeSceneLists = new();
     public string packageName;
     [SerializeReference]
     public List<ScriptedCondition> travelConditions = new();
