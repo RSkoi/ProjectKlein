@@ -250,7 +250,6 @@ public class SlideEditor : EditorWindow
 
     private void CreateSlide(VisualElement root)
     {
-        Debug.Log($"{slideIndex} {_localization} {_localization.dialogue}");
         int newSlideIndex = _localization.dialogue.Count > 0 ? ++slideIndex.value : 0;
         int prevSlideIndex = Math.Clamp(newSlideIndex - 1, 0, int.MaxValue);
 

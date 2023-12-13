@@ -17,6 +17,8 @@ public class SettingsData : ScriptableObject
 
     [Tooltip("Fullscreen mode.")]
     public bool fullscreen = false;
+    [Tooltip("Window resolution index.")]
+    public int resolutionIndex = 0;
     [Tooltip("Window resolution width.")]
     public int resolutionWidth = 1920;
     [Tooltip("Window resolution height.")]

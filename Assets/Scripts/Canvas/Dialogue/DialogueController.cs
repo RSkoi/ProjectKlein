@@ -47,7 +47,7 @@ public class DialogueController : MonoBehaviour
         _historyController = PlayerSingleton.Instance.historyController;
         dialogueContainer.SetActive(dialogueContainerDefaultVisible);
 
-        SetFontSize(_settingsController.settings.fontSize);
+        SetFontSize(_settingsController.currentSettings.fontSize);
         OnFinishedString.AddListener(ClearCombinedString);
     }
 
@@ -155,7 +155,7 @@ public class DialogueController : MonoBehaviour
         float sizeIncrease)
     {
         _currentFontIncrease = sizeIncrease;
-        SetFontSize(_settingsController.settings.fontSize);
+        SetFontSize(_settingsController.currentSettings.fontSize);
 
         if (i < 0)
             textBox.SetText(text);

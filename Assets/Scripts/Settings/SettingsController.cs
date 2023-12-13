@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SettingsController : ControllerWithWindow
 {
@@ -8,10 +10,18 @@ public class SettingsController : ControllerWithWindow
     private DialogueController _dialogueController;
     private NodeManager _nodeManager;
 
-    [Tooltip("The toggle component of the settings menu.")]
-    public SettingsWindowToggle windowToggleComponent;
     [Tooltip("The settings data.")]
-    public SettingsData settings;
+    public SettingsData currentSettings;
+    [Tooltip("The default settings data.")]
+    public SettingsData defaultSettings;
+
+    public Slider masterVolumeSlider;
+    public Slider musicVolumeSlider;
+    public Slider effectsVolumeSlider;
+    public Slider uiEffectsVolumeSlider;
+    public Toggle fullscreenToggle;
+    public Dropdown resolutionDropdown;
+    public Slider fontSizeSlider;
 
     public float maxFontSize = 1.5f;
     public float minFontSize = 0.5f;
@@ -39,65 +49,73 @@ public class SettingsController : ControllerWithWindow
         if (_nodeManager != null && !_nodeManager.vn)
             _nodeManager.SetFontSize(sizeIncreaseFactor);
 
-        settings.fontSize = sizeIncreaseFactor;
+        currentSettings.fontSize = sizeIncreaseFactor;
 
         PlayerPrefs.SetFloat("fontSize", sizeIncreaseFactor);
+        PlayerPrefs.Save();
     }
 
-    public void SetResolution(int width, int height)
+    public void SetResolution(int width, int height, RefreshRate rate)
     {
-        Screen.SetResolution(width, height, Screen.fullScreen);
-        settings.resolutionWidth = width;
-        settings.resolutionHeight = height;
+        Screen.SetResolution(width, height, Screen.fullScreen ? FullScreenMode.FullScreenWindow : FullScreenMode.Windowed, rate);
 
-        PlayerPrefs.SetInt("resolutionWidth", width);
-        PlayerPrefs.SetInt("resolutionHeight", height);
+        currentSettings.resolutionWidth = width;
+        currentSettings.resolutionHeight = height;
     }
 
     public void SetResolutionIndex(int resolutionIndex)
     {
         Resolution resolution = resolutions[resolutionIndex];
-        SetResolution(resolution.width, resolution.height);
+        SetResolution(resolution.width, resolution.height, resolution.refreshRateRatio);
+
+        currentSettings.resolutionIndex = resolutionIndex;
+        PlayerPrefs.SetInt("resolutionIndex", resolutionIndex);
+        PlayerPrefs.Save();
     }
 
     public void SetMasterVolume(float volume)
     {
         _audioController.audioMixer.SetFloat(_audioController.MASTER_VOLUME_PARAM, Mathf.Log10(volume) * 20);
-        settings.volumeMaster = volume;
 
+        currentSettings.volumeMaster = volume;
         PlayerPrefs.SetFloat("volumeMaster", volume);
+        PlayerPrefs.Save();
     }
 
     public void SetMusicVolume(float volume)
     {
         _audioController.audioMixer.SetFloat(_audioController.BG_SONG_VOLUME_PARAM, Mathf.Log10(volume) * 20);
-        settings.volumeMusic = volume;
 
+        currentSettings.volumeMusic = volume;
         PlayerPrefs.SetFloat("volumeMusic", volume);
+        PlayerPrefs.Save();
     }
 
     public void SetEffectsVolume(float volume)
     {
         _audioController.audioMixer.SetFloat(_audioController.EFFECTS_VOLUME_PARAM, Mathf.Log10(volume) * 20);
-        settings.volumeEffects = volume;
 
+        currentSettings.volumeEffects = volume;
         PlayerPrefs.SetFloat("volumeEffects", volume);
+        PlayerPrefs.Save();
     }
 
     public void SetUIEffectsVolume(float volume)
     {
         _audioController.audioMixer.SetFloat(_audioController.UI_EFFECTS_VOLUME_PARAM, Mathf.Log10(volume) * 20);
-        settings.volumeUIEffects = volume;
 
+        currentSettings.volumeUIEffects = volume;
         PlayerPrefs.SetFloat("volumeUIEffects", volume);
+        PlayerPrefs.Save();
     }
 
     public void SetFullscreen(bool isFullscreen)
     {
         Screen.fullScreen = isFullscreen;
-        settings.fullscreen = isFullscreen;
 
+        currentSettings.fullscreen = isFullscreen;
         PlayerPrefs.SetInt("fullscreen", Convert.ToInt32(isFullscreen));
+        PlayerPrefs.Save();
     }
 
     public void SetFullscreen(int isFullscreen)
@@ -105,38 +123,15 @@ public class SettingsController : ControllerWithWindow
         SetFullscreen(Convert.ToBoolean(isFullscreen));
     }
 
-    /*public void CurrentDefault()
-    {
-        SetEffectsVolume(settings.volumeEffects);
-        // music is faded in to settings.volumeMusic on scene transition
-        SetMusicVolume(settings.volumeMusic);
-        SetFontSize(settings.fontSize);
-        SetResolution(settings.resolutionWidth, settings.resolutionHeight);
-        SetFullscreen(settings.fullscreen);
-    }*/
-
-    public void SaveAll()
-    {
-        PlayerPrefs.SetFloat("volumeMaster", settings.volumeMaster);
-        PlayerPrefs.SetFloat("volumeMusic", settings.volumeMusic);
-        PlayerPrefs.SetFloat("volumeEffects", settings.volumeEffects);
-        PlayerPrefs.SetFloat("volumeUIEffects", settings.volumeUIEffects);
-        PlayerPrefs.SetFloat("fontSize", settings.fontSize);
-        PlayerPrefs.SetInt("resolutionWidth", settings.resolutionWidth);
-        PlayerPrefs.SetInt("resolutionHeight", settings.resolutionHeight);
-        PlayerPrefs.SetInt("fullscreen", Convert.ToInt32(Screen.fullScreen));
-    }
-
     public void LoadAll()
     {
-        SetMasterVolume(PlayerPrefs.GetFloat("volumeMaster", settings.volumeMaster));
-        SetMusicVolume(PlayerPrefs.GetFloat("volumeMusic", settings.volumeMusic));
-        SetEffectsVolume(PlayerPrefs.GetFloat("volumeEffects", settings.volumeEffects));
-        SetUIEffectsVolume(PlayerPrefs.GetFloat("volumeUIEffects", settings.volumeUIEffects));
-        SetFontSize(PlayerPrefs.GetFloat("fontSize", settings.fontSize));
-        SetResolution(PlayerPrefs.GetInt("resolutionWidth", settings.resolutionWidth),
-            PlayerPrefs.GetInt("resolutionHeight", settings.resolutionHeight));
-        SetFullscreen(PlayerPrefs.GetInt("fullscreen", Convert.ToInt32(Screen.fullScreen)));
+        SetMasterVolume(PlayerPrefs.GetFloat("volumeMaster", defaultSettings.volumeMaster));
+        SetMusicVolume(PlayerPrefs.GetFloat("volumeMusic", defaultSettings.volumeMusic));
+        SetEffectsVolume(PlayerPrefs.GetFloat("volumeEffects", defaultSettings.volumeEffects));
+        SetUIEffectsVolume(PlayerPrefs.GetFloat("volumeUIEffects", defaultSettings.volumeUIEffects));
+        SetFontSize(PlayerPrefs.GetFloat("fontSize", defaultSettings.fontSize));
+        SetFullscreen(PlayerPrefs.GetInt("fullscreen", Convert.ToInt32(defaultSettings.fullscreen)));
+        SetResolutionIndex(PlayerPrefs.GetInt("resolutionIndex", defaultSettings.resolutionIndex));
     }
 
     public Resolution[] GetSupportedResolutions()
@@ -149,8 +144,44 @@ public class SettingsController : ControllerWithWindow
         return supportedRes.ToArray();
     }
 
+    public void SetCurrentSettings()
+    {
+        masterVolumeSlider.value = currentSettings.volumeMaster;
+        musicVolumeSlider.value = currentSettings.volumeMusic;
+        effectsVolumeSlider.value = currentSettings.volumeEffects;
+        uiEffectsVolumeSlider.value = currentSettings.volumeUIEffects;
+
+        fontSizeSlider.maxValue = maxFontSize;
+        fontSizeSlider.minValue = minFontSize;
+
+        float currentFontSize = currentSettings.fontSize;
+        fontSizeSlider.value = currentFontSize;
+        currentSettings.fontSize = currentFontSize;
+
+        fullscreenToggle.isOn = currentSettings.fullscreen;
+
+        List<string> options = new();
+        int i = 0;
+        foreach (Resolution r in resolutions)
+        {
+            options.Add($"{r.width} x {r.height} @ {r.refreshRateRatio}");
+            
+            i++;
+        }
+        resolutionDropdown.ClearOptions();
+        resolutionDropdown.AddOptions(options);
+        resolutionDropdown.value = currentSettings.resolutionIndex;
+        resolutionDropdown.RefreshShownValue();
+    }
+
     public override void ToggleWindow()
     {
-        windowToggleComponent.ToggleWindow();
+        if (window.activeSelf)
+            window.SetActive(false);
+        else
+        {
+            window.SetActive(true);
+            SetCurrentSettings();
+        }
     }
 }

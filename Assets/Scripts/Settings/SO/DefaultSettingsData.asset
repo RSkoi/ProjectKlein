@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d01b77843ea091643b4a77207688b033, type: 3}
-  m_Name: SettingsData
+  m_Name: DefaultSettingsData
   m_EditorClassIdentifier: 
   volumeMaster: 0.3
   volumeMusic: 0.4

@@ -15,7 +15,7 @@ public class FlagTester : MonoBehaviour
     public void AddTestFlags()
     {
         for (int i = 0; i < 5; i++)
-            flagManager.AddFlag(GUID.Generate().ToString());
+            flagManager.AddFlag(System.Guid.NewGuid().ToString());
     }
 
     public void AddTestFlag()

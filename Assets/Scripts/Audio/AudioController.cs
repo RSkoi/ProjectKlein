@@ -54,7 +54,7 @@ public class AudioController : MonoBehaviour
     {
         ResetEffectsFadeCoroutines();
 
-        float settingsMaxEffectsVolume = settingsController.settings.volumeEffects;
+        float settingsMaxEffectsVolume = settingsController.currentSettings.volumeEffects;
         _fadeEffectsCoroutine = StartCoroutine(StartFade(audioMixer, EFFECTS_VOLUME_PARAM, duration, settingsMaxEffectsVolume));
     }
 
@@ -69,7 +69,7 @@ public class AudioController : MonoBehaviour
     {
         ResetBgSongFadeCoroutines();
 
-        float settingsMaxBgVolume = settingsController.settings.volumeMusic;
+        float settingsMaxBgVolume = settingsController.currentSettings.volumeMusic;
         _fadeBgSongCoroutine = StartCoroutine(StartFade(audioMixer, BG_SONG_VOLUME_PARAM, duration, settingsMaxBgVolume));
     }
 
@@ -84,7 +84,7 @@ public class AudioController : MonoBehaviour
     {
         ResetSwitchBgSongCoroutines();
 
-        float settingsMaxBgVolume = settingsController.settings.volumeMusic;
+        float settingsMaxBgVolume = settingsController.currentSettings.volumeMusic;
         _switchBgSongCoroutine = StartCoroutine(SwitchBgSongFadeOut(song, fadeDuration, settingsMaxBgVolume));
     }
 

@@ -76,7 +76,7 @@ public class NodeManager : MonoBehaviour
 
         InitViewCharacter();
 
-        SetFontSize(_settingsController.settings.fontSize);
+        SetFontSize(_settingsController.currentSettings.fontSize);
         titleTextBox.text = nodeData.node.title;
         WriteToDesc(nodeData.node.text);
         SetButtonsActive();
